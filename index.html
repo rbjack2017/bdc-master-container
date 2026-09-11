@@ -415,6 +415,55 @@ document.querySelectorAll('.template-pill').forEach(btn => {
     }
   });
 });
+/* TEMPLATE OBJECT */
+const templates = {
+  "New Lead Email": `Hi {{First Name}},\nThanks for your interest in the {{Vehicle of Interest}}. I’m here to help with availability, pricing, and next steps.\nAre you looking to stop by today or tomorrow?\n\n— Raven`,
+
+  "Price Request Email": `Hi {{First Name}},\nThanks for requesting pricing. The {{Vehicle of Interest}} is available, and I can send full numbers.\nAre you planning to finance, pay cash, or explore both options?\n\n— Raven`,
+
+  "Trade-In Email": `Hi {{First Name}},\nI can get you an accurate trade value. Could you share your VIN, miles, and any photos?\n\n— Raven`,
+
+  "Quiet Lead Email": `Hi {{First Name}},\nJust checking in — I’m here if you still need help with the {{Vehicle of Interest}}.\nWhat’s the best next step for you?\n\n— Raven`,
+
+  "Appointment Confirmation Email": `Hi {{First Name}},\nYour appointment for the {{Vehicle of Interest}} is confirmed for {{Date/Time}}.\n\n— Raven`,
+
+  "New Lead Text": `Hi {{First Name}}, this is Raven at Bachman. I got your request on the {{Vehicle of Interest}} — are you looking to stop by today or tomorrow?`,
+
+  "Price Text": `Hi {{First Name}}, I can send full pricing on the {{Vehicle of Interest}}. Are you planning to finance or pay cash?`,
+
+  "Trade Text": `Hi {{First Name}}, I can get your trade value. Can you send VIN + miles?`,
+
+  "Quiet Lead Text": `Hi {{First Name}}, still here to help with the {{Vehicle of Interest}}. What’s the best next step?`,
+
+  "Appointment Text": `Hi {{First Name}}, your appointment for the {{Vehicle of Interest}} is confirmed for {{Date/Time}}.`,
+
+  "New Lead VM": `Hi {{First Name}}, this is Raven at Bachman. I got your request on the {{Vehicle of Interest}} and I’m working on it now. I’ll text you in a moment so you have my direct line.`,
+
+  "Price VM": `Hi {{First Name}}, Raven at Bachman. I’m putting together your pricing now and will text you the details.`,
+
+  "Trade VM": `Hi {{First Name}}, Raven at Bachman. I can get your trade value — I’ll text you what I need.`,
+
+  "Quiet Lead VM": `Hi {{First Name}}, Raven at Bachman. Just reaching out — I’ll send a quick text so you have my number.`,
+
+  "Appointment VM": `Hi {{First Name}}, Raven at Bachman. Your appointment is confirmed for {{Date/Time}}. I’ll send a text as well.`,
+};
+
+/* CLICK HANDLER */
+document.querySelectorAll('.template-pill').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const name = btn.textContent.trim();
+    const viewer = document.getElementById('templateViewer');
+    const title = document.getElementById('templateTitle');
+    const content = document.getElementById('templateContent');
+
+    if (templates[name]) {
+      title.textContent = name;
+      content.textContent = templates[name];
+      viewer.style.display = 'block';
+      viewer.scrollIntoView({ behavior: 'smooth' });
+    }
+  });
+});
 
 const dailyCheckbox = document.getElementById('dailyMode');
 const nonProdIds = ['brand', 'training', 'governance', 'continuity'];
