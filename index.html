@@ -116,3 +116,43 @@
       background: var(--sage);
       color: var(--charcoal);
     }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .card {
+      background: var(--ivory);
+      border-radius: 10px;
+      padding: 0.75rem 1rem;
+      border: 1px solid #e0d5c5;
+    }
+    .card h3 {
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
+    }
+    .badge {
+      display: inline-block;
+      padding: 0.15rem 0.5rem;
+      border-radius: 999px;
+      font-size: 0.7rem;
+      margin-left: 0.4rem;
+    }
+    .badge-gold { background: var(--gold); color: var(--charcoal); }
+    .badge-sage { background: var(--sage); color: var(--charcoal); }
+    .badge-terracotta { background: var(--terracotta); color: var(--ivory); }
+    .badge-rose { background: var(--dusty-rose); color: var(--ivory); }
+    .badge-charcoal { background: var(--charcoal); color: var(--ivory); }
+
+    .kpi-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.85rem;
+    }
+    .kpi-table th, .kpi-table td {
+      border: 1px solid #e0d5c5;
+      padding: 0.3rem 0.4rem;
+      text-align: left;
+    }
+
