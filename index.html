@@ -676,33 +676,17 @@
           <li>Colors: ivory, gold, dusty rose, sage, terracotta</li>
         </ul>
       </details>
-    </section>
+    </section><section id="training" class="card">
+  <h3>Training System <span class="badge badge-rose">Optional</span></h3>
+  <details>
+    <summary>Rep Quickstart</summary>
+    <ul class="section-list">
+      <li>Daily routine for 40+ sales/month support</li>
+    </ul>
+  </details>
+</section>
 
-    <section id="training" class="card">
-      <h3>Training System <span class="badge badge-rose">Optional</span></h3>
-      <details>
-        <summary>Rep Quickstart</summary>
-        <ul class="section-list">
-          <li>Daily routine for 40+ sales/month support</li>
-        </ul>
-      </details>
-    </section>
-  </main>
-
-  <script>
-    const dailyCheckbox = document.getElementById('dailyMode');
-    const nonProdIds = ['brand', 'training', 'governance', 'continuity'];
-
-    dailyCheckbox.addEventListener('change', () => {
-      nonProdIds.forEach(id => {
-        const section = document.getElementById(id);
-        if (section) {
-          section.style.display = dailyCheckbox.checked ? 'none' : 'block';
-        }
-      });
-    });
-  </script>
-  <script>
+<script>
 const dailyCheckbox = document.getElementById('dailyMode');
 const nonProdIds = ['brand', 'training', 'governance', 'continuity'];
 
@@ -715,3 +699,7 @@ dailyCheckbox.addEventListener('change', () => {
   });
 });
 </script>
+
+</main>
+</body>
+</html>
