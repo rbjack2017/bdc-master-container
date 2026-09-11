@@ -155,4 +155,154 @@
       padding: 0.3rem 0.4rem;
       text-align: left;
     }
+    </section>
+
+    <section id="playbooks" class="card">
+      <h3>Playbooks <span class="badge badge-gold">Built</span></h3>
+      <details>
+        <summary>Concise BDC Playbook</summary>
+        <ul class="section-list">
+          <li>Quick reference workflows</li>
+          <li>Core templates</li>
+        </ul>
+      </details>
+      <details>
+        <summary>Full BDC Playbook</summary>
+        <ul class="section-list">
+          <li>Detailed workflows</li>
+          <li>Objection handling</li>
+        </ul>
+      </details>
+      <details>
+        <summary>Enterprise BDC Playbook</summary>
+        <ul class="section-list">
+          <li>Multi‑store governance</li>
+        </ul>
+      </details>
+    </section>
+
+    <section id="messaging" class="card">
+      <h3>Messaging System <span class="badge badge-charcoal">Core</span></h3>
+      <details>
+        <summary>Email Structure</summary>
+        <ul class="section-list">
+          <li>Subject line rules</li>
+          <li>Body format</li>
+        </ul>
+      </details>
+      <details>
+        <summary>Text Structure</summary>
+        <ul class="section-list">
+          <li>Length limits</li>
+          <li>Compliance notes</li>
+        </ul>
+      </details>
+      <details>
+        <summary>Voicemail Structure</summary>
+        <ul class="section-list">
+          <li>Intro</li>
+          <li>Value hook</li>
+        </ul>
+      </details>
+    </section>
+
+    <section id="workflows" class="card">
+      <h3>Workflow System <span class="badge badge-gold">Built</span></h3>
+      <p style="font-size:0.85rem;margin-top:0.3rem;">
+        All lead types mapped to repeatable steps and matching templates.
+      </p>
+    </section>
+
+    <section id="qa" class="card">
+      <h3>QA Center <span class="badge badge-sage">Stable</span></h3>
+      <details>
+        <summary>Call Grading</summary>
+        <ul class="section-list">
+          <li>Greeting</li>
+          <li>Needs discovery</li>
+        </ul>
+      </details>
+      <details>
+        <summary>Message Scoring</summary>
+        <ul class="section-list">
+          <li>Clarity</li>
+          <li>CTA strength</li>
+        </ul>
+      </details>
+    </section>
+
+    <section id="compliance" class="card">
+      <h3>Compliance Command Center <span class="badge badge-terracotta">Needs Attention</span></h3>
+      <details>
+        <summary>Texting Compliance</summary>
+        <ul class="section-list">
+          <li>Opt‑in rules</li>
+          <li>Opt‑out handling</li>
+        </ul>
+      </details>
+      <details>
+        <summary>Pricing Compliance</summary>
+        <ul class="section-list">
+          <li>Advertised vs quoted</li>
+        </ul>
+      </details>
+    </section>
+
+    <section id="governance" class="card">
+      <h3>Governance Center <span class="badge badge-charcoal">Core</span></h3>
+      <details>
+        <summary>Policy Governance</summary>
+        <ul class="section-list">
+          <li>BDC policies</li>
+        </ul>
+      </details>
+    </section>
+
+    <section id="continuity" class="card">
+      <h3>Continuity Center <span class="badge badge-sage">Stable</span></h3>
+      <details>
+        <summary>Staffing Continuity</summary>
+        <ul class="section-list">
+          <li>Coverage plans</li>
+        </ul>
+      </details>
+    </section>
+
+    <section id="brand" class="card">
+      <h3>Brand Identity System <span class="badge badge-rose">Optional</span></h3>
+      <details>
+        <summary>Style Guide</summary>
+        <ul class="section-list">
+          <li>Colors: ivory, gold, dusty rose, sage, terracotta</li>
+        </ul>
+      </details>
+    </section>
+
+    <section id="training" class="card">
+      <h3>Training System <span class="badge badge-rose">Optional</span></h3>
+      <details>
+        <summary>Rep Quickstart</summary>
+        <ul class="section-list">
+          <li>Daily routine for 40+ sales/month support</li>
+        </ul>
+      </details>
+    </section>
+  </main>
+
+  <script>
+    const dailyCheckbox = document.getElementById('dailyMode');
+    const nonProdIds = ['brand', 'training', 'governance', 'continuity'];
+
+    dailyCheckbox.addEventListener('change', () => {
+      nonProdIds.forEach(id => {
+        const section = document.getElementById(id);
+        if (section) {
+          section.style.display = dailyCheckbox.checked ? 'none' : 'block';
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
 
