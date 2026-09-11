@@ -702,10 +702,16 @@
       });
     });
   </script>
+  <script>
+const dailyCheckbox = document.getElementById('dailyMode');
+const nonProdIds = ['brand', 'training', 'governance', 'continuity'];
 
-</body>
-</html>
-</main>
-<script>…</script>
-</body>
-</html>
+dailyCheckbox.addEventListener('change', () => {
+  nonProdIds.forEach(id => {
+    const section = document.getElementById(id);
+    if (section) {
+      section.style.display = dailyCheckbox.checked ? 'none' : 'block';
+    }
+  });
+});
+</script>
