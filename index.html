@@ -657,49 +657,34 @@
         </ul>
       </details>
     </section>
-
-    <section id="continuity" class="card">
-      <h3>Continuity Center <span class="badge badge-sage">Stable</span></h3>
-      <details>
-        <summary>Staffing Continuity</summary>
-        <ul class="section-list">
-          <li>Coverage plans</li>
-        </ul>
-      </details>
-    </section>
-
-    <section id="brand" class="card">
-      <h3>Brand Identity System <span class="badge badge-rose">Optional</span></h3>
-      <details>
-        <summary>Style Guide</summary>
-        <ul class="section-list">
-          <li>Colors: ivory, gold, dusty rose, sage, terracotta</li>
-        </ul>
-      </details>
-    </section><section id="training" class="card">
-  <h3>Training System <span class="badge badge-rose">Optional</span></h3>
+<section id="governance" class="card">
+  <h3>Governance Center <span class="badge badge-charcoal">Core</span></h3>
   <details>
-    <summary>Rep Quickstart</summary>
+    <summary>Policy Governance</summary>
     <ul class="section-list">
-      <li>Daily routine for 40+ sales/month support</li>
+      <li>BDC policies</li>
     </ul>
   </details>
 </section>
 
-<script>
-const dailyCheckbox = document.getElementById('dailyMode');
-const nonProdIds = ['brand', 'training', 'governance', 'continuity'];
+<section id="continuity" class="card">
+  <h3>Continuity Center <span class="badge badge-sage">Stable</span></h3>
+  <details>
+    <summary>Staffing Continuity</summary>
+    <ul class="section-list">
+      <li>Coverage plans</li>
+    </ul>
+  </details>
+</section>
 
-dailyCheckbox.addEventListener('change', () => {
-  nonProdIds.forEach(id => {
-    const section = document.getElementById(id);
-    if (section) {
-      section.style.display = dailyCheckbox.checked ? 'none' : 'block';
-    }
-  });
-});
-</script>
-
-</main>
+<section id="brand" class="card">
+  <h3>Brand Identity System <span class="badge badge-rose">Optional</span></h3>
+  <details>
+    <summary>Style Guide</summary>
+    <ul class="section-list">
+      <li>Colors: ivory, gold, dusty rose, sage, terracotta</li>
+    </ul>
+  </details>
+</section>
 </body>
 </html>
