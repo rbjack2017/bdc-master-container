@@ -35,9 +35,7 @@
       --transition-slow: 0.4s ease-out;
     }
 
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
     body {
       margin: 0;
@@ -90,9 +88,7 @@
       transition: opacity var(--transition-slow);
     }
 
-    html[data-theme="dark"] .sidebar::before {
-      opacity: 0.5;
-    }
+    html[data-theme="dark"] .sidebar::before { opacity: 0.5; }
 
     .sidebar-title {
       font-size: 1.15rem;
@@ -431,15 +427,9 @@
     }
 
     @media (max-width: 900px) {
-      .app-shell {
-        flex-direction: column;
-      }
-      .sidebar {
-        width: 100%;
-      }
-      .grid {
-        grid-template-columns: minmax(0, 1fr);
-      }
+      .app-shell { flex-direction: column; }
+      .sidebar { width: 100%; }
+      .grid { grid-template-columns: minmax(0, 1fr); }
     }
 
     .section-list {
@@ -448,9 +438,7 @@
       padding-left: 1rem;
     }
 
-    .section-list li {
-      margin-bottom: 0.2rem;
-    }
+    .section-list li { margin-bottom: 0.2rem; }
 
     details {
       margin-bottom: 0.6rem;
@@ -481,21 +469,13 @@
       text-decoration: none;
     }
 
-    summary a:hover {
-      text-decoration: underline;
-    }
+    summary a:hover { text-decoration: underline; }
 
-    summary::marker {
-      color: var(--gold);
-    }
+    summary::marker { color: var(--gold); }
 
-    html[data-theme="dark"] summary::marker {
-      color: var(--accent-sage);
-    }
+    html[data-theme="dark"] summary::marker { color: var(--accent-sage); }
 
-    #templateViewer {
-      animation: fadeInUp var(--transition-slow);
-    }
+    #templateViewer { animation: fadeInUp var(--transition-slow); }
 
     #templateContent {
       white-space: pre-wrap;
@@ -521,25 +501,13 @@
     }
 
     @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(6px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      from { opacity: 0; transform: translateY(6px); }
+      to   { opacity: 1; transform: translateY(0); }
     }
 
     @keyframes fadeInDown {
-      from {
-        opacity: 0;
-        transform: translateY(-6px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      from { opacity: 0; transform: translateY(-6px); }
+      to   { opacity: 1; transform: translateY(0); }
     }
   </style>
 </head>
@@ -643,7 +611,6 @@
         </div>
       </header>
 
-      <!-- Messaging / Template Dock -->
       <section class="template-dock" id="messagingDock">
         <h2>Messaging & Template Dock</h2>
         <div class="template-dock-row">
@@ -668,7 +635,6 @@
         <label for="dailyMode">Daily Mode (hide non-production sections)</label>
       </div>
 
-      <!-- Workflows + Playbooks -->
       <section class="grid" id="workflowsPanel">
         <div class="card">
           <h3>Daily Workflow Panel <span class="badge badge-gold">Core</span></h3>
@@ -760,7 +726,6 @@
         </div>
       </section>
 
-      <!-- KPI / QA -->
       <section id="kpi" class="card">
         <h3>KPI Dashboard <span class="badge badge-gold">Core</span></h3>
         <p style="font-size:0.85rem;">Future space for KPIs and metrics.</p>
@@ -771,7 +736,6 @@
         <p style="font-size:0.85rem;">Future space for QA reviews and audits.</p>
       </section>
 
-      <!-- Governance / Compliance / Continuity -->
       <section id="compliance" class="card">
         <h3>Compliance Command Center <span class="badge badge-charcoal">Core</span></h3>
         <details id="policyGovernanceDoc">
@@ -802,7 +766,6 @@
         </details>
       </section>
 
-      <!-- Brand / Training -->
       <section id="brand" class="card non-production">
         <h3>Brand Identity System <span class="badge badge-rose">Optional</span></h3>
         <details id="styleGuideDoc">
@@ -839,7 +802,6 @@
       </section>
     </main>
   </div>
-
   <script>
     const templateData = {
       newLeadEmail: {
