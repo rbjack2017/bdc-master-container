@@ -16,9 +16,7 @@
       --border-soft: #e0d5c5;
     }
 
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
     body {
       margin: 0;
@@ -63,9 +61,7 @@
       margin-bottom: 0.15rem;
     }
 
-    .nav-link:hover {
-      background: #2b2b33;
-    }
+    .nav-link:hover { background: #2b2b33; }
 
     .nav-link.active {
       background: #3b3b45;
@@ -158,9 +154,7 @@
       color: #3f5a3f;
     }
 
-    .template-dock {
-      margin-bottom: 1rem;
-    }
+    .template-dock { margin-bottom: 1rem; }
 
     .template-dock h2 {
       margin: 0 0 0.5rem 0;
@@ -184,9 +178,7 @@
       cursor: pointer;
     }
 
-    .template-pill:hover {
-      background: #f0e7d8;
-    }
+    .template-pill:hover { background: #f0e7d8; }
 
     .daily-toggle {
       margin-bottom: 1rem;
@@ -206,9 +198,7 @@
       padding-left: 1rem;
     }
 
-    .section-list li {
-      margin-bottom: 0.2rem;
-    }
+    .section-list li { margin-bottom: 0.2rem; }
 
     details {
       margin-bottom: 0.6rem;
@@ -224,9 +214,7 @@
       font-weight: 600;
     }
 
-    summary::marker {
-      color: var(--gold);
-    }
+    summary::marker { color: var(--gold); }
   </style>
 </head>
 <body>
@@ -268,7 +256,7 @@
       </div>
     </header>
 
-    <section class="template-dock">
+    <section class="template-dock" id="messaging">
       <h2>Daily Template Dock</h2>
 
       <div class="template-dock-row">
@@ -399,12 +387,32 @@
       </div>
     </section>
 
+    <section id="kpi" class="card">
+      <h3>KPI Dashboard <span class="badge badge-gold">Core</span></h3>
+      <p style="font-size:0.85rem;">Future space for KPIs and metrics.</p>
+    </section>
+
+    <section id="qa" class="card">
+      <h3>QA Center <span class="badge badge-gold">Core</span></h3>
+      <p style="font-size:0.85rem;">Future space for QA reviews and audits.</p>
+    </section>
+
+    <section id="compliance" class="card">
+      <h3>Compliance Command Center <span class="badge badge-charcoal">Core</span></h3>
+      <details>
+        <summary>Compliance Guardrails</summary>
+        <ul class="section-list">
+          <li>Messaging compliance and documentation.</li>
+        </ul>
+      </details>
+    </section>
+
     <section id="governance" class="card">
       <h3>Governance Center <span class="badge badge-charcoal">Core</span></h3>
       <details>
         <summary>Policy Governance</summary>
         <ul class="section-list">
-          <li>BDC policies and compliance guardrails.</li>
+          <li>BDC policies and governance frameworks.</li>
         </ul>
       </details>
     </section>
@@ -440,40 +448,72 @@
     </section>
 
     <script>
-      /* TEMPLATE OBJECT */
-      const templates = {
-        "New Lead Email": `Hi {{First Name}},\nThanks for your interest in the {{Vehicle of Interest}}. I’m here to help with availability, pricing, and next steps.\nAre you looking to stop by today or tomorrow?\n\n— Raven`,
+      /* ROLE-BASED TEMPLATES */
+      const roleTemplates = {
+        rep: {
+          "New Lead Email": `Hi {{First Name}},\nThanks for your interest in the {{Vehicle of Interest}}. I’m here to help with availability, pricing, and next steps.\nAre you looking to stop by today or tomorrow?\n\n— Raven (Rep)`,
+          "Price Request Email": `Hi {{First Name}},\nThanks for requesting pricing on the {{Vehicle of Interest}}. I can send full numbers and options.\nAre you planning to finance, pay cash, or explore both?\n\n— Raven (Rep)`,
+          "Trade-In Email": `Hi {{First Name}},\nI can get you an accurate trade value. Could you share your VIN, miles, and a few photos?\n\n— Raven (Rep)`,
+          "Quiet Lead Email": `Hi {{First Name}},\nJust checking in — I’m here if you still need help with the {{Vehicle of Interest}}.\nWhat’s the best next step for you?\n\n— Raven (Rep)`,
+          "Appointment Confirmation Email": `Hi {{First Name}},\nYour appointment for the {{Vehicle of Interest}} is confirmed for {{Date/Time}}.\n\n— Raven (Rep)`,
 
-        "Price Request Email": `Hi {{First Name}},\nThanks for requesting pricing. The {{Vehicle of Interest}} is available, and I can send full numbers.\nAre you planning to finance, pay cash, or explore both options?\n\n— Raven`,
+          "New Lead Text": `Hi {{First Name}}, this is Raven at Bachman. I got your request on the {{Vehicle of Interest}} — are you looking to stop by today or tomorrow?`,
+          "Price Text": `Hi {{First Name}}, I can send full pricing on the {{Vehicle of Interest}}. Are you planning to finance or pay cash?`,
+          "Trade Text": `Hi {{First Name}}, I can get your trade value. Can you send VIN + miles?`,
+          "Quiet Lead Text": `Hi {{First Name}}, still here to help with the {{Vehicle of Interest}}. What’s the best next step?`,
+          "Appointment Text": `Hi {{First Name}}, your appointment for the {{Vehicle of Interest}} is confirmed for {{Date/Time}}.`,
 
-        "Trade-In Email": `Hi {{First Name}},\nI can get you an accurate trade value. Could you share your VIN, miles, and any photos?\n\n— Raven`,
+          "New Lead VM": `Hi {{First Name}}, this is Raven at Bachman. I got your request on the {{Vehicle of Interest}} and I’m working on it now. I’ll text you in a moment so you have my direct line.`,
+          "Price VM": `Hi {{First Name}}, Raven at Bachman. I’m putting together your pricing now and will text you the details.`,
+          "Trade VM": `Hi {{First Name}}, Raven at Bachman. I can get your trade value — I’ll text you what I need.`,
+          "Appointment VM": `Hi {{First Name}}, Raven at Bachman. Your appointment is confirmed for {{Date/Time}}. I’ll send a text as well.`,
+        },
 
-        "Quiet Lead Email": `Hi {{First Name}},\nJust checking in — I’m here if you still need help with the {{Vehicle of Interest}}.\nWhat’s the best next step for you?\n\n— Raven`,
+        manager: {
+          "New Lead Email": `Hi {{First Name}},\nI’m the BDC Manager at Bachman, and I wanted to personally thank you for your interest in the {{Vehicle of Interest}}.\nMy team is working on details now — are you planning to visit today or tomorrow?\n\n— Manager`,
+          "Price Request Email": `Hi {{First Name}},\nI oversee pricing for the {{Vehicle of Interest}}. I can walk you through numbers and options.\nAre you looking for lowest payment, shortest term, or best overall value?\n\n— Manager`,
+          "Trade-In Email": `Hi {{First Name}},\nI help ensure trade values are accurate and fair. Share VIN, miles, and photos, and we’ll start your appraisal.\n\n— Manager`,
+          "Quiet Lead Email": `Hi {{First Name}},\nJust checking in from management — we’re still here if you need help with the {{Vehicle of Interest}}.\nWhat would be most helpful right now?\n\n— Manager`,
+          "Appointment Confirmation Email": `Hi {{First Name}},\nYour appointment for the {{Vehicle of Interest}} is confirmed for {{Date/Time}}. I’ll make sure the team is ready.\n\n— Manager`,
 
-        "Appointment Confirmation Email": `Hi {{First Name}},\nYour appointment for the {{Vehicle of Interest}} is confirmed for {{Date/Time}}.\n\n— Raven`,
+          "New Lead Text": `Hi {{First Name}}, this is the BDC Manager at Bachman. Thanks for your interest in the {{Vehicle of Interest}} — are you planning to stop by today or tomorrow?`,
+          "Price Text": `Hi {{First Name}}, I can help review pricing on the {{Vehicle of Interest}} and options that fit your budget.`,
+          "Trade Text": `Hi {{First Name}}, I oversee trade values — send VIN + miles and we’ll start your appraisal.`,
+          "Quiet Lead Text": `Hi {{First Name}}, just checking in from management — still here if you need help with the {{Vehicle of Interest}}.`,
+          "Appointment Text": `Hi {{First Name}}, your appointment for the {{Vehicle of Interest}} is confirmed for {{Date/Time}}. I’ll make sure we’re ready.`,
 
-        "New Lead Text": `Hi {{First Name}}, this is Raven at Bachman. I got your request on the {{Vehicle of Interest}} — are you looking to stop by today or tomorrow?`,
+          "New Lead VM": `Hi {{First Name}}, this is the BDC Manager at Bachman. I saw your request on the {{Vehicle of Interest}} and wanted to personally follow up. I’ll text you my direct line.`,
+          "Price VM": `Hi {{First Name}}, Manager at Bachman here. I’m reviewing pricing on the {{Vehicle of Interest}} and will text you details.`,
+          "Trade VM": `Hi {{First Name}}, Manager at Bachman. I help with trade values — I’ll text you what we need to start.`,
+          "Appointment VM": `Hi {{First Name}}, Manager at Bachman. Your appointment for {{Date/Time}} is confirmed. I’ll send a text as well.`,
+        },
 
-        "Price Text": `Hi {{First Name}}, I can send full pricing on the {{Vehicle of Interest}}. Are you planning to finance or pay cash?`,
+        executive: {
+          "New Lead Email": `Hi {{First Name}},\nI’m part of the leadership team at Bachman, and I wanted to personally thank you for considering the {{Vehicle of Interest}}.\nWe take your time seriously — are you planning to visit today or later this week?\n\n— Executive`,
+          "Price Request Email": `Hi {{First Name}},\nFrom an executive standpoint, I can ensure you see transparent pricing on the {{Vehicle of Interest}}.\nAre you focused on payment, total cost, or long-term value?\n\n— Executive`,
+          "Trade-In Email": `Hi {{First Name}},\nI help oversee trade policies to keep them fair and consistent. Share VIN, miles, and photos, and we’ll begin.\n\n— Executive`,
+          "Quiet Lead Email": `Hi {{First Name}},\nJust a quick note from leadership — we’re still here if you need help with the {{Vehicle of Interest}}.\nWhat would make this process easier for you?\n\n— Executive`,
+          "Appointment Confirmation Email": `Hi {{First Name}},\nYour appointment for the {{Vehicle of Interest}} is confirmed for {{Date/Time}}. We appreciate the opportunity to earn your business.\n\n— Executive`,
 
-        "Trade Text": `Hi {{First Name}}, I can get your trade value. Can you send VIN + miles?`,
+          "New Lead Text": `Hi {{First Name}}, this is part of the leadership team at Bachman. Thanks for your interest in the {{Vehicle of Interest}} — are you planning to stop by today or later this week?`,
+          "Price Text": `Hi {{First Name}}, I can ensure you see transparent pricing on the {{Vehicle of Interest}}.`,
+          "Trade Text": `Hi {{First Name}}, I help oversee trade policies — send VIN + miles and we’ll begin.`,
+          "Quiet Lead Text": `Hi {{First Name}}, leadership checking in — still here if you need help with the {{Vehicle of Interest}}.`,
+          "Appointment Text": `Hi {{First Name}}, your appointment for the {{Vehicle of Interest}} is confirmed for {{Date/Time}}. We appreciate your time.`,
 
-        "Quiet Lead Text": `Hi {{First Name}}, still here to help with the {{Vehicle of Interest}}. What’s the best next step?`,
-
-        "Appointment Text": `Hi {{First Name}}, your appointment for the {{Vehicle of Interest}} is confirmed for {{Date/Time}}.`,
-
-        "New Lead VM": `Hi {{First Name}}, this is Raven at Bachman. I got your request on the {{Vehicle of Interest}} and I’m working on it now. I’ll text you in a moment so you have my direct line.`,
-
-        "Price VM": `Hi {{First Name}}, Raven at Bachman. I’m putting together your pricing now and will text you the details.`,
-
-        "Trade VM": `Hi {{First Name}}, Raven at Bachman. I can get your trade value — I’ll text you what I need.`,
-
-        "Quiet Lead VM": `Hi {{First Name}}, Raven at Bachman. Just reaching out — I’ll send a quick text so you have my number.`,
-
-        "Appointment VM": `Hi {{First Name}}, Raven at Bachman. Your appointment is confirmed for {{Date/Time}}. I’ll send a text as well.`,
+          "New Lead VM": `Hi {{First Name}}, this is part of the leadership team at Bachman. I saw your interest in the {{Vehicle of Interest}} and wanted to personally follow up. I’ll text you my direct line.`,
+          "Price VM": `Hi {{First Name}}, leadership at Bachman here. I’m reviewing pricing on the {{Vehicle of Interest}} and will text you details.`,
+          "Trade VM": `Hi {{First Name}}, leadership at Bachman. I help oversee trade policies — I’ll text you what we need to start.`,
+          "Appointment VM": `Hi {{First Name}}, leadership at Bachman. Your appointment for {{Date/Time}} is confirmed. I’ll send a text as well.`,
+        }
       };
 
-      /* TEMPLATE CLICK HANDLER */
+      let currentRole = 'rep';
+
+      document.getElementById('role').addEventListener('change', (e) => {
+        currentRole = e.target.value;
+      });
+
       document.querySelectorAll('.template-pill').forEach(btn => {
         btn.addEventListener('click', () => {
           const name = btn.textContent.trim();
@@ -481,8 +521,10 @@
           const title = document.getElementById('templateTitle');
           const content = document.getElementById('templateContent');
 
-          if (templates[name]) {
-            title.textContent = name;
+          const templates = roleTemplates[currentRole];
+
+          if (templates && templates[name]) {
+            title.textContent = `${name} (${currentRole.toUpperCase()})`;
             content.textContent = templates[name];
             viewer.style.display = 'block';
             viewer.scrollIntoView({ behavior: 'smooth' });
@@ -490,9 +532,8 @@
         });
       });
 
-      /* DAILY MODE */
       const dailyCheckbox = document.getElementById('dailyMode');
-      const nonProdIds = ['brand', 'training', 'governance', 'continuity'];
+      const nonProdIds = ['brand', 'training', 'governance', 'continuity', 'compliance'];
 
       dailyCheckbox.addEventListener('change', () => {
         nonProdIds.forEach(id => {
