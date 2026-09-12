@@ -36,3 +36,13 @@
     border-radius: 6px;
     margin-bottom: 25px;
 }
+/* RESPONSIVE GRID */
+@media (max-width: 600px) {
+    .training-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .training-card {
+        padding: 16px;
+    }
+}
