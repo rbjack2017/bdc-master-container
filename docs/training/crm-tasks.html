@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>CRM Tasks & Follow-Up Discipline</title>
+    <title>CRM Tasks</title>
 
     <!-- Global Styles -->
     <link rel="stylesheet" href="../assets/css/main.css">
@@ -23,6 +23,7 @@
     <div id="loadingOverlay" class="loading-overlay" style="display:none;">
         <div class="loading-spinner"></div>
     </div>
+
     <!-- Header -->
     <div id="header"></div>
 
@@ -35,120 +36,50 @@
     <!-- Main Content -->
     <main class="content">
 
-        <h1>CRM Tasks & Follow-Up Discipline Module</h1>
-        <p>This module defines the exact CRM task structure, follow-up timing, documentation standards, and discipline required to maintain consistent customer engagement and workflow accuracy.</p>
+        <!-- Mark Completed Button -->
+        <button id="markCompleted" data-module="crm-tasks" class="complete-btn">
+            Mark this module as completed
+        </button>
 
-        <h2>1. Purpose of CRM Tasks</h2>
+        <h1>CRM Tasks Module</h1>
+        <p>The CRM Tasks Module defines how reps manage, complete, and document tasks inside the CRM. It ensures consistency, accuracy, and accountability across all customer interactions.</p>
+
+        <h2>1. Task Discipline</h2>
         <ul>
-            <li>Ensure no customer is forgotten</li>
-            <li>Maintain consistent follow-up timing</li>
-            <li>Support workflow accuracy</li>
-            <li>Provide clear next steps for every interaction</li>
-            <li>Enable accountability and transparency</li>
+            <li>All tasks must be completed on time</li>
+            <li>Tasks must be completed in the correct order</li>
+            <li>Tasks must never be skipped or ignored</li>
+            <li>Tasks must be completed before responding to customers</li>
         </ul>
 
-        <h2>2. Core CRM Task Rules</h2>
-        <h3>Daily Task Requirements</h3>
+        <h2>2. Documentation Standards</h2>
         <ul>
-            <li>All tasks must be completed on the day they are due</li>
-            <li>No skipping tasks</li>
-            <li>No deleting tasks</li>
-            <li>No pushing tasks forward without reason</li>
+            <li>Every customer interaction must be logged</li>
+            <li>Notes must be clear, accurate, and professional</li>
+            <li>Source logging must be correct</li>
+            <li>All communication must be documented immediately</li>
         </ul>
 
-        <h3>Task Creation Rules</h3>
+        <h2>3. Workflow Timing</h2>
         <ul>
-            <li>Every customer interaction must generate a next task</li>
-            <li>Tasks must reflect the correct workflow step</li>
-            <li>Tasks must be scheduled at the correct interval</li>
+            <li>Day 1 tasks must be completed within 10 minutes</li>
+            <li>Follow-up tasks must be completed exactly as scheduled</li>
+            <li>Inactivation must occur on Day 7</li>
+            <li>No tasks after inactivation</li>
         </ul>
 
-        <h2>3. Task Timing Standards</h2>
-        <h3>Day 1</h3>
-        <ul>
-            <li>Immediate call attempt</li>
-            <li>OEM-compliant Day 1 email</li>
-            <li>One compliant text</li>
-            <li>Next task: Day 2 follow-up</li>
-        </ul>
-
-        <h3>Day 2–6</h3>
-        <ul>
-            <li>Daily call attempt</li>
-            <li>Daily email or text based on workflow</li>
-            <li>Next task: Next day follow-up</li>
-        </ul>
-
-        <h3>Day 7</h3>
-        <ul>
-            <li>Final call attempt</li>
-            <li>Final email</li>
-            <li>Inactivate lead</li>
-            <li>Correct dead note: “Due to Processes – Non-Responsive”</li>
-        </ul>
-
-        <h2>4. CRM Documentation Standards</h2>
-        <p>Every interaction must be documented clearly and accurately.</p>
-
-        <h3>Required Note Elements</h3>
-        <ul>
-            <li>Purpose of the interaction</li>
-            <li>Outcome of the interaction</li>
-            <li>Customer’s response (if any)</li>
-            <li>Next step</li>
-            <li>Task created</li>
-        </ul>
-
-        <h3>Prohibited Notes</h3>
-        <ul>
-            <li>“Called”</li>
-            <li>“Left VM”</li>
-            <li>“Follow-up”</li>
-            <li>“Sent email”</li>
-        </ul>
-
-        <h2>5. Task Accuracy Requirements</h2>
-        <ul>
-            <li>Correct task type (call, email, text)</li>
-            <li>Correct timing (same day or next day)</li>
-            <li>Correct workflow step</li>
-            <li>Correct customer status</li>
-        </ul>
-
-        <h2>6. Task Discipline & Accountability</h2>
-        <p>Task discipline is mandatory. Failure to complete tasks results in workflow breakdown and customer neglect.</p>
-
-        <h3>Minor Violations</h3>
-        <ul>
-            <li>Late task completion</li>
-            <li>Missing next task</li>
-            <li>Incorrect task type</li>
-        </ul>
-
-        <h3>Major Violations</h3>
-        <ul>
-            <li>No tasks completed for the day</li>
-            <li>Skipping workflow steps</li>
-            <li>Incorrect inactivation</li>
-            <li>Tasks created after inactivation</li>
-        </ul>
-
-        <h2>7. Task Quality Standards</h2>
-        <ul>
-            <li>Tasks must be clear and actionable</li>
-            <li>Tasks must match the customer’s situation</li>
-            <li>Tasks must follow the workflow exactly</li>
-            <li>Tasks must be created immediately after each interaction</li>
-        </ul>
-
-        <h2>8. CRM Task Summary</h2>
-        <p>CRM tasks are the backbone of BDC follow-up discipline. They ensure consistency, accountability, and workflow accuracy. Every customer deserves a clear next step, and every rep must maintain task discipline daily.</p>
+        <h2>4. CRM Task Summary</h2>
+        <p>CRM tasks ensure workflow accuracy, customer satisfaction, and compliance with dealership standards.</p>
 
     </main>
 
     <!-- Footer -->
     <div id="footer"></div>
 
+    <!-- Progress Script -->
+    <script src="../assets/js/progress.js" defer></script>
+
 </body>
 </html>
+
 
