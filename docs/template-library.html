@@ -1,1 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Template Library</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    body { 
+      font-family: system-ui; 
+      background:#f7f3eb; 
+      margin:0; 
+      padding:1.5rem; 
+      color:#333;
+    }
+    h1 { 
+      margin-bottom:1rem; 
+      font-size:1.6rem; 
+    }
+    details { 
+      margin-bottom:1rem; 
+      background:#fff; 
+      padding:1rem; 
+      border-radius:8px; 
+      border:1px solid #e0d5c5; 
+    }
+    summary { 
+      font-size:1.1rem; 
+      font-weight:600; 
+      cursor:pointer; 
+    }
+    ul { 
+      margin-top:0.5rem; 
+      padding-left:1.25rem; 
+    }
+    li { 
+      margin-bottom:0.35rem; 
+    }
+    pre {
+      background:#f0e8d8;
+      padding:1rem;
+      border-radius:6px;
+      white-space:pre-wrap;
+      font-size:0.9rem;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>BDC Template Library</h1>
+
+  <!-- New Lead Email -->
+  <details open>
+    <summary>New Lead Email</summary>
+    <pre>
+Hi {{First Name}}, this is {{Rep Name}} with {{Store}}. 
+Thanks for reaching out about {{Vehicle}}. 
+I can help with availability, pricing, or alternatives if needed. 
+What’s most important to you in your next vehicle?
+    </pre>
+  </details>
+
+  <!-- New Lead Text -->
+  <details>
+    <summary>New Lead Text</summary>
+    <pre>
+Hi {{First Name}}, this is {{Rep Name}} with {{Store}}. 
+I saw your interest in {{Vehicle}} — are you looking for pricing, availability, or something else?
+    </pre>
+  </details>
+
+  <!-- New Lead Voicemail -->
+  <details>
+    <summary>New Lead Voicemail</summary>
+    <pre>
+Hi {{First Name}}, this is {{Rep Name}} with {{Store}}. 
+I received your inquiry about {{Vehicle}} and wanted to help with next steps. 
+You can reach me at {{Phone}}.
+    </pre>
+  </details>
+
+  <!-- Price Templates -->
+  <details>
+    <summary>Price Templates</summary>
+    <pre>
+Hi {{First Name}}, thanks for asking about pricing on {{Vehicle}}. 
+I’ve sent a full breakdown to your email. 
+Would you like me to include similar options?
+    </pre>
+  </details>
+
+  <!-- Trade Templates -->
+  <details>
+    <summary>Trade Templates</summary>
+    <pre>
+Hi {{First Name}}, I can help with your trade-in. 
+Could you send the VIN, miles, and a few photos? 
+This helps me get you the most accurate value.
+    </pre>
+  </details>
+
+  <!-- Quiet Lead Templates -->
+  <details>
+    <summary>Quiet Lead Templates</summary>
+    <pre>
+Hi {{First Name}}, just checking in — still interested in {{Vehicle}}? 
+I’m here if you need anything.
+    </pre>
+  </details>
+
+  <!-- Sold Redirect Templates -->
+  <details>
+    <summary>Sold Redirect Templates</summary>
+    <pre>
+Hi {{First Name}}, the {{Vehicle}} you asked about has sold, 
+but I can help find similar options. 
+Are you flexible on color, trim, or mileage?
+    </pre>
+  </details>
+
+  <!-- Appointment Templates -->
+  <details>
+    <summary>Appointment Templates</summary>
+    <pre>
+Hi {{First Name}}, your appointment is confirmed for {{Date}} at {{Time}}. 
+I’ll have the vehicle ready for you.
+    </pre>
+  </details>
+
+  <!-- Long-Term Follow-Up -->
+  <details>
+    <summary>Long-Term Follow-Up Templates (30 / 60 / 90 Days)</summary>
+    <pre>
+30-Day: Hi {{First Name}}, still searching for the right vehicle? I can help.
+60-Day: Hi {{First Name}}, we have updated inventory — want me to send options?
+90-Day: Hi {{First Name}}, checking in one last time. Still interested in upgrading?
+    </pre>
+  </details>
+
+  <!-- Customization Tips -->
+  <details>
+    <summary>Quick Message Customization Tips</summary>
+    <ul>
+      <li>Replace placeholders (name, vehicle, store).</li>
+      <li>Ask one clear question.</li>
+      <li>Match the customer’s tone.</li>
+      <li>Remove anything that doesn’t apply.</li>
+      <li>End with one simple next step.</li>
+    </ul>
+  </details>
+
+</body>
+</html>
 
