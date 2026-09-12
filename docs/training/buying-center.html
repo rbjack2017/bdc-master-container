@@ -1,1 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Buying Center</title>
+
+    <!-- Global Styles -->
+    <link rel="stylesheet" href="../assets/css/main.css">
+    <link rel="stylesheet" href="../assets/css/layout.css">
+    <link rel="stylesheet" href="../assets/css/typography.css">
+    <link rel="stylesheet" href="../assets/css/components.css">
+    <link rel="stylesheet" href="../assets/css/themes.css">
+
+    <!-- Scripts -->
+    <script src="../assets/js/sidebar.js" defer></script>
+    <script src="../assets/js/search.js" defer></script>
+    <script src="../assets/js/main.js" defer></script>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <div id="header"></div>
+
+    <!-- Sidebar -->
+    <div id="sidebar"></div>
+
+    <!-- Breadcrumbs -->
+    <div id="breadcrumbs"></div>
+
+    <!-- Main Content -->
+    <main class="content">
+
+        <h1>Buying Center Module</h1>
+        <p>The Buying Center Module defines how to handle leads who want to sell or trade their vehicle. This includes Day 1–3 communication, appraisal information gathering, low‑effort reply prompts, and compliant messaging.</p>
+
+        <h2>1. Purpose of the Buying Center</h2>
+        <ul>
+            <li>Acquire inventory through customer vehicles</li>
+            <li>Provide fast, simple appraisal communication</li>
+            <li>Support trade conversations for sales opportunities</li>
+            <li>Deliver consistent, compliant messaging</li>
+            <li>Gather accurate vehicle details before handoff</li>
+        </ul>
+
+        <h2>2. Buying Center Lead Types</h2>
+        <ul>
+            <li>Sell‑only customers</li>
+            <li>Trade‑in customers</li>
+            <li>Appraisal‑only customers</li>
+            <li>Fresh Start / credit challenge customers with trades</li>
+        </ul>
+
+        <h2>3. Buying Center Text Templates</h2>
+
+        <h3>Day 1 Text</h3>
+        <p>Hi {{First Name}}, this is Raven with Bachman. Are you looking to sell or trade your {{Trade Vehicle}}?</p>
+        <p><em>Source: Buying Center Day 1 Text</em> </p>
+
+        <h3>General Buying Center Text Option</h3>
+        <p>Hi {{First Name}}, this is Raven with Bachman in {{City}}. Are you interested in selling or trading your vehicle? We buy vehicles every day and can make the process simple. Would you like me to email details?</p>
+        <p><em>Source: Buying Center Text Options</em> </p>
+
+        <h3>Day 3 Text</h3>
+        <p>Hi {{First Name}}, should I keep this open for your {{Trade Vehicle}}, or would a later check‑in be better?</p>
+        <p><em>Source: Buying Center Day 3 Text</em> </p>
+
+        <h2>4. Buying Center Email Templates</h2>
+
+        <h3>Day 1 Buying Center Email</h3>
+        <p><strong>Subject:</strong> Bachman Can Review Your {{Trade Vehicle}}</p>
+        <p>Hi {{First Name}}, this is Raven with the Bachman Buying Center in {{City}}. I received your information on the {{Trade Vehicle}} and can help if you are considering selling it outright, trading it in, or scheduling a quick appraisal. To point you in the right direction, are you mainly looking to sell, trade, or get more information first?</p>
+        <p><strong>Low‑Effort Reply:</strong> Reply “sell,” “trade,” or “info,” and I’ll help with that first.</p>
+        <p><em>Source: Buying Center Email Template</em> </p>
+
+        <h3>Day 1 Initial Offer Follow‑Up</h3>
+        <p><strong>Subject:</strong> Bachman Can Review Your {{Trade Vehicle}}</p>
+        <p>Hi {{First Name}}, this is Raven with the Bachman Buying Center in {{City}}. I received your information on the {{Trade Vehicle}} and wanted to make the next step simple. We can review selling it outright, trading it toward another vehicle, or scheduling an appraisal so you have a clearer value range.</p>
+        <p><strong>Low‑Effort Reply:</strong> Reply “sell,” “trade,” or “appraisal,” and I’ll help with the next step.</p>
+        <p><em>Source: Buying Center Initial Offer Follow‑Up</em> </p>
+
+        <h3>Day 2 Follow‑Up</h3>
+        <p><strong>Subject:</strong> Quick Follow‑Up on Your {{Trade Vehicle}}</p>
+        <p>Hi {{First Name}}, I wanted to follow up on your {{Trade Vehicle}}. If you are still considering selling or trading, I can help make the next step easy. We can start with a quick appraisal, review details by phone, or schedule a better time to reconnect.</p>
+        <p><strong>Low‑Effort Reply:</strong> Reply “appraisal,” “call,” or “later,” and I’ll follow up the right way.</p>
+        <p><em>Source: Buying Center Day 2 Follow‑Up</em> </p>
+
+        <h3>Day 3 Final Check‑In</h3>
+        <p><strong>Subject:</strong> Should I Keep This Open for Your {{Trade Vehicle}}?</p>
+        <p>Hi {{First Name}}, I haven’t been able to connect yet, so I wanted to close the loop for now. If selling or trading your {{Trade Vehicle}} is still on your radar, I’m happy to help. If the timing is not right, I can check back later or close this out for now.</p>
+        <p><strong>Low‑Effort Reply:</strong> Reply “open,” “later,” or “close,” and I’ll make sure I follow up correctly.</p>
+        <p><em>Source: Buying Center Day 3 Final Check‑In</em> </p>
+
+        <h2>5. Required Vehicle Details</h2>
+        <p>Once the customer engages, gather the following:</p>
+        <ul>
+            <li>Year</li>
+            <li>Make</li>
+            <li>Model</li>
+            <li>Mileage</li>
+            <li>VIN</li>
+            <li>Payoff status</li>
+            <li>Vehicle condition</li>
+            <li>Photos (optional but helpful)</li>
+            <li>Preferred appraisal timing</li>
+        </ul>
+        <p><em>Source: Buying Center Internal Notes</em> </p>
+
+        <h2>6. Buying Center Workflow</h2>
+
+        <h3>Step 1 — Identify Lead Type</h3>
+        <ul>
+            <li>Sell</li>
+            <li>Trade</li>
+            <li>Appraisal</li>
+        </ul>
+
+        <h3>Step 2 — Send Day 1 Message</h3>
+        <ul>
+            <li>Day 1 Text</li>
+            <li>Day 1 Email</li>
+        </ul>
+
+        <h3>Step 3 — Gather Vehicle Details</h3>
+        <ul>
+            <li>Mileage</li>
+            <li>VIN</li>
+            <li>Payoff</li>
+            <li>Condition</li>
+        </ul>
+
+        <h3>Step 4 — Schedule Appraisal or Handoff</h3>
+        <ul>
+            <li>In‑store appraisal</li>
+            <li>Phone review</li>
+            <li>Later follow‑up</li>
+        </ul>
+
+        <h3>Step 5 — Day 2 & Day 3 Follow‑Up</h3>
+        <ul>
+            <li>Day 2 Follow‑Up Email</li>
+            <li>Day 3 Final Check‑In</li>
+        </ul>
+
+        <h2>7. Buying Center Compliance</h2>
+        <ul>
+            <li>No guaranteed values</li>
+            <li>No pricing in text messages</li>
+            <li>No appraisal ranges without manager approval</li>
+            <li>No pressure language</li>
+        </ul>
+
+        <h2>8. Buying Center Summary</h2>
+        <p>The Buying Center workflow ensures consistent communication, accurate appraisal information, and simple next steps for customers looking to sell or trade their vehicle. Day 1–3 templates, low‑effort replies, and correct detail gathering create a smooth and professional experience.</p>
+
+    </main>
+
+    <!-- Footer -->
+    <div id="footer"></div>
+
+</body>
+</html>
 
