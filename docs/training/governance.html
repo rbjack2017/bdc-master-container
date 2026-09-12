@@ -19,10 +19,11 @@
 
 <body>
 
-     <!-- Loading Screen -->
+    <!-- Loading Screen -->
     <div id="loadingOverlay" class="loading-overlay" style="display:none;">
         <div class="loading-spinner"></div>
     </div>
+
     <!-- Header -->
     <div id="header"></div>
 
@@ -34,6 +35,11 @@
 
     <!-- Main Content -->
     <main class="content">
+
+        <!-- Mark Completed Button -->
+        <button id="markCompleted" data-module="governance" class="complete-btn">
+            Mark this module as completed
+        </button>
 
         <h1>Governance Module</h1>
         <p>The Governance Module defines the rules, expectations, and operating standards for the BDC. It ensures consistency, fairness, compliance, and accountability across all communication and workflow processes.</p>
@@ -128,6 +134,8 @@
     <!-- Footer -->
     <div id="footer"></div>
 
+    <!-- Progress Script -->
+    <script src="../assets/js/progress.js" defer></script>
+
 </body>
 </html>
-
