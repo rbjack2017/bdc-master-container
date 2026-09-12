@@ -78,6 +78,7 @@
     .main {
       flex: 1;
       padding: 1.25rem 1.5rem;
+      overflow-y: auto;
     }
 
     .header {
@@ -214,6 +215,15 @@
       font-weight: 600;
     }
 
+    summary a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    summary a:hover {
+      text-decoration: underline;
+    }
+
     summary::marker { color: var(--gold); }
   </style>
 </head>
@@ -223,9 +233,9 @@
 
     <div class="nav-section-title">Core</div>
     <a class="nav-link active" href="#home">Home Dashboard</a>
-    <a class="nav-link" href="#playbooks">Playbooks</a>
-    <a class="nav-link" href="#messaging">Messaging System</a>
-    <a class="nav-link" href="#workflows">Workflow System</a>
+    <a class="nav-link" href="#playbooksPanel">Playbooks</a>
+    <a class="nav-link" href="#messagingDock">Messaging System</a>
+    <a class="nav-link" href="#workflowsPanel">Workflow System</a>
     <a class="nav-link" href="#kpi">KPI Dashboard</a>
     <a class="nav-link" href="#qa">QA Center</a>
 
@@ -237,6 +247,7 @@
     <div class="nav-section-title">Brand & Training</div>
     <a class="nav-link" href="#brand">Brand Identity System</a>
     <a class="nav-link" href="#training">Training System</a>
+    <a class="nav-link" href="#templateLibrary">Template Library</a>
 
     <div class="sidebar-footer">
       Daily Mode toggle lives in main panel.
@@ -256,34 +267,9 @@
       </div>
     </header>
 
-    <section class="template-dock" id="messaging">
-      <h2>Daily Template Dock</h2>
-
-      <div class="template-dock-row">
-        <strong style="font-size:0.8rem;">Email:</strong>
-        <button class="template-pill">New Lead Email</button>
-        <button class="template-pill">Price Request Email</button>
-        <button class="template-pill">Trade-In Email</button>
-        <button class="template-pill">Quiet Lead Email</button>
-        <button class="template-pill">Appointment Confirmation Email</button>
-      </div>
-
-      <div class="template-dock-row">
-        <strong style="font-size:0.8rem;">Text:</strong>
-        <button class="template-pill">New Lead Text</button>
-        <button class="template-pill">Price Text</button>
-        <button class="template-pill">Trade Text</button>
-        <button class="template-pill">Quiet Lead Text</button>
-        <button class="template-pill">Appointment Text</button>
-      </div>
-
-      <div class="template-dock-row">
-        <strong style="font-size:0.8rem;">Voicemail:</strong>
-        <button class="template-pill">New Lead VM</button>
-        <button class="template-pill">Price VM</button>
-        <button class="template-pill">Trade VM</button>
-        <button class="template-pill">Appointment VM</button>
-      </div>
+    <!-- Messaging / Template Dock -->
+    <section class="template-dock" id="messagingDock">
+      <!-- Filled dynamically by JS -->
     </section>
 
     <div id="templateViewer" class="card" style="display:none; margin-bottom:1rem;">
@@ -296,12 +282,13 @@
       <label for="dailyMode">Daily Mode (hide non-production sections)</label>
     </div>
 
-    <section class="grid" id="workflows">
+    <!-- Workflows + Playbooks -->
+    <section class="grid" id="workflowsPanel">
       <div class="card">
         <h3>Daily Workflow Panel <span class="badge badge-gold">Core</span></h3>
 
-        <details open>
-          <summary>New Lead Workflow</summary>
+        <details open id="newLeadWorkflow">
+          <summary><a href="#newLeadWorkflowDoc">New Lead Workflow</a></summary>
           <ul class="section-list">
             <li>Step 1: First response (email + text + VM)</li>
             <li>Step 2: Follow-up within 2 hours</li>
@@ -309,40 +296,40 @@
           </ul>
         </details>
 
-        <details>
-          <summary>Price Workflow</summary>
+        <details id="priceWorkflow">
+          <summary><a href="#priceWorkflowDoc">Price Workflow</a></summary>
           <ul class="section-list">
             <li>Step 1: Price email + text</li>
             <li>Step 2: Clarify budget + timeline</li>
           </ul>
         </details>
 
-        <details>
-          <summary>Trade Workflow</summary>
+        <details id="tradeWorkflow">
+          <summary><a href="#tradeWorkflowDoc">Trade Workflow</a></summary>
           <ul class="section-list">
             <li>Step 1: Gather trade details</li>
             <li>Step 2: Set expectation on appraisal</li>
           </ul>
         </details>
 
-        <details>
-          <summary>Quiet Lead Workflow</summary>
+        <details id="quietLeadWorkflow">
+          <summary><a href="#quietLeadWorkflowDoc">Quiet Lead Workflow</a></summary>
           <ul class="section-list">
             <li>Step 1: Soft nudge text</li>
             <li>Step 2: Alternate channel attempt</li>
           </ul>
         </details>
 
-        <details>
-          <summary>Appointment Workflow</summary>
+        <details id="appointmentWorkflow">
+          <summary><a href="#appointmentWorkflowDoc">Appointment Workflow</a></summary>
           <ul class="section-list">
             <li>Step 1: Confirm time + date</li>
             <li>Step 2: Reminder text</li>
           </ul>
         </details>
 
-        <details>
-          <summary>Sold Redirect Workflow</summary>
+        <details id="soldRedirectWorkflow">
+          <summary><a href="#soldRedirectWorkflowDoc">Sold Redirect Workflow</a></summary>
           <ul class="section-list">
             <li>Step 1: Notify customer vehicle sold</li>
             <li>Step 2: Offer similar alternatives</li>
@@ -350,35 +337,35 @@
         </details>
       </div>
 
-      <div class="card" id="playbooks">
+      <div class="card" id="playbooksPanel">
         <h3>Playbook Panel <span class="badge badge-gold">Core</span></h3>
 
-        <details open>
-          <summary>New Lead Playbook</summary>
+        <details open id="newLeadPlaybook">
+          <summary><a href="#newLeadPlaybookDoc">New Lead Playbook</a></summary>
           <ul class="section-list">
             <li>Use New Lead Email + Text + VM on Day 1</li>
             <li>Follow up with Quiet Lead Text if no response</li>
           </ul>
         </details>
 
-        <details>
-          <summary>Price Playbook</summary>
+        <details id="pricePlaybook">
+          <summary><a href="#pricePlaybookDoc">Price Playbook</a></summary>
           <ul class="section-list">
             <li>Send Price Request Email + Price Text</li>
             <li>Clarify budget and timeline</li>
           </ul>
         </details>
 
-        <details>
-          <summary>Trade Playbook</summary>
+        <details id="tradePlaybook">
+          <summary><a href="#tradePlaybookDoc">Trade Playbook</a></summary>
           <ul class="section-list">
             <li>Gather VIN, miles, photos</li>
             <li>Explain appraisal process</li>
           </ul>
         </details>
 
-        <details>
-          <summary>Appointment Playbook</summary>
+        <details id="appointmentPlaybook">
+          <summary><a href="#appointmentPlaybookDoc">Appointment Playbook</a></summary>
           <ul class="section-list">
             <li>Confirm date/time via Email + Text</li>
             <li>Send reminder text</li>
@@ -387,6 +374,7 @@
       </div>
     </section>
 
+    <!-- KPI / QA -->
     <section id="kpi" class="card">
       <h3>KPI Dashboard <span class="badge badge-gold">Core</span></h3>
       <p style="font-size:0.85rem;">Future space for KPIs and metrics.</p>
@@ -397,10 +385,11 @@
       <p style="font-size:0.85rem;">Future space for QA reviews and audits.</p>
     </section>
 
+    <!-- Governance / Compliance / Continuity -->
     <section id="compliance" class="card">
       <h3>Compliance Command Center <span class="badge badge-charcoal">Core</span></h3>
-      <details>
-        <summary>Compliance Guardrails</summary>
+      <details id="policyGovernanceDoc">
+        <summary><a href="#policyGovernanceDoc">Compliance Guardrails</a></summary>
         <ul class="section-list">
           <li>Messaging compliance and documentation.</li>
         </ul>
@@ -410,7 +399,7 @@
     <section id="governance" class="card">
       <h3>Governance Center <span class="badge badge-charcoal">Core</span></h3>
       <details>
-        <summary>Policy Governance</summary>
+        <summary><a href="#governanceDoc">Policy Governance</a></summary>
         <ul class="section-list">
           <li>BDC policies and governance frameworks.</li>
         </ul>
@@ -420,17 +409,18 @@
     <section id="continuity" class="card">
       <h3>Continuity Center <span class="badge badge-sage">Stable</span></h3>
       <details>
-        <summary>Staffing Continuity</summary>
+        <summary><a href="#staffingContinuityDoc">Staffing Continuity</a></summary>
         <ul class="section-list">
           <li>Coverage plans and continuity workflows.</li>
         </ul>
       </details>
     </section>
 
+    <!-- Brand / Training -->
     <section id="brand" class="card">
       <h3>Brand Identity System <span class="badge badge-rose">Optional</span></h3>
-      <details>
-        <summary>Style Guide</summary>
+      <details id="styleGuideDoc">
+        <summary><a href="#styleGuideDoc">Style Guide</a></summary>
         <ul class="section-list">
           <li>Colors: ivory, gold, dusty rose, sage, terracotta.</li>
         </ul>
@@ -439,10 +429,53 @@
 
     <section id="training" class="card">
       <h3>Training System <span class="badge badge-rose">Optional</span></h3>
-      <details>
-        <summary>Rep Quickstart</summary>
+      <details id="repQuickstartDoc">
+        <summary><a href="#repQuickstartDoc">Rep Quickstart</a></summary>
         <ul class="section-list">
           <li>Daily routine for supporting 40+ sales/month.</li>
+        </ul>
+      </details>
+    </section>
+
+    <!-- Template Library (Day 1–7, long-term, etc.) -->
+    <section id="templateLibrary" class="card">
+      <h3>Template Library <span class="badge badge-gold">Core</span></h3>
+
+      <details>
+        <summary>Day 1 Templates</summary>
+        <ul class="section-list">
+          <li><button class="template-pill">Day 1 Email</button></li>
+          <li><button class="template-pill">Day 1 Text</button></li>
+          <li><button class="template-pill">Day 1 VM</button></li>
+        </ul>
+      </details>
+
+      <details>
+        <summary>Day 2 Templates</summary>
+        <ul class="section-list">
+          <li><button class="template-pill">Day 2 Email</button></li>
+          <li><button class="template-pill">Day 2 Text</button></li>
+          <li><button class="template-pill">Day 2 VM</button></li>
+        </ul>
+      </details>
+
+      <details>
+        <summary>Day 3–7 Templates</summary>
+        <ul class="section-list">
+          <li><button class="template-pill">Day 3 Email</button></li>
+          <li><button class="template-pill">Day 4 Text</button></li>
+          <li><button class="template-pill">Day 5 VM</button></li>
+          <li><button class="template-pill">Day 6 Email</button></li>
+          <li><button class="template-pill">Day 7 Text</button></li>
+        </ul>
+      </details>
+
+      <details>
+        <summary>Long-Term Follow-Up</summary>
+        <ul class="section-list">
+          <li><button class="template-pill">30-Day Follow-Up</button></li>
+          <li><button class="template-pill">60-Day Follow-Up</button></li>
+          <li><button class="template-pill">90-Day Follow-Up</button></li>
         </ul>
       </details>
     </section>
@@ -467,6 +500,21 @@
           "Price VM": `Hi {{First Name}}, Raven at Bachman. I’m putting together your pricing now and will text you the details.`,
           "Trade VM": `Hi {{First Name}}, Raven at Bachman. I can get your trade value — I’ll text you what I need.`,
           "Appointment VM": `Hi {{First Name}}, Raven at Bachman. Your appointment is confirmed for {{Date/Time}}. I’ll send a text as well.`,
+
+          "Day 1 Email": `Day 1 follow-up email template (Rep).`,
+          "Day 1 Text": `Day 1 follow-up text template (Rep).`,
+          "Day 1 VM": `Day 1 follow-up voicemail template (Rep).`,
+          "Day 2 Email": `Day 2 follow-up email template (Rep).`,
+          "Day 2 Text": `Day 2 follow-up text template (Rep).`,
+          "Day 2 VM": `Day 2 follow-up voicemail template (Rep).`,
+          "Day 3 Email": `Day 3 follow-up email template (Rep).`,
+          "Day 4 Text": `Day 4 follow-up text template (Rep).`,
+          "Day 5 VM": `Day 5 follow-up voicemail template (Rep).`,
+          "Day 6 Email": `Day 6 follow-up email template (Rep).`,
+          "Day 7 Text": `Day 7 follow-up text template (Rep).`,
+          "30-Day Follow-Up": `30-day follow-up template (Rep).`,
+          "60-Day Follow-Up": `60-day follow-up template (Rep).`,
+          "90-Day Follow-Up": `90-day follow-up template (Rep).`
         },
 
         manager: {
@@ -486,6 +534,21 @@
           "Price VM": `Hi {{First Name}}, Manager at Bachman here. I’m reviewing pricing on the {{Vehicle of Interest}} and will text you details.`,
           "Trade VM": `Hi {{First Name}}, Manager at Bachman. I help with trade values — I’ll text you what we need to start.`,
           "Appointment VM": `Hi {{First Name}}, Manager at Bachman. Your appointment for {{Date/Time}} is confirmed. I’ll send a text as well.`,
+
+          "Day 1 Email": `Day 1 follow-up email template (Manager).`,
+          "Day 1 Text": `Day 1 follow-up text template (Manager).`,
+          "Day 1 VM": `Day 1 follow-up voicemail template (Manager).`,
+          "Day 2 Email": `Day 2 follow-up email template (Manager).`,
+          "Day 2 Text": `Day 2 follow-up text template (Manager).`,
+          "Day 2 VM": `Day 2 follow-up voicemail template (Manager).`,
+          "Day 3 Email": `Day 3 follow-up email template (Manager).`,
+          "Day 4 Text": `Day 4 follow-up text template (Manager).`,
+          "Day 5 VM": `Day 5 follow-up voicemail template (Manager).`,
+          "Day 6 Email": `Day 6 follow-up email template (Manager).`,
+          "Day 7 Text": `Day 7 follow-up text template (Manager).`,
+          "30-Day Follow-Up": `30-day follow-up template (Manager).`,
+          "60-Day Follow-Up": `60-day follow-up template (Manager).`,
+          "90-Day Follow-Up": `90-day follow-up template (Manager).`
         },
 
         executive: {
@@ -505,31 +568,81 @@
           "Price VM": `Hi {{First Name}}, leadership at Bachman here. I’m reviewing pricing on the {{Vehicle of Interest}} and will text you details.`,
           "Trade VM": `Hi {{First Name}}, leadership at Bachman. I help oversee trade policies — I’ll text you what we need to start.`,
           "Appointment VM": `Hi {{First Name}}, leadership at Bachman. Your appointment for {{Date/Time}} is confirmed. I’ll send a text as well.`,
+
+          "Day 1 Email": `Day 1 follow-up email template (Executive).`,
+          "Day 1 Text": `Day 1 follow-up text template (Executive).`,
+          "Day 1 VM": `Day 1 follow-up voicemail template (Executive).`,
+          "Day 2 Email": `Day 2 follow-up email template (Executive).`,
+          "Day 2 Text": `Day 2 follow-up text template (Executive).`,
+          "Day 2 VM": `Day 2 follow-up voicemail template (Executive).`,
+          "Day 3 Email": `Day 3 follow-up email template (Executive).`,
+          "Day 4 Text": `Day 4 follow-up text template (Executive).`,
+          "Day 5 VM": `Day 5 follow-up voicemail template (Executive).`,
+          "Day 6 Email": `Day 6 follow-up email template (Executive).`,
+          "Day 7 Text": `Day 7 follow-up text template (Executive).`,
+          "30-Day Follow-Up": `30-day follow-up template (Executive).`,
+          "60-Day Follow-Up": `60-day follow-up template (Executive).`,
+          "90-Day Follow-Up": `90-day follow-up template (Executive).`
         }
       };
 
       let currentRole = 'rep';
 
+      function attachTemplateClickHandlers() {
+        document.querySelectorAll('.template-pill').forEach(btn => {
+          btn.addEventListener('click', () => {
+            const name = btn.textContent.trim();
+            const viewer = document.getElementById('templateViewer');
+            const title = document.getElementById('templateTitle');
+            const content = document.getElementById('templateContent');
+
+            const templates = roleTemplates[currentRole];
+
+            if (templates && templates[name]) {
+              title.textContent = `${name} (${currentRole.toUpperCase()})`;
+              content.textContent = templates[name];
+              viewer.style.display = 'block';
+              viewer.scrollIntoView({ behavior: 'smooth' });
+            }
+          });
+        });
+      }
+
+      function loadRoleTemplates(role) {
+        const dock = document.getElementById('messagingDock');
+        const templateSet = roleTemplates[role];
+
+        let html = `
+          <h2>Daily Template Dock</h2>
+          <div class="template-dock-row">
+            <strong style="font-size:0.8rem;">Email:</strong>
+            ${Object.keys(templateSet)
+              .filter(k => k.includes("Email") && !k.includes("Day"))
+              .map(k => `<button class="template-pill">${k}</button>`).join("")}
+          </div>
+
+          <div class="template-dock-row">
+            <strong style="font-size:0.8rem;">Text:</strong>
+            ${Object.keys(templateSet)
+              .filter(k => k.includes("Text") && !k.includes("Day"))
+              .map(k => `<button class="template-pill">${k}</button>`).join("")}
+          </div>
+
+          <div class="template-dock-row">
+            <strong style="font-size:0.8rem;">Voicemail:</strong>
+            ${Object.keys(templateSet)
+              .filter(k => k.includes("VM") && !k.includes("Day"))
+              .map(k => `<button class="template-pill">${k}</button>`).join("")}
+          </div>
+        `;
+
+        dock.innerHTML = html;
+        attachTemplateClickHandlers();
+      }
+
       document.getElementById('role').addEventListener('change', (e) => {
         currentRole = e.target.value;
-      });
-
-      document.querySelectorAll('.template-pill').forEach(btn => {
-        btn.addEventListener('click', () => {
-          const name = btn.textContent.trim();
-          const viewer = document.getElementById('templateViewer');
-          const title = document.getElementById('templateTitle');
-          const content = document.getElementById('templateContent');
-
-          const templates = roleTemplates[currentRole];
-
-          if (templates && templates[name]) {
-            title.textContent = `${name} (${currentRole.toUpperCase()})`;
-            content.textContent = templates[name];
-            viewer.style.display = 'block';
-            viewer.scrollIntoView({ behavior: 'smooth' });
-          }
-        });
+        loadRoleTemplates(currentRole);
       });
 
       const dailyCheckbox = document.getElementById('dailyMode');
@@ -543,6 +656,10 @@
           }
         });
       });
+
+      // Initial load
+      loadRoleTemplates(currentRole);
+      attachTemplateClickHandlers();
     </script>
   </main>
 </body>
