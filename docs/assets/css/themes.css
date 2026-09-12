@@ -1,0 +1,23 @@
+:root[data-theme="light"] {
+    --bg: #ffffff;
+    --text: #222;
+    --card-bg: #f7f7f7;
+    --accent: #c9a86a;
+}
+
+:root[data-theme="dark"] {
+    --bg: #1e1e1e;
+    --text: #f2f2f2;
+    --card-bg: #2a2a2a;
+    --accent: #d4b46e;
+}
+
+body {
+    background: var(--bg);
+    color: var(--text);
+}
+
+.training-card {
+    background: var(--card-bg);
+    border-left: 4px solid var(--accent);
+}
