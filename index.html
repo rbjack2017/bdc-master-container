@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
   <meta charset="UTF-8" />
   <title>BDC OS Portal</title>
@@ -12,85 +12,206 @@
       --rose: #d9a5b3;
       --sage: #9bb59b;
       --terracotta: #c46a4a;
-      --card-bg: #ffffff;
-      --border-soft: #e0d5c5;
+      --card-bg-light: #ffffff;
+      --card-bg-dark: #1f2521;
+      --border-soft-light: #e0d5c5;
+      --border-soft-dark: #3b4a3f;
+      --sidebar-text-light: #fdfdfd;
+      --sidebar-text-dark: #f5f5f5;
+      --sidebar-bg-light: radial-gradient(circle at 10% 0%, rgba(155,181,155,0.95) 0%, rgba(247,243,235,0.9) 40%, rgba(199,154,59,0.35) 80%);
+      --sidebar-bg-dark: radial-gradient(circle at 0% 0%, rgba(40,60,45,1) 0%, rgba(20,30,25,1) 40%, rgba(199,154,59,0.35) 80%);
+      --body-bg-light: #f7f3eb;
+      --body-bg-dark: #101712;
+      --text-light: #333333;
+      --text-dark: #f5f5f5;
+      --accent-gold: #c79a3b;
+      --accent-rose: #d9a5b3;
+      --accent-sage: #9bb59b;
+      --accent-terracotta: #c46a4a;
+      --shadow-soft-light: 0 10px 25px rgba(0,0,0,0.06);
+      --shadow-soft-dark: 0 10px 25px rgba(0,0,0,0.45);
+      --transition-fast: 0.18s ease-out;
+      --transition-med: 0.28s ease-out;
+      --transition-slow: 0.4s ease-out;
     }
 
-    * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+    }
 
     body {
       margin: 0;
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: var(--ivory);
-      color: var(--charcoal);
       display: flex;
+      min-height: 100vh;
+      background: var(--body-bg-light);
+      color: var(--text-light);
+      transition: background var(--transition-slow), color var(--transition-med);
+    }
+
+    html[data-theme="dark"] body {
+      background: var(--body-bg-dark);
+      color: var(--text-dark);
+    }
+
+    .app-shell {
+      display: flex;
+      width: 100%;
       min-height: 100vh;
     }
 
     .sidebar {
       width: 260px;
-      background: #1f1f23;
-      color: #f5f5f5;
-      padding: 1rem;
+      padding: 1.2rem 1rem;
       display: flex;
       flex-direction: column;
+      background: var(--sidebar-bg-light);
+      color: var(--sidebar-text-light);
+      box-shadow: 0 0 35px rgba(0,0,0,0.18);
+      position: relative;
+      overflow: hidden;
+      transition: background var(--transition-slow), color var(--transition-med), box-shadow var(--transition-med);
+    }
+
+    html[data-theme="dark"] .sidebar {
+      background: var(--sidebar-bg-dark);
+      color: var(--sidebar-text-dark);
+      box-shadow: 0 0 40px rgba(0,0,0,0.6);
+    }
+
+    .sidebar::before {
+      content: "";
+      position: absolute;
+      inset: -40%;
+      background: radial-gradient(circle at 0% 0%, rgba(199,154,59,0.35) 0%, transparent 40%);
+      opacity: 0.7;
+      mix-blend-mode: screen;
+      pointer-events: none;
+      transition: opacity var(--transition-slow);
+    }
+
+    html[data-theme="dark"] .sidebar::before {
+      opacity: 0.5;
     }
 
     .sidebar-title {
-      font-size: 1.1rem;
+      font-size: 1.15rem;
       font-weight: 700;
       margin-bottom: 0.75rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      position: relative;
+      z-index: 1;
+    }
+
+    .sidebar-title span {
+      display: inline-block;
+      padding: 0.1rem 0.4rem;
+      border-radius: 999px;
+      background: rgba(247,243,235,0.12);
+      border: 1px solid rgba(247,243,235,0.35);
+      font-size: 0.7rem;
+      margin-left: 0.35rem;
     }
 
     .nav-section-title {
       font-size: 0.75rem;
       text-transform: uppercase;
       letter-spacing: 0.08em;
-      color: #bbbbc5;
+      color: rgba(245,245,245,0.7);
       margin-top: 0.75rem;
       margin-bottom: 0.25rem;
+      position: relative;
+      z-index: 1;
     }
 
     .nav-link {
-      display: block;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
       font-size: 0.85rem;
-      padding: 0.35rem 0.5rem;
-      border-radius: 6px;
-      color: #e5e5f0;
+      padding: 0.35rem 0.55rem;
+      border-radius: 8px;
+      color: rgba(245,245,245,0.9);
       text-decoration: none;
       margin-bottom: 0.15rem;
+      position: relative;
+      z-index: 1;
+      transition: background var(--transition-fast), transform var(--transition-fast), color var(--transition-fast), box-shadow var(--transition-fast);
     }
 
-    .nav-link:hover { background: #2b2b33; }
+    .nav-link span.nav-pill {
+      font-size: 0.65rem;
+      padding: 0.05rem 0.35rem;
+      border-radius: 999px;
+      border: 1px solid rgba(247,243,235,0.35);
+      background: rgba(247,243,235,0.08);
+    }
+
+    .nav-link:hover {
+      background: rgba(31,31,35,0.35);
+      transform: translateX(2px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+    }
+
+    html[data-theme="dark"] .nav-link:hover {
+      background: rgba(247,243,235,0.08);
+    }
 
     .nav-link.active {
-      background: #3b3b45;
+      background: rgba(31,31,35,0.6);
       color: #ffffff;
       font-weight: 600;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.35);
+      transform: translateX(3px);
+    }
+
+    html[data-theme="dark"] .nav-link.active {
+      background: rgba(247,243,235,0.12);
     }
 
     .sidebar-footer {
       margin-top: auto;
       font-size: 0.8rem;
-      color: #bbbbc5;
+      color: rgba(245,245,245,0.7);
+      position: relative;
+      z-index: 1;
+      padding-top: 0.75rem;
+      border-top: 1px solid rgba(247,243,235,0.18);
     }
 
     .main {
       flex: 1;
       padding: 1.25rem 1.5rem;
       overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      transition: background var(--transition-slow);
     }
 
     .header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 1rem;
+      margin-bottom: 0.75rem;
+      animation: fadeInDown var(--transition-slow);
     }
 
     .header-title {
       font-size: 1.2rem;
       font-weight: 700;
+    }
+
+    .header-title span {
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--accent-rose);
+      margin-left: 0.4rem;
+    }
+
+    html[data-theme="dark"] .header-title span {
+      color: var(--accent-sage);
     }
 
     .role-switcher {
@@ -103,16 +224,77 @@
     .role-switcher select {
       font-size: 0.85rem;
       padding: 0.2rem 0.4rem;
-      border-radius: 4px;
-      border: 1px solid var(--border-soft);
+      border-radius: 999px;
+      border: 1px solid var(--border-soft-light);
+      background: rgba(255,255,255,0.9);
+      transition: border var(--transition-fast), background var(--transition-fast), color var(--transition-fast);
+    }
+
+    html[data-theme="dark"] .role-switcher select {
+      border-color: var(--border-soft-dark);
+      background: rgba(16,23,18,0.9);
+      color: var(--text-dark);
+    }
+
+    .theme-toggle {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.8rem;
+    }
+
+    .theme-toggle button {
+      border-radius: 999px;
+      border: 1px solid var(--accent-gold);
+      background: rgba(247,243,235,0.9);
+      color: var(--charcoal);
+      padding: 0.2rem 0.6rem;
+      font-size: 0.75rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+      transition: background var(--transition-fast), color var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast);
+    }
+
+    .theme-toggle button:hover {
+      background: var(--accent-gold);
+      color: #fff;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+    }
+
+    html[data-theme="dark"] .theme-toggle button {
+      background: rgba(16,23,18,0.9);
+      color: var(--text-dark);
+      border-color: var(--accent-sage);
+    }
+
+    html[data-theme="dark"] .theme-toggle button:hover {
+      background: var(--accent-sage);
+      color: #101712;
     }
 
     .card {
-      background: var(--card-bg);
-      border-radius: 10px;
-      border: 1px solid var(--border-soft);
+      background: var(--card-bg-light);
+      border-radius: 12px;
+      border: 1px solid var(--border-soft-light);
       padding: 0.75rem 0.9rem;
-      margin-bottom: 1rem;
+      margin-bottom: 0.75rem;
+      box-shadow: var(--shadow-soft-light);
+      transition: background var(--transition-med), border var(--transition-med), box-shadow var(--transition-med), transform var(--transition-fast);
+      animation: fadeInUp var(--transition-slow);
+    }
+
+    .card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 30px rgba(0,0,0,0.08);
+    }
+
+    html[data-theme="dark"] .card {
+      background: var(--card-bg-dark);
+      border-color: var(--border-soft-dark);
+      box-shadow: var(--shadow-soft-dark);
     }
 
     .card h3 {
@@ -155,7 +337,34 @@
       color: #3f5a3f;
     }
 
-    .template-dock { margin-bottom: 1rem; }
+    html[data-theme="dark"] .badge-gold {
+      background: rgba(199,154,59,0.18);
+      border-color: rgba(199,154,59,0.6);
+      color: #f7f3eb;
+    }
+
+    html[data-theme="dark"] .badge-charcoal {
+      background: rgba(59,74,63,0.35);
+      border-color: rgba(176,176,184,0.7);
+      color: #f5f5f5;
+    }
+
+    html[data-theme="dark"] .badge-rose {
+      background: rgba(217,165,179,0.18);
+      border-color: rgba(224,183,199,0.7);
+      color: #f7f3eb;
+    }
+
+    html[data-theme="dark"] .badge-sage {
+      background: rgba(155,181,155,0.18);
+      border-color: rgba(179,199,179,0.7);
+      color: #f7f3eb;
+    }
+
+    .template-dock {
+      margin-bottom: 1rem;
+      animation: fadeInUp var(--transition-slow);
+    }
 
     .template-dock h2 {
       margin: 0 0 0.5rem 0;
@@ -174,16 +383,44 @@
       font-size: 0.8rem;
       padding: 0.25rem 0.5rem;
       border-radius: 999px;
-      border: 1px solid var(--border-soft);
+      border: 1px solid var(--border-soft-light);
       background: #ffffff;
       cursor: pointer;
+      transition: background var(--transition-fast), border var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast);
     }
 
-    .template-pill:hover { background: #f0e7d8; }
+    .template-pill:hover {
+      background: #f0e7d8;
+      border-color: var(--accent-gold);
+      transform: translateY(-1px);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+    }
+
+    html[data-theme="dark"] .template-pill {
+      background: #1f2521;
+      border-color: var(--border-soft-dark);
+      color: var(--text-dark);
+    }
+
+    html[data-theme="dark"] .template-pill:hover {
+      background: rgba(199,154,59,0.18);
+      border-color: var(--accent-gold);
+    }
 
     .daily-toggle {
       margin-bottom: 1rem;
       font-size: 0.85rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .daily-toggle input[type="checkbox"] {
+      accent-color: var(--accent-gold);
+    }
+
+    html[data-theme="dark"] .daily-toggle input[type="checkbox"] {
+      accent-color: var(--accent-sage);
     }
 
     .grid {
@@ -193,13 +430,27 @@
       margin-bottom: 1rem;
     }
 
+    @media (max-width: 900px) {
+      .app-shell {
+        flex-direction: column;
+      }
+      .sidebar {
+        width: 100%;
+      }
+      .grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
     .section-list {
       margin-top: 0.4rem;
       font-size: 0.85rem;
       padding-left: 1rem;
     }
 
-    .section-list li { margin-bottom: 0.2rem; }
+    .section-list li {
+      margin-bottom: 0.2rem;
+    }
 
     details {
       margin-bottom: 0.6rem;
@@ -207,12 +458,22 @@
       border-radius: 8px;
       border: 1px solid #e0d5c5;
       padding: 0.4rem 0.6rem;
+      transition: background var(--transition-fast), border var(--transition-fast), box-shadow var(--transition-fast);
+    }
+
+    html[data-theme="dark"] details {
+      background: #1f2521;
+      border-color: var(--border-soft-dark);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.35);
     }
 
     summary {
       cursor: pointer;
       font-size: 0.9rem;
       font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
     }
 
     summary a {
@@ -224,642 +485,461 @@
       text-decoration: underline;
     }
 
-    summary::marker { color: var(--gold); }
+    summary::marker {
+      color: var(--gold);
+    }
+
+    html[data-theme="dark"] summary::marker {
+      color: var(--accent-sage);
+    }
+
+    #templateViewer {
+      animation: fadeInUp var(--transition-slow);
+    }
+
+    #templateContent {
+      white-space: pre-wrap;
+      font-size: 0.9rem;
+      margin-top: 0.5rem;
+    }
+
+    .non-production {
+      opacity: 0.9;
+      transition: opacity var(--transition-med), transform var(--transition-med), max-height var(--transition-med);
+    }
+
+    .non-production.hidden-daily {
+      opacity: 0;
+      transform: translateY(-4px);
+      max-height: 0;
+      overflow: hidden;
+      pointer-events: none;
+      margin: 0;
+      padding: 0;
+      border: none;
+      box-shadow: none;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(6px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-6px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
   </style>
 </head>
 <body>
-  <aside class="sidebar">
-    <div class="sidebar-title">BDC OS Portal</div>
-
-    <div class="nav-section-title">Core</div>
-    <a class="nav-link active" href="#home">Home Dashboard</a>
-    <a class="nav-link" href="#playbooksPanel">Playbooks</a>
-    <a class="nav-link" href="#messagingDock">Messaging System</a>
-    <a class="nav-link" href="#workflowsPanel">Workflow System</a>
-    <a class="nav-link" href="#kpi">KPI Dashboard</a>
-    <a class="nav-link" href="#qa">QA Center</a>
-
-    <div class="nav-section-title">Governance</div>
-    <a class="nav-link" href="#compliance">Compliance Command Center</a>
-    <a class="nav-link" href="#governance">Governance Center</a>
-    <a class="nav-link" href="#continuity">Continuity Center</a>
-
-    <div class="nav-section-title">Brand & Training</div>
-    <a class="nav-link" href="#brand">Brand Identity System</a>
-    <a class="nav-link" href="#training">Training System</a>
-    <a class="nav-link" href="#templateLibrary">Template Library</a>
-    <a class="nav-link" href="#customerQuestions">Customer Questions</a>
-    <a class="nav-link" href="#responseSystems">Response & Messaging Systems</a>
-
-    <div class="sidebar-footer">
-      Daily Mode toggle lives in main panel.
-    </div>
-  </aside>
-
-  <main class="main" id="home">
-    <header class="header">
-      <div class="header-title">BDC Master Container – Enterprise Portal</div>
-      <div class="role-switcher">
-        <label for="role">Role: </label>
-        <select id="role">
-          <option value="rep">Rep</option>
-          <option value="manager">Manager</option>
-          <option value="executive">Executive</option>
-        </select>
-      </div>
-    </header>
-
-    <!-- Messaging / Template Dock -->
-    <section class="template-dock" id="messagingDock">
-      <!-- Filled dynamically by JS -->
-    </section>
-
-    <div id="templateViewer" class="card" style="display:none; margin-bottom:1rem;">
-      <h3 id="templateTitle"></h3>
-      <pre id="templateContent" style="white-space:pre-wrap; font-size:0.9rem; margin-top:0.5rem;"></pre>
-    </div>
-
-    <div class="daily-toggle">
-      <input type="checkbox" id="dailyMode" />
-      <label for="dailyMode">Daily Mode (hide non-production sections)</label>
-    </div>
-
-    <!-- Workflows + Playbooks -->
-    <section class="grid" id="workflowsPanel">
-      <div class="card">
-        <h3>Daily Workflow Panel <span class="badge badge-gold">Core</span></h3>
-
-        <details open id="newLeadWorkflow">
-          <summary><a href="#newLeadWorkflowDoc">New Lead Workflow</a></summary>
-          <ul class="section-list">
-            <li>Step 1: First response (email + text + VM)</li>
-            <li>Step 2: Follow-up within 2 hours</li>
-            <li>Step 3: Day-2 re-engage</li>
-          </ul>
-        </details>
-
-        <details id="priceWorkflow">
-          <summary><a href="#priceWorkflowDoc">Price Workflow</a></summary>
-          <ul class="section-list">
-            <li>Step 1: Price email + text</li>
-            <li>Step 2: Clarify budget + timeline</li>
-          </ul>
-        </details>
-
-        <details id="tradeWorkflow">
-          <summary><a href="#tradeWorkflowDoc">Trade Workflow</a></summary>
-          <ul class="section-list">
-            <li>Step 1: Gather trade details</li>
-            <li>Step 2: Set expectation on appraisal</li>
-          </ul>
-        </details>
-
-        <details id="quietLeadWorkflow">
-          <summary><a href="#quietLeadWorkflowDoc">Quiet Lead Workflow</a></summary>
-          <ul class="section-list">
-            <li>Step 1: Soft nudge text</li>
-            <li>Step 2: Alternate channel attempt</li>
-          </ul>
-        </details>
-
-        <details id="appointmentWorkflow">
-          <summary><a href="#appointmentWorkflowDoc">Appointment Workflow</a></summary>
-          <ul class="section-list">
-            <li>Step 1: Confirm time + date</li>
-            <li>Step 2: Reminder text</li>
-          </ul>
-        </details>
-
-        <details id="soldRedirectWorkflow">
-          <summary><a href="#soldRedirectWorkflowDoc">Sold Redirect Workflow</a></summary>
-          <ul class="section-list">
-            <li>Step 1: Notify customer vehicle sold</li>
-            <li>Step 2: Offer similar alternatives</li>
-          </ul>
-        </details>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="sidebar-title">
+        BDC OS Portal <span>Enterprise</span>
       </div>
 
-      <div class="card" id="playbooksPanel">
-        <h3>Playbook Panel <span class="badge badge-gold">Core</span></h3>
+      <div class="nav-section-title">Core</div>
+      <a class="nav-link active" href="#home">
+        <span>Home Dashboard</span>
+        <span class="nav-pill">Core</span>
+      </a>
+      <a class="nav-link" href="#playbooksPanel">
+        <span>Playbooks</span>
+        <span class="nav-pill">Core</span>
+      </a>
+      <a class="nav-link" href="#messagingDock">
+        <span>Messaging System</span>
+        <span class="nav-pill">Core</span>
+      </a>
+      <a class="nav-link" href="#workflowsPanel">
+        <span>Workflow System</span>
+        <span class="nav-pill">Core</span>
+      </a>
+      <a class="nav-link" href="#kpi">
+        <span>KPI Dashboard</span>
+        <span class="nav-pill">Core</span>
+      </a>
+      <a class="nav-link" href="#qa">
+        <span>QA Center</span>
+        <span class="nav-pill">Core</span>
+      </a>
 
-        <details open id="newLeadPlaybook">
-          <summary><a href="#newLeadPlaybookDoc">New Lead Playbook</a></summary>
-          <ul class="section-list">
-            <li>Use New Lead Email + Text + VM on Day 1</li>
-            <li>Follow up with Quiet Lead Text if no response</li>
-          </ul>
-        </details>
+      <div class="nav-section-title">Governance</div>
+      <a class="nav-link" href="#compliance">
+        <span>Compliance Command Center</span>
+        <span class="nav-pill">Core</span>
+      </a>
+      <a class="nav-link" href="#governance">
+        <span>Governance Center</span>
+        <span class="nav-pill">Core</span>
+      </a>
+      <a class="nav-link" href="#continuity">
+        <span>Continuity Center</span>
+        <span class="nav-pill">Stable</span>
+      </a>
 
-        <details id="pricePlaybook">
-          <summary><a href="#pricePlaybookDoc">Price Playbook</a></summary>
-          <ul class="section-list">
-            <li>Send Price Request Email + Price Text</li>
-            <li>Clarify budget and timeline</li>
-          </ul>
-        </details>
+      <div class="nav-section-title">Brand & Training</div>
+      <a class="nav-link" href="#brand">
+        <span>Brand Identity System</span>
+        <span class="nav-pill">Optional</span>
+      </a>
+      <a class="nav-link" href="#training">
+        <span>Training System</span>
+        <span class="nav-pill">Optional</span>
+      </a>
+      <a class="nav-link" href="#templateLibrary">
+        <span>Template Library</span>
+        <span class="nav-pill">Optional</span>
+      </a>
+      <a class="nav-link" href="#customerQuestions">
+        <span>Customer Questions</span>
+        <span class="nav-pill">Optional</span>
+      </a>
+      <a class="nav-link" href="#responseSystems">
+        <span>Response & Messaging Systems</span>
+        <span class="nav-pill">Core</span>
+      </a>
 
-        <details id="tradePlaybook">
-          <summary><a href="#tradePlaybookDoc">Trade Playbook</a></summary>
-          <ul class="section-list">
-            <li>Gather VIN, miles, photos</li>
-            <li>Explain appraisal process</li>
-          </ul>
-        </details>
-
-        <details id="appointmentPlaybook">
-          <summary><a href="#appointmentPlaybookDoc">Appointment Playbook</a></summary>
-          <ul class="section-list">
-            <li>Confirm date/time via Email + Text</li>
-            <li>Send reminder text</li>
-          </ul>
-        </details>
+      <div class="sidebar-footer">
+        Daily Mode & Theme toggle live in the main panel.
       </div>
-    </section>
+    </aside>
 
-    <!-- KPI / QA -->
-    <section id="kpi" class="card">
-      <h3>KPI Dashboard <span class="badge badge-gold">Core</span></h3>
-      <p style="font-size:0.85rem;">Future space for KPIs and metrics.</p>
-    </section>
+    <main class="main" id="home">
+      <header class="header">
+        <div>
+          <div class="header-title">
+            BDC Master Container – Enterprise Portal
+            <span>Light: Gold Sage Mist · Dark: Midnight Sage</span>
+          </div>
+        </div>
+        <div style="display:flex; flex-direction:column; gap:0.35rem; align-items:flex-end;">
+          <div class="role-switcher">
+            <label for="role">Role: </label>
+            <select id="role">
+              <option value="rep">Rep</option>
+              <option value="manager">Manager</option>
+              <option value="executive">Executive</option>
+            </select>
+          </div>
+          <div class="theme-toggle">
+            <span>Theme:</span>
+            <button id="themeToggleBtn" type="button">
+              <span id="themeLabel">Auto · Day/Evening</span>
+            </button>
+          </div>
+        </div>
+      </header>
 
-    <section id="qa" class="card">
-      <h3>QA Center <span class="badge badge-gold">Core</span></h3>
-      <p style="font-size:0.85rem;">Future space for QA reviews and audits.</p>
-    </section>
+      <!-- Messaging / Template Dock -->
+      <section class="template-dock" id="messagingDock">
+        <h2>Messaging & Template Dock</h2>
+        <div class="template-dock-row">
+          <button class="template-pill" data-template="newLeadEmail">New Lead Email</button>
+          <button class="template-pill" data-template="newLeadText">New Lead Text</button>
+          <button class="template-pill" data-template="newLeadVM">New Lead Voicemail</button>
+          <button class="template-pill" data-template="quietLeadText">Quiet Lead Text</button>
+          <button class="template-pill" data-template="priceRequestEmail">Price Request Email</button>
+          <button class="template-pill" data-template="priceText">Price Text</button>
+          <button class="template-pill" data-template="tradeEmail">Trade Email</button>
+          <button class="template-pill" data-template="soldRedirectText">Sold Redirect Text</button>
+        </div>
+      </section>
 
-    <!-- Governance / Compliance / Continuity -->
-    <section id="compliance" class="card">
-      <h3>Compliance Command Center <span class="badge badge-charcoal">Core</span></h3>
-      <details id="policyGovernanceDoc">
-        <summary><a href="#policyGovernanceDoc">Compliance Guardrails</a></summary>
-        <ul class="section-list">
-          <li>Messaging compliance and documentation.</li>
-        </ul>
-      </details>
-    </section>
+      <div id="templateViewer" class="card" style="display:none; margin-bottom:1rem;">
+        <h3 id="templateTitle"></h3>
+        <pre id="templateContent"></pre>
+      </div>
 
-    <section id="governance" class="card">
-      <h3>Governance Center <span class="badge badge-charcoal">Core</span></h3>
-      <details>
-        <summary><a href="#governanceDoc">Policy Governance</a></summary>
-        <ul class="section-list">
-          <li>BDC policies and governance frameworks.</li>
-        </ul>
-      </details>
-    </section>
+      <div class="daily-toggle">
+        <input type="checkbox" id="dailyMode" />
+        <label for="dailyMode">Daily Mode (hide non-production sections)</label>
+      </div>
 
-    <section id="continuity" class="card">
-      <h3>Continuity Center <span class="badge badge-sage">Stable</span></h3>
-      <details>
-        <summary><a href="#staffingContinuityDoc">Staffing Continuity</a></summary>
-        <ul class="section-list">
-          <li>Coverage plans and continuity workflows.</li>
-        </ul>
-      </details>
-    </section>
+      <!-- Workflows + Playbooks -->
+      <section class="grid" id="workflowsPanel">
+        <div class="card">
+          <h3>Daily Workflow Panel <span class="badge badge-gold">Core</span></h3>
 
-    <!-- Brand / Training -->
-    <section id="brand" class="card">
-      <h3>Brand Identity System <span class="badge badge-rose">Optional</span></h3>
-      <details id="styleGuideDoc">
-        <summary><a href="#styleGuideDoc">Style Guide</a></summary>
-        <ul class="section-list">
-          <li>Colors: ivory, gold, dusty rose, sage, terracotta.</li>
-        </ul>
-      </details>
-    </section>
+          <details open id="newLeadWorkflow">
+            <summary><a href="#newLeadWorkflowDoc">New Lead Workflow</a></summary>
+            <ul class="section-list">
+              <li>Step 1: First response (email + text + VM)</li>
+              <li>Step 2: Follow-up within 2 hours</li>
+              <li>Step 3: Day-2 re-engage</li>
+            </ul>
+          </details>
 
-    <section id="training" class="card">
-      <h3>Training System <span class="badge badge-rose">Optional</span></h3>
-      <details id="repQuickstartDoc">
-        <summary><a href="#repQuickstartDoc">Rep Quickstart</a></summary>
-        <ul class="section-list">
-          <li>Daily routine for supporting 40+ sales/month.</li>
-        </ul>
-      </details>
-    </section>
+          <details id="priceWorkflow">
+            <summary><a href="#priceWorkflowDoc">Price Workflow</a></summary>
+            <ul class="section-list">
+              <li>Step 1: Price email + text</li>
+              <li>Step 2: Clarify budget + timeline</li>
+            </ul>
+          </details>
 
-    <!-- Template Library (Day 1–7, long-term, etc.) -->
-    <section id="templateLibrary" class="card">
-      <h3>Template Library <span class="badge badge-gold">Core</span></h3>
+          <details id="tradeWorkflow">
+            <summary><a href="#tradeWorkflowDoc">Trade Workflow</a></summary>
+            <ul class="section-list">
+              <li>Step 1: Gather trade details</li>
+              <li>Step 2: Set expectation on appraisal</li>
+            </ul>
+          </details>
 
-      <details>
-        <summary>Day 1 Templates</summary>
-        <ul class="section-list">
-          <li><button class="template-pill">Day 1 Email</button></li>
-          <li><button class="template-pill">Day 1 Text</button></li>
-          <li><button class="template-pill">Day 1 VM</button></li>
-        </ul>
-      </details>
+          <details id="quietLeadWorkflow">
+            <summary><a href="#quietLeadWorkflowDoc">Quiet Lead Workflow</a></summary>
+            <ul class="section-list">
+              <li>Step 1: Soft nudge text</li>
+              <li>Step 2: Alternate channel attempt</li>
+            </ul>
+          </details>
 
-      <details>
-        <summary>Day 2 Templates</summary>
-        <ul class="section-list">
-          <li><button class="template-pill">Day 2 Email</button></li>
-          <li><button class="template-pill">Day 2 Text</button></li>
-          <li><button class="template-pill">Day 2 VM</button></li>
-        </ul>
-      </details>
+          <details id="appointmentWorkflow">
+            <summary><a href="#appointmentWorkflowDoc">Appointment Workflow</a></summary>
+            <ul class="section-list">
+              <li>Step 1: Confirm time + date</li>
+              <li>Step 2: Reminder text</li>
+            </ul>
+          </details>
 
-      <details>
-        <summary>Day 3–7 Templates</summary>
-        <ul class="section-list">
-          <li><button class="template-pill">Day 3 Email</button></li>
-          <li><button class="template-pill">Day 4 Text</button></li>
-          <li><button class="template-pill">Day 5 VM</button></li>
-          <li><button class="template-pill">Day 6 Email</button></li>
-          <li><button class="template-pill">Day 7 Text</button></li>
-        </ul>
-      </details>
+          <details id="soldRedirectWorkflow">
+            <summary><a href="#soldRedirectWorkflowDoc">Sold Redirect Workflow</a></summary>
+            <ul class="section-list">
+              <li>Step 1: Notify customer vehicle sold</li>
+              <li>Step 2: Offer similar alternatives</li>
+            </ul>
+          </details>
+        </div>
 
-      <details>
-        <summary>Long-Term Follow-Up</summary>
-        <ul class="section-list">
-          <li><button class="template-pill">30-Day Follow-Up</button></li>
-          <li><button class="template-pill">60-Day Follow-Up</button></li>
-          <li><button class="template-pill">90-Day Follow-Up</button></li>
-        </ul>
-      </details>
-    </section>
+        <div class="card" id="playbooksPanel">
+          <h3>Playbook Panel <span class="badge badge-gold">Core</span></h3>
 
-    <!-- Response & Messaging Systems -->
-    <section id="responseSystems" class="card">
-      <h3>Response & Messaging Systems <span class="badge badge-gold">Core</span></h3>
+          <details open id="newLeadPlaybook">
+            <summary><a href="#newLeadPlaybookDoc">New Lead Playbook</a></summary>
+            <ul class="section-list">
+              <li>Use New Lead Email + Text + VM on Day 1</li>
+              <li>Follow up with Quiet Lead Text if no response</li>
+            </ul>
+          </details>
 
-      <details>
-        <summary>Customer Response Handling</summary>
-        <ul class="section-list">
-          <li>Match your reply to what the customer gave you.</li>
-          <li>Keep answers helpful, address their exact concern, and end with one clear next step.</li>
-          <li>Use appropriate templates (email, text, VM) based on their tone and urgency.</li>
-        </ul>
-      </details>
+          <details id="pricePlaybook">
+            <summary><a href="#pricePlaybookDoc">Price Playbook</a></summary>
+            <ul class="section-list">
+              <li>Send Price Request Email + Price Text</li>
+              <li>Clarify budget and timeline</li>
+            </ul>
+          </details>
 
-      <details>
-        <summary>Quick Message Customization Tips</summary>
-        <ul class="section-list">
-          <li>Replace placeholders (name, vehicle, timeline) before sending.</li>
-          <li>Remove anything that does not apply to this customer.</li>
-          <li>Ask one main question and end with one clear next step.</li>
-          <li>Match the customer’s tone and keep messages short and easy to answer.</li>
-        </ul>
-      </details>
+          <details id="tradePlaybook">
+            <summary><a href="#tradePlaybookDoc">Trade Playbook</a></summary>
+            <ul class="section-list">
+              <li>Gather VIN, miles, photos</li>
+              <li>Explain appraisal process</li>
+            </ul>
+          </details>
 
-      <details>
-        <summary>Vehicle Sold Redirect Messages</summary>
-        <ul class="section-list">
-          <li>Use “Vehicle Sold” text/email to notify the customer their vehicle of interest has sold.</li>
-          <li>Offer similar alternatives and invite them to review options.</li>
-          <li>Keep tone helpful and forward-looking (focus on solutions, not loss).</li>
-        </ul>
-      </details>
+          <details id="appointmentPlaybook">
+            <summary><a href="#appointmentPlaybookDoc">Appointment Playbook</a></summary>
+            <ul class="section-list">
+              <li>Confirm date/time via Email + Text</li>
+              <li>Send reminder text</li>
+            </ul>
+          </details>
+        </div>
+      </section>
 
-      <details>
-        <summary>ReplyReady Lead Playbooks</summary>
-        <ul class="section-list">
-          <li>Copy-ready lead follow-up systems for dealerships and sales teams.</li>
-          <li>Respond faster, sound more professional, and turn more leads into real conversations.</li>
-          <li>Use structured sequences for New Lead, Price, Trade, Appointment, and Quiet Lead scenarios.</li>
-        </ul>
-      </details>
+      <!-- KPI / QA -->
+      <section id="kpi" class="card">
+        <h3>KPI Dashboard <span class="badge badge-gold">Core</span></h3>
+        <p style="font-size:0.85rem;">Future space for KPIs and metrics.</p>
+      </section>
 
-      <details>
-        <summary>Work Emails and Follow-Up Message Playbook</summary>
-        <ul class="section-list">
-          <li>Start with the guide and checklist, then choose an email or text based on the customer’s situation.</li>
-          <li>Use response handling and word tracks when a customer replies with a question, objection, or buying signal.</li>
-          <li>Keep follow-up consistent and documented inside your CRM or portal.</li>
-        </ul>
-      </details>
-    </section>
+      <section id="qa" class="card">
+        <h3>QA Center <span class="badge badge-gold">Core</span></h3>
+        <p style="font-size:0.85rem;">Future space for QA reviews and audits.</p>
+      </section>
 
-    <!-- Customer Questions Library -->
-    <section id="customerQuestions" class="card">
-      <h3>Customer Questions Library <span class="badge badge-gold">Core</span></h3>
+      <!-- Governance / Compliance / Continuity -->
+      <section id="compliance" class="card">
+        <h3>Compliance Command Center <span class="badge badge-charcoal">Core</span></h3>
+        <details id="policyGovernanceDoc">
+          <summary><a href="#policyGovernanceDoc">Compliance Guardrails</a></summary>
+          <ul class="section-list">
+            <li>Messaging compliance and documentation.</li>
+          </ul>
+        </details>
+      </section>
 
-      <details open>
-        <summary>1. Discovery – Needs & Preferences</summary>
-        <ul class="section-list">
-          <li>What can I help you accomplish today?</li>
-          <li>What are you looking for in your next vehicle?</li>
-          <li>What are your must-have requirements?</li>
-          <li>What will you mainly be using the vehicle for?</li>
-          <li>How many passengers or how much space do you typically need?</li>
-          <li>What features are most important to you?</li>
-          <li>What have you seen so far that you’ve liked or didn’t like?</li>
-          <li>What’s prompting the change right now?</li>
-          <li>If everything went perfectly, what would your next vehicle do differently for you?</li>
-          <li>What do you wish your current vehicle did better?</li>
-          <li><strong>Urgency & Consequence (Subtle)</strong></li>
-          <li>What happens if you don’t make a change right now?</li>
-          <li>Is there anything pushing you to make a decision sooner rather than later?</li>
-        </ul>
-      </details>
+      <section id="governance" class="card">
+        <h3>Governance Center <span class="badge badge-charcoal">Core</span></h3>
+        <details>
+          <summary><a href="#governanceDoc">Policy Governance</a></summary>
+          <ul class="section-list">
+            <li>BDC policies and governance frameworks.</li>
+          </ul>
+        </details>
+      </section>
 
-      <details>
-        <summary>2. Vehicle Fit & Options</summary>
-        <ul class="section-list">
-          <li>Have you driven anything you’re considering?</li>
-          <li>Have you seen or experienced this vehicle in person yet?</li>
-          <li>Do you have a specific model, trim, or color in mind?</li>
-          <li>Are you open to similar options if I find something comparable?</li>
-          <li>If the exact vehicle isn’t available, what are you willing to be flexible on: color, mileage, trim, features, or price?</li>
-          <li>Are there any deal-breakers I should avoid when looking at options for you?</li>
-          <li>Which vehicle are you most interested in: year, make, model, or stock number?</li>
-          <li>Would you like to see a Carfax report on this vehicle?</li>
-          <li>What would make you feel confident about owning this vehicle long-term?</li>
-          <li>Is warranty coverage or maintenance history important to you?</li>
-          <li>Do you typically keep vehicles for a few years, or drive them as long as possible?</li>
-          <li>What does a typical day with your vehicle look like?</li>
-          <li>Are you ready to schedule a time to come in and look at our vehicle, or are you looking to get pricing together first?</li>
-          <li>What stood out to you when you saw this vehicle online?</li>
-          <li>Was there anything missing from the listing that you wanted to know?</li>
-          <li>Would photos, a video, or a quick side-by-side comparison help?</li>
-          <li><strong>Competitive Insight</strong></li>
-          <li>What other vehicles are you comparing this to?</li>
-          <li>What stands out to you about those options?</li>
-          <li>How do you think this would fit into your daily routine?</li>
-        </ul>
-      </details>
+      <section id="continuity" class="card">
+        <h3>Continuity Center <span class="badge badge-sage">Stable</span></h3>
+        <details>
+          <summary><a href="#staffingContinuityDoc">Staffing Continuity</a></summary>
+          <ul class="section-list">
+            <li>Coverage plans and continuity workflows.</li>
+          </ul>
+        </details>
+      </section>
 
-      <details>
-        <summary>3. Budget & Financing</summary>
-        <ul class="section-list">
-          <li>Are you planning to pay cash, finance, or lease?</li>
-          <li>Did you have a down payment amount in mind?</li>
-          <li>Would you like to get pre-approved before coming in?</li>
-          <li>What feels like a comfortable investment for you?</li>
-          <li>How do you usually prefer to structure a purchase like this?</li>
-          <li>Do you mind if we talk briefly about budget, so I don’t show you something outside your comfort zone?</li>
-          <li>Have you spent any time looking at pricing or payments yet?</li>
-          <li>Are you looking to purchase or lease?</li>
-          <li>How much would you like to put down, if any?</li>
-          <li>What monthly payment range are you hoping to stay within?</li>
-          <li>Have you already been pre-approved with a lender, or would you like us to help with financing?</li>
-        </ul>
-      </details>
+      <!-- Brand / Training -->
+      <section id="brand" class="card non-production">
+        <h3>Brand Identity System <span class="badge badge-rose">Optional</span></h3>
+        <details id="styleGuideDoc">
+          <summary><a href="#styleGuideDoc">Style Guide</a></summary>
+          <ul class="section-list">
+            <li>Colors: ivory, gold, dusty rose, sage, terracotta.</li>
+          </ul>
+        </details>
+      </section>
 
-      <details>
-        <summary>4. Trade-In (If Applicable)</summary>
-        <ul class="section-list">
-          <li>Are you considering trading in your current vehicle?</li>
-          <li>Do you have a vehicle to trade in?</li>
-          <li>About how many miles are on it?</li>
-          <li>Is it paid off or still financed?</li>
-          <li>Would you like us to provide a quick appraisal when you come in?</li>
-        </ul>
-      </details>
+      <section id="training" class="card non-production">
+        <h3>Training System <span class="badge badge-rose">Optional</span></h3>
+        <details id="repQuickstartDoc">
+          <summary><a href="#repQuickstartDoc">Rep Quickstart</a></summary>
+          <ul class="section-list">
+            <li>Daily routine for supporting 40+ sales/month.</li>
+          </ul>
+        </details>
+      </section>
 
-      <details>
-        <summary>5. Appointment & Next Steps</summary>
-        <ul class="section-list">
-          <li>Would you like to schedule a time to stop by and test drive?</li>
-          <li>What day and time works best for you?</li>
-          <li>How would you feel about taking it for a spin today or this evening?</li>
-          <li>Would you like to speak with a product specialist before coming in?</li>
-          <li>Is there anything I can have ready for you before you arrive?</li>
-          <li>How does this option feel compared to what you had in mind?</li>
-          <li>On a scale from 1–10, how close is this to what you’re looking for?</li>
-          <li>Want me to walk you through how this usually goes, so you know what to expect?</li>
-          <li>Typically, we’ll narrow down what fits you best, look at a couple of options, and then, if it makes sense, go over numbers—sound fair?</li>
-          <li>Is there anything about this that doesn’t feel quite right yet?</li>
-          <li>If everything lined up the way you wanted, would this be something you’d move forward with?</li>
-          <li>What would need to happen for you to feel this was worth the trip in?</li>
-          <li>Would you prefer I narrow this down to one best option or send you a few choices?</li>
-        </ul>
-      </details>
+      <section id="templateLibrary" class="card non-production">
+        <h3>Template Library <span class="badge badge-rose">Optional</span></h3>
+        <p style="font-size:0.85rem;">Future space for full template library indexing.</p>
+      </section>
 
-      <details>
-        <summary>6. Communication & Follow-Up</summary>
-        <ul class="section-list">
-          <li>What’s the best way to reach you—text, email, or call?</li>
-          <li>What is your ZIP code?</li>
-          <li>What’s holding you back from coming in to take a look?</li>
-          <li>What would make this a great experience for you?</li>
-          <li>What concerns, if any, do you still have?</li>
-          <li>Is there anything you’re unsure about that I can help clarify?</li>
-          <li>What would you need to see or hear to feel 100% comfortable moving forward?</li>
-          <li>If you leave today and want to think on it, what would the next step look like for you?</li>
-        </ul>
-      </details>
+      <section id="customerQuestions" class="card non-production">
+        <h3>Customer Questions <span class="badge badge-rose">Optional</span></h3>
+        <p style="font-size:0.85rem;">Future space for categorized customer questions and answer systems.</p>
+      </section>
 
-      <details>
-        <summary>7. Decision Process</summary>
-        <ul class="section-list">
-          <li>Besides yourself, is there anyone else involved in the decision?</li>
-          <li>What does your decision timeline look like?</li>
-          <li>What’s most important to you when choosing where to buy from?</li>
-          <li>What kind of experience are you hoping to have during this process?</li>
-          <li>Are you currently just researching, or are you hoping to make a purchase in the next 30 days?</li>
-        </ul>
-      </details>
+      <section id="responseSystems" class="card">
+        <h3>Response & Messaging Systems <span class="badge badge-gold">Core</span></h3>
+        <p style="font-size:0.85rem;">Future space for centralized response systems, routing, and escalation logic.</p>
+      </section>
+    </main>
+  </div>
 
-      <details>
-        <summary>8. Emotional Connection / Personal Context</summary>
-        <ul class="section-list">
-          <li>What do you enjoy most about driving?</li>
-          <li>What would make this vehicle feel like the perfect fit for you personally?</li>
-          <li>What kind of vehicle feels most like you?</li>
-          <li>When you think about your next car, what do you want it to say about you?</li>
-          <li>What would make you excited to get in your car every day?</li>
-          <li>What would give you the most peace of mind in your next vehicle?</li>
-          <li>How would having the right vehicle change your day-to-day?</li>
-          <li>What would this make easier for you or your family?</li>
-        </ul>
-      </details>
+  <script>
+    const templateData = {
+      newLeadEmail: {
+        title: "New Lead Email",
+        content: "Subject: Thank you for contacting us\n\nHi {{First Name}},\n\nThank you for reaching out about {{Vehicle of Interest}}. I’m your point of contact here at the dealership and I’ll make sure you have everything you need.\n\nI have a few quick questions to help us serve you best:\n- Are you planning to visit us in the next few days?\n- Do you have a trade-in?\n- What’s the best way to reach you (text, call, or email)?\n\nReply to this email or text me directly and I’ll take care of the rest.\n\nThank you,\nRaven\nBDC Team"
+      },
+      newLeadText: {
+        title: "New Lead Text",
+        content: "Hi {{First Name}}, this is Raven with Bachman. I received your request on {{Vehicle of Interest}}. Is this the best number to text you? I can answer questions or help you schedule a visit."
+      },
+      newLeadVM: {
+        title: "New Lead Voicemail",
+        content: "Hi {{First Name}}, this is Raven with Bachman. I’m calling about your interest in {{Vehicle of Interest}}. I just sent you an email and a quick text with some options. When you have a moment, you can call or text me back at this number and I’ll help you with next steps."
+      },
+      quietLeadText: {
+        title: "Quiet Lead Text",
+        content: "Hi {{First Name}}, just checking in—did you still want to look at {{Vehicle of Interest}}? I can answer questions or help you schedule a visit. If you’ve already found something else, just let me know so I can update my notes."
+      },
+      priceRequestEmail: {
+        title: "Price Request Email",
+        content: "Subject: Pricing details for {{Vehicle of Interest}}\n\nHi {{First Name}},\n\nThank you for asking about pricing on {{Vehicle of Interest}}. Based on what we have today, here’s the current price:\n\n- Vehicle: {{Vehicle of Interest}}\n- Price: {{Price}}\n\nIf you’d like, I can also walk you through payment options, trade-in estimates, or similar vehicles in your budget.\n\nWhat’s most important to you right now—price, payment, or timing?\n\nThank you,\nRaven\nBDC Team"
+      },
+      priceText: {
+        title: "Price Text",
+        content: "Hi {{First Name}}, this is Raven with Bachman. I’ve sent pricing details for {{Vehicle of Interest}} to your email. Would you like to talk about payments, trade-in, or timing next?"
+      },
+      tradeEmail: {
+        title: "Trade Email",
+        content: "Subject: Trade-in details\n\nHi {{First Name}},\n\nI can help you with a trade-in estimate. To get started, please reply with:\n- Year, make, and model\n- Approximate miles\n- Any major damage or mechanical issues\n- A few photos (front, back, and interior)\n\nOnce I have that, I’ll share next steps and what to expect from the appraisal.\n\nThank you,\nRaven\nBDC Team"
+      },
+      soldRedirectText: {
+        title: "Sold Redirect Text",
+        content: "Hi {{First Name}}, this is Raven with Bachman. The {{Vehicle of Interest}} has sold, but I can help find similar options in your budget and timeline. Are you open to looking at a few comparable vehicles?"
+      }
+    };
 
-      <details>
-        <summary>9. Phone Number Requests</summary>
-        <ul class="section-list">
-          <li>What's the best number to reach you at if I find a similar vehicle or a price change you'd want to know about right away?</li>
-          <li>Would it be easier to text you a quick walkaround video of the vehicle? If so, what's the best mobile number?</li>
-          <li>If I locate additional options that fit what you're looking for, what's the best number to send them to?</li>
-          <li>I don't want to fill up your inbox—would you prefer email only, text updates, or a quick phone call when I have important information?</li>
-        </ul>
-      </details>
-    </section>
+    const templateViewer = document.getElementById("templateViewer");
+    const templateTitle = document.getElementById("templateTitle");
+    const templateContent = document.getElementById("templateContent");
 
-    <script>
-      /* ROLE-BASED TEMPLATES */
-      const roleTemplates = {
-        rep: {
-          "New Lead Email": `Hi {{First Name}},\nThanks for your interest in the {{Vehicle of Interest}}. I’m here to help with availability, pricing, and next steps.\nAre you looking to stop by today or tomorrow?\n\n— Raven (Rep)`,
-          "Price Request Email": `Hi {{First Name}},\nThanks for requesting pricing on the {{Vehicle of Interest}}. I can send full numbers and options.\nAre you planning to finance, pay cash, or explore both?\n\n— Raven (Rep)`,
-          "Trade-In Email": `Hi {{First Name}},\nI can get you an accurate trade value. Could you share your VIN, miles, and a few photos?\n\n— Raven (Rep)`,
-          "Quiet Lead Email": `Hi {{First Name}},\nJust checking in — I’m here if you still need help with the {{Vehicle of Interest}}.\nWhat’s the best next step for you?\n\n— Raven (Rep)`,
-          "Appointment Confirmation Email": `Hi {{First Name}},\nYour appointment for the {{Vehicle of Interest}} is confirmed for {{Date/Time}}.\n\n— Raven (Rep)`,
-
-          "New Lead Text": `Hi {{First Name}}, this is Raven at Bachman. I got your request on the {{Vehicle of Interest}} — are you looking to stop by today or tomorrow?`,
-          "Price Text": `Hi {{First Name}}, I can send full pricing on the {{Vehicle of Interest}}. Are you planning to finance or pay cash?`,
-          "Trade Text": `Hi {{First Name}}, I can get your trade value. Can you send VIN + miles?`,
-          "Quiet Lead Text": `Hi {{First Name}}, still here to help with the {{Vehicle of Interest}}. What’s the best next step?`,
-          "Appointment Text": `Hi {{First Name}}, your appointment for the {{Vehicle of Interest}} is confirmed for {{Date/Time}}.`,
-
-          "New Lead VM": `Hi {{First Name}}, this is Raven at Bachman. I got your request on the {{Vehicle of Interest}} and I’m working on it now. I’ll text you in a moment so you have my direct line.`,
-          "Price VM": `Hi {{First Name}}, Raven at Bachman. I’m putting together your pricing now and will text you the details.`,
-          "Trade VM": `Hi {{First Name}}, Raven at Bachman. I can get your trade value — I’ll text you what I need.`,
-          "Appointment VM": `Hi {{First Name}}, Raven at Bachman. Your appointment is confirmed for {{Date/Time}}. I’ll send a text as well.`,
-
-          "Day 1 Email": `Day 1 follow-up email template (Rep).`,
-          "Day 1 Text": `Day 1 follow-up text template (Rep).`,
-          "Day 1 VM": `Day 1 follow-up voicemail template (Rep).`,
-          "Day 2 Email": `Day 2 follow-up email template (Rep).`,
-          "Day 2 Text": `Day 2 follow-up text template (Rep).`,
-          "Day 2 VM": `Day 2 follow-up voicemail template (Rep).`,
-          "Day 3 Email": `Day 3 follow-up email template (Rep).`,
-          "Day 4 Text": `Day 4 follow-up text template (Rep).`,
-          "Day 5 VM": `Day 5 follow-up voicemail template (Rep).`,
-          "Day 6 Email": `Day 6 follow-up email template (Rep).`,
-          "Day 7 Text": `Day 7 follow-up text template (Rep).`,
-          "30-Day Follow-Up": `30-day follow-up template (Rep).`,
-          "60-Day Follow-Up": `60-day follow-up template (Rep).`,
-          "90-Day Follow-Up": `90-day follow-up template (Rep).`
-        },
-
-        manager: {
-          "New Lead Email": `Hi {{First Name}},\nI’m the BDC Manager at Bachman, and I wanted to personally thank you for your interest in the {{Vehicle of Interest}}.\nMy team is working on details now — are you planning to visit today or tomorrow?\n\n— Manager`,
-          "Price Request Email": `Hi {{First Name}},\nI oversee pricing for the {{Vehicle of Interest}}. I can walk you through numbers and options.\nAre you looking for lowest payment, shortest term, or best overall value?\n\n— Manager`,
-          "Trade-In Email": `Hi {{First Name}},\nI help ensure trade values are accurate and fair. Share VIN, miles, and photos, and we’ll start your appraisal.\n\n— Manager`,
-          "Quiet Lead Email": `Hi {{First Name}},\nJust checking in from management — we’re still here if you need help with the {{Vehicle of Interest}}.\nWhat would be most helpful right now?\n\n— Manager`,
-          "Appointment Confirmation Email": `Hi {{First Name}},\nYour appointment for the {{Vehicle of Interest}} is confirmed for {{Date/Time}}. I’ll make sure the team is ready.\n\n— Manager`,
-
-          "New Lead Text": `Hi {{First Name}}, this is the BDC Manager at Bachman. Thanks for your interest in the {{Vehicle of Interest}} — are you planning to stop by today or tomorrow?`,
-          "Price Text": `Hi {{First Name}}, I can help review pricing on the {{Vehicle of Interest}} and options that fit your budget.`,
-          "Trade Text": `Hi {{First Name}}, I oversee trade values — send VIN + miles and we’ll start your appraisal.`,
-          "Quiet Lead Text": `Hi {{First Name}}, just checking in from management — still here if you need help with the {{Vehicle of Interest}}.`,
-          "Appointment Text": `Hi {{First Name}}, your appointment for the {{Vehicle of Interest}} is confirmed for {{Date/Time}}. I’ll make sure we’re ready.`,
-
-          "New Lead VM": `Hi {{First Name}}, this is the BDC Manager at Bachman. I saw your request on the {{Vehicle of Interest}} and wanted to personally follow up. I’ll text you my direct line.`,
-          "Price VM": `Hi {{First Name}}, Manager at Bachman here. I’m reviewing pricing on the {{Vehicle of Interest}} and will text you details.`,
-          "Trade VM": `Hi {{First Name}}, Manager at Bachman. I help with trade values — I’ll text you what we need to start.`,
-          "Appointment VM": `Hi {{First Name}}, Manager at Bachman. Your appointment for {{Date/Time}} is confirmed. I’ll send a text as well.`,
-
-          "Day 1 Email": `Day 1 follow-up email template (Manager).`,
-          "Day 1 Text": `Day 1 follow-up text template (Manager).`,
-          "Day 1 VM": `Day 1 follow-up voicemail template (Manager).`,
-          "Day 2 Email": `Day 2 follow-up email template (Manager).`,
-          "Day 2 Text": `Day 2 follow-up text template (Manager).`,
-          "Day 2 VM": `Day 2 follow-up voicemail template (Manager).`,
-          "Day 3 Email": `Day 3 follow-up email template (Manager).`,
-          "Day 4 Text": `Day 4 follow-up text template (Manager).`,
-          "Day 5 VM": `Day 5 follow-up voicemail template (Manager).`,
-          "Day 6 Email": `Day 6 follow-up email template (Manager).`,
-          "Day 7 Text": `Day 7 follow-up text template (Manager).`,
-          "30-Day Follow-Up": `30-day follow-up template (Manager).`,
-          "60-Day Follow-Up": `60-day follow-up template (Manager).`,
-          "90-Day Follow-Up": `90-day follow-up template (Manager).`
-        },
-
-        executive: {
-          "New Lead Email": `Hi {{First Name}},\nI’m part of the leadership team at Bachman, and I wanted to personally thank you for considering the {{Vehicle of Interest}}.\nWe take your time seriously — are you planning to visit today or later this week?\n\n— Executive`,
-          "Price Request Email": `Hi {{First Name}},\nFrom an executive standpoint, I can ensure you see transparent pricing on the {{Vehicle of Interest}}.\nAre you focused on payment, total cost, or long-term value?\n\n— Executive`,
-          "Trade-In Email": `Hi {{First Name}},\nI help oversee trade policies to keep them fair and consistent. Share VIN, miles, and photos, and we’ll begin.\n\n— Executive`,
-          "Quiet Lead Email": `Hi {{First Name}},\nJust a quick note from leadership — we’re still here if you need help with the {{Vehicle of Interest}}.\nWhat would make this process easier for you?\n\n— Executive`,
-          "Appointment Confirmation Email": `Hi {{First Name}},\nYour appointment for the {{Vehicle of Interest}} is confirmed for {{Date/Time}}. We appreciate the opportunity to earn your business.\n\n— Executive`,
-
-          "New Lead Text": `Hi {{First Name}}, this is part of the leadership team at Bachman. Thanks for your interest in the {{Vehicle of Interest}} — are you planning to stop by today or later this week?`,
-          "Price Text": `Hi {{First Name}}, I can ensure you see transparent pricing on the {{Vehicle of Interest}}.`,
-          "Trade Text": `Hi {{First Name}}, I help oversee trade policies — send VIN + miles and we’ll begin.`,
-          "Quiet Lead Text": `Hi {{First Name}}, leadership checking in — still here if you need help with the {{Vehicle of Interest}}.`,
-          "Appointment Text": `Hi {{First Name}}, your appointment for the {{Vehicle of Interest}} is confirmed for {{Date/Time}}. We appreciate your time.`,
-
-          "New Lead VM": `Hi {{First Name}}, this is part of the leadership team at Bachman. I saw your interest in the {{Vehicle of Interest}} and wanted to personally follow up. I’ll text you my direct line.`,
-          "Price VM": `Hi {{First Name}}, leadership at Bachman here. I’m reviewing pricing on the {{Vehicle of Interest}} and will text you details.`,
-          "Trade VM": `Hi {{First Name}}, leadership at Bachman. I help oversee trade policies — I’ll text you what we need to start.`,
-          "Appointment VM": `Hi {{First Name}}, leadership at Bachman. Your appointment for {{Date/Time}} is confirmed. I’ll send a text as well.`,
-
-          "Day 1 Email": `Day 1 follow-up email template (Executive).`,
-          "Day 1 Text": `Day 1 follow-up text template (Executive).`,
-          "Day 1 VM": `Day 1 follow-up voicemail template (Executive).`,
-          "Day 2 Email": `Day 2 follow-up email template (Executive).`,
-          "Day 2 Text": `Day 2 follow-up text template (Executive).`,
-          "Day 2 VM": `Day 2 follow-up voicemail template (Executive).`,
-          "Day 3 Email": `Day 3 follow-up email template (Executive).`,
-          "Day 4 Text": `Day 4 follow-up text template (Executive).`,
-          "Day 5 VM": `Day 5 follow-up voicemail template (Executive).`,
-          "Day 6 Email": `Day 6 follow-up email template (Executive).`,
-          "Day 7 Text": `Day 7 follow-up text template (Executive).`,
-          "30-Day Follow-Up": `30-day follow-up template (Executive).`,
-          "60-Day Follow-Up": `60-day follow-up template (Executive).`,
-          "90-Day Follow-Up": `90-day follow-up template (Executive).`
+    document.querySelectorAll(".template-pill").forEach(pill => {
+      pill.addEventListener("click", () => {
+        const key = pill.getAttribute("data-template");
+        const data = templateData[key];
+        if (data) {
+          templateTitle.textContent = data.title;
+          templateContent.textContent = data.content;
+          templateViewer.style.display = "block";
         }
-      };
-
-      let currentRole = 'rep';
-
-      function attachTemplateClickHandlers() {
-        document.querySelectorAll('.template-pill').forEach(btn => {
-          btn.addEventListener('click', () => {
-            const name = btn.textContent.trim();
-            const viewer = document.getElementById('templateViewer');
-            const title = document.getElementById('templateTitle');
-            const content = document.getElementById('templateContent');
-
-            const templates = roleTemplates[currentRole];
-
-            if (templates && templates[name]) {
-              title.textContent = `${name} (${currentRole.toUpperCase()})`;
-              content.textContent = templates[name];
-              viewer.style.display = 'block';
-              viewer.scrollIntoView({ behavior: 'smooth' });
-            }
-          });
-        });
-      }
-
-      function loadRoleTemplates(role) {
-        const dock = document.getElementById('messagingDock');
-        const templateSet = roleTemplates[role];
-
-        let html = `
-          <h2>Daily Template Dock</h2>
-          <div class="template-dock-row">
-            <strong style="font-size:0.8rem;">Email:</strong>
-            ${Object.keys(templateSet)
-              .filter(k => k.includes("Email") && !k.includes("Day"))
-              .map(k => `<button class="template-pill">${k}</button>`).join("")}
-          </div>
-
-          <div class="template-dock-row">
-            <strong style="font-size:0.8rem;">Text:</strong>
-            ${Object.keys(templateSet)
-              .filter(k => k.includes("Text") && !k.includes("Day"))
-              .map(k => `<button class="template-pill">${k}</button>`).join("")}
-          </div>
-
-          <div class="template-dock-row">
-            <strong style="font-size:0.8rem;">Voicemail:</strong>
-            ${Object.keys(templateSet)
-              .filter(k => k.includes("VM") && !k.includes("Day"))
-              .map(k => `<button class="template-pill">${k}</button>`).join("")}
-          </div>
-        `;
-
-        dock.innerHTML = html;
-        attachTemplateClickHandlers();
-      }
-
-      document.getElementById('role').addEventListener('change', (e) => {
-        currentRole = e.target.value;
-        loadRoleTemplates(currentRole);
       });
+    });
 
-      const dailyCheckbox = document.getElementById('dailyMode');
-      const nonProdIds = ['brand', 'training', 'governance', 'continuity', 'compliance'];
+    const dailyModeCheckbox = document.getElementById("dailyMode");
+    const nonProductionSections = document.querySelectorAll(".non-production");
 
-      dailyCheckbox.addEventListener('change', () => {
-        nonProdIds.forEach(id => {
-          const section = document.getElementById(id);
-          if (section) {
-            section.style.display = dailyCheckbox.checked ? 'none' : 'block';
-          }
-        });
+    dailyModeCheckbox.addEventListener("change", () => {
+      const hide = dailyModeCheckbox.checked;
+      nonProductionSections.forEach(section => {
+        if (hide) {
+          section.classList.add("hidden-daily");
+        } else {
+          section.classList.remove("hidden-daily");
+        }
       });
+    });
 
-      // Initial load
-      loadRoleTemplates(currentRole);
-      attachTemplateClickHandlers();
-    </script>
-  </main>
+    const themeToggleBtn = document.getElementById("themeToggleBtn");
+    const themeLabel = document.getElementById("themeLabel");
+    const htmlEl = document.documentElement;
+
+    let themeMode = "auto"; // auto | light | dark
+
+    function applyThemeFromTime() {
+      if (themeMode !== "auto") return;
+      const now = new Date();
+      const hour = now.getHours();
+      const isDay = hour >= 7 && hour < 19;
+      htmlEl.setAttribute("data-theme", isDay ? "light" : "dark");
+      themeLabel.textContent = isDay ? "Auto · Day (Light)" : "Auto · Evening (Dark)";
+    }
+
+    function cycleThemeMode() {
+      if (themeMode === "auto") {
+        themeMode = "light";
+        htmlEl.setAttribute("data-theme", "light");
+        themeLabel.textContent = "Manual · Light";
+      } else if (themeMode === "light") {
+        themeMode = "dark";
+        htmlEl.setAttribute("data-theme", "dark");
+        themeLabel.textContent = "Manual · Dark";
+      } else {
+        themeMode = "auto";
+        applyThemeFromTime();
+      }
+    }
+
+    themeToggleBtn.addEventListener("click", cycleThemeMode);
+
+    applyThemeFromTime();
+    setInterval(applyThemeFromTime, 5 * 60 * 1000);
+  </script>
 </body>
 </html>
