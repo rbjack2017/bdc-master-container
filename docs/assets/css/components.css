@@ -85,3 +85,13 @@
 .module-status.not-completed {
     color: #b71c1c;
 }
+/* COMPLETED BADGE */
+.module-status.completed::before {
+    content: "✔ ";
+    color: #2e7d32;
+}
+
+.module-status.not-completed::before {
+    content: "○ ";
+    color: #b71c1c;
+}
