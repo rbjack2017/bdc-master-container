@@ -1,0 +1,11 @@
+<nav class="breadcrumbs">
+    <span id="breadcrumb-path"></span>
+</nav>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    const path = window.location.pathname.split("/").pop().replace(".html","");
+    const formatted = path === "index" ? "Home" : path.replace("-", " ").replace(/\b\w/g, c => c.toUpperCase());
+    document.getElementById("breadcrumb-path").innerText = formatted;
+});
+</script>
