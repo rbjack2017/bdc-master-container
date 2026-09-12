@@ -72,3 +72,16 @@
         transform: rotate(360deg);
     }
 }
+.module-status {
+    margin-top: 10px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.module-status.completed {
+    color: #2e7d32;
+}
+
+.module-status.not-completed {
+    color: #b71c1c;
+}
