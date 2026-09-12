@@ -1,1 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Manager Templates</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    body { font-family: system-ui; background:#f7f3eb; margin:0; padding:1.5rem; color:#333; }
+    h1 { margin-bottom:1rem; font-size:1.6rem; }
+    details { margin-bottom:1rem; background:#fff; padding:1rem; border-radius:8px; border:1px solid #e0d5c5; }
+    summary { font-size:1.1rem; font-weight:600; cursor:pointer; }
+    pre { background:#f0e8d8; padding:1rem; border-radius:6px; white-space:pre-wrap; }
+  </style>
+</head>
+
+<body>
+  <h1>Manager Templates</h1>
+
+  <details open>
+    <summary>Coaching Templates</summary>
+    <pre>
+Hi {{Rep Name}}, great job on {{Metric}} this week.
+One thing to focus on: {{Coaching Point}}.
+Let’s check in tomorrow to review progress.
+    </pre>
+  </details>
+
+  <details>
+    <summary>Escalation Templates</summary>
+    <pre>
+Hi {{Customer Name}}, my name is {{Manager Name}} and I oversee the team here at {{Store}}.
+I wanted to step in and help with {{Issue}}.
+What’s the best next step for you?
+    </pre>
+  </details>
+
+  <details>
+    <summary>Appointment Save Templates</summary>
+    <pre>
+Hi {{Customer Name}}, I saw you might need to adjust your appointment.
+I can help — what time works better for you?
+    </pre>
+  </details>
+
+  <details>
+    <summary>Performance Templates</summary>
+    <pre>
+Team, here are this week’s KPIs:
+• Contacts: {{Contacts}}
+• Appointments: {{Appointments}}
+• Shows: {{Shows}}
+• Sales: {{Sales}}
+
+Let’s focus on {{Focus Area}} for the next 48 hours.
+    </pre>
+  </details>
+
+</body>
+</html>
 
