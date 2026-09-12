@@ -51,3 +51,23 @@
     border-top: 3px solid var(--accent);
     margin-top: 40px;
 }
+/* RESPONSIVE LAYOUT */
+@media (max-width: 900px) {
+    .sidebar {
+        position: static;
+        width: 100%;
+        border-right: none;
+        border-bottom: 3px solid var(--accent);
+    }
+
+    .content {
+        padding: 20px;
+        margin: 0 10px;
+    }
+
+    .main-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+}
