@@ -1,0 +1,23 @@
+/* GLOBAL RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* GLOBAL BODY */
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    padding: 0;
+    margin: 0;
+}
+
+/* MAIN CONTENT AREA */
+.content {
+    padding: 30px;
+    max-width: 1100px;
+    margin: auto;
+}
