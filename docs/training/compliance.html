@@ -19,10 +19,11 @@
 
 <body>
 
-     <!-- Loading Screen -->
+    <!-- Loading Screen -->
     <div id="loadingOverlay" class="loading-overlay" style="display:none;">
         <div class="loading-spinner"></div>
     </div>
+
     <!-- Header -->
     <div id="header"></div>
 
@@ -35,156 +36,94 @@
     <!-- Main Content -->
     <main class="content">
 
+        <!-- Mark Completed Button -->
+        <button id="markCompleted" data-module="compliance" class="complete-btn">
+            Mark this module as completed
+        </button>
+
         <h1>Compliance Module</h1>
-        <p>The Compliance Module defines the rules that protect the dealership, the customer, and the BDC. Compliance ensures accuracy, honesty, professionalism, and legal protection in every communication channel.</p>
+        <p>The Compliance Module defines the legal, ethical, and dealership‑required communication standards that all BDC reps must follow. Compliance protects the dealership, the customer, and the rep.</p>
 
-        <h2>1. Purpose of Compliance</h2>
-        <ul>
-            <li>Protect dealership reputation</li>
-            <li>Ensure legal and ethical communication</li>
-            <li>Prevent misinformation</li>
-            <li>Maintain OEM standards</li>
-            <li>Protect customers from confusion or pressure</li>
-            <li>Ensure consistent communication across the BDC</li>
-        </ul>
-
-        <h2>2. Core Compliance Rules</h2>
-        <p>These rules apply to ALL communication — calls, emails, texts, and CRM notes.</p>
-
-        <h3>Prohibited Statements</h3>
+        <h2>1. Core Compliance Rules</h2>
         <ul>
             <li>No pricing in text messages</li>
             <li>No payment quotes</li>
-            <li>No guarantees (“approval,” “rate,” “value,” “you’ll get”)</li>
-            <li>No conditional promises (“as long as…”)</li>
-            <li>No discussing credit details outside secure application</li>
+            <li>No guarantees (“approval,” “rate,” “value”)</li>
+            <li>No unverifiable claims</li>
             <li>No misleading statements</li>
-            <li>No pressure language</li>
+            <li>No discussing credit details outside the secure application</li>
         </ul>
 
-        <h3>Required Standards</h3>
+        <h2>2. Legal Sensitivity Areas</h2>
+        <p>These topics require strict compliance and must be handled carefully.</p>
+
         <ul>
-            <li>Professional tone at all times</li>
-            <li>Clear and accurate information</li>
-            <li>One main question per text</li>
-            <li>OEM-compliant Day 1 email</li>
-            <li>Accurate CRM documentation</li>
-            <li>Correct workflow steps</li>
+            <li>Credit and financing</li>
+            <li>Interest rates</li>
+            <li>Trade‑in values</li>
+            <li>Approval status</li>
+            <li>Warranty coverage</li>
         </ul>
 
-        <h2>3. Compliance in Text Messages</h2>
-        <p>Text messages must be short, compliant, and easy to answer.</p>
+        <h2>3. Communication Restrictions</h2>
+        <p>Reps must avoid language that implies certainty, guarantees, or promises.</p>
 
-        <h3>Allowed in Texts</h3>
         <ul>
-            <li>Availability questions</li>
-            <li>Low-effort questions</li>
-            <li>Appointment confirmations</li>
-            <li>Trade information requests</li>
-            <li>Redirect messages</li>
+            <li>Never say “You’re approved.”</li>
+            <li>Never say “Your payment will be…”</li>
+            <li>Never say “Your trade is worth…”</li>
+            <li>Never say “You’ll definitely get…”</li>
         </ul>
 
-        <h3>Not Allowed in Texts</h3>
+        <h2>4. Compliance in Text Messages</h2>
+        <p>Text messages must be short, compliant, and free of restricted topics.</p>
+
         <ul>
-            <li>Pricing</li>
-            <li>Payments</li>
-            <li>Rates</li>
-            <li>Approval guarantees</li>
-            <li>VIN-specific quotes</li>
-            <li>Emojis</li>
+            <li>No pricing</li>
+            <li>No payments</li>
+            <li>No guarantees</li>
+            <li>No emojis</li>
+            <li>No slang</li>
         </ul>
 
-        <h2>4. Compliance in Emails</h2>
+        <h2>5. Compliance in Emails</h2>
         <p>Emails allow more detail but must still follow strict rules.</p>
 
-        <h3>Allowed in Emails</h3>
         <ul>
-            <li>Pricing (when accurate and verified)</li>
-            <li>Payment estimates (with disclaimers)</li>
-            <li>Trade value requests</li>
-            <li>OEM-compliant templates</li>
-            <li>Appointment confirmations</li>
+            <li>Use approved templates</li>
+            <li>Avoid conditional guarantees</li>
+            <li>Keep tone professional</li>
+            <li>Document all communication in CRM</li>
         </ul>
 
-        <h3>Not Allowed in Emails</h3>
-        <ul>
-            <li>Guarantees</li>
-            <li>Misleading statements</li>
-            <li>Unverified pricing</li>
-            <li>Unverified payment quotes</li>
-        </ul>
-
-        <h2>5. Compliance in Calls</h2>
-        <p>Calls must be professional, accurate, and pressure-free.</p>
-
-        <h3>Call Requirements</h3>
-        <ul>
-            <li>Warm, professional tone</li>
-            <li>Clear purpose</li>
-            <li>No pressure</li>
-            <li>No guarantees</li>
-            <li>No misleading statements</li>
-            <li>Accurate information only</li>
-        </ul>
-
-        <h3>Call Prohibitions</h3>
-        <ul>
-            <li>No “you’ll be approved”</li>
-            <li>No “you’ll get this rate”</li>
-            <li>No “your trade is worth X”</li>
-            <li>No “this price is guaranteed”</li>
-        </ul>
-
-        <h2>6. Compliance in CRM Notes</h2>
-        <p>CRM notes must be accurate, professional, and compliant.</p>
-
-        <h3>Required Note Elements</h3>
-        <ul>
-            <li>Purpose of interaction</li>
-            <li>Outcome of interaction</li>
-            <li>Customer response</li>
-            <li>Next step</li>
-            <li>Task created</li>
-        </ul>
-
-        <h3>Prohibited Notes</h3>
-        <ul>
-            <li>“Called”</li>
-            <li>“Left VM”</li>
-            <li>“Follow-up”</li>
-            <li>“Sent email”</li>
-            <li>Any pricing or payment quotes</li>
-        </ul>
-
-        <h2>7. Compliance Violations</h2>
-        <p>Violations occur when reps break compliance rules. These are tracked in the QA and Rule Violation Dashboards.</p>
+        <h2>6. Compliance Violations</h2>
+        <p>Violations are tracked and reviewed by leadership.</p>
 
         <h3>Minor Violations</h3>
         <ul>
-            <li>Missing placeholders</li>
-            <li>Overly long messages</li>
-            <li>Multiple questions in a text</li>
-            <li>Incorrect tone</li>
+            <li>Incorrect source logging</li>
+            <li>Missing CRM notes</li>
+            <li>Late responses</li>
         </ul>
 
         <h3>Major Violations</h3>
         <ul>
             <li>Pricing in text messages</li>
-            <li>Payment quotes in text messages</li>
-            <li>Guarantees</li>
-            <li>Misleading statements</li>
-            <li>Unapproved templates</li>
-            <li>Incorrect credit discussions</li>
+            <li>Guarantees or misleading statements</li>
+            <li>Discussing credit details improperly</li>
+            <li>Ignoring workflow steps</li>
         </ul>
 
-        <h2>8. Compliance Summary</h2>
-        <p>Compliance protects the dealership, the customer, and the BDC. It ensures accuracy, professionalism, and trust. Every rep must follow compliance rules at all times to maintain a consistent and legally safe customer experience.</p>
+        <h2>7. Compliance Summary</h2>
+        <p>Compliance ensures legal protection, customer trust, and dealership integrity. It is one of the most important responsibilities of every BDC rep.</p>
 
     </main>
 
     <!-- Footer -->
     <div id="footer"></div>
 
+    <!-- Progress Script -->
+    <script src="../assets/js/progress.js" defer></script>
+
 </body>
 </html>
-
