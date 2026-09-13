@@ -19,10 +19,11 @@
 
 <body>
 
-     <!-- Loading Screen -->
+    <!-- Loading Screen -->
     <div id="loadingOverlay" class="loading-overlay" style="display:none;">
         <div class="loading-spinner"></div>
     </div>
+
     <!-- Header -->
     <div id="header"></div>
 
@@ -35,199 +36,72 @@
     <!-- Main Content -->
     <main class="content">
 
+        <!-- Mark Completed Button -->
+        <button id="markCompleted" data-module="qa-training" class="complete-btn">
+            Mark this module as completed
+        </button>
+
         <h1>QA Training Module</h1>
-        <p>The QA Training Module defines how communication quality is measured, how reps are scored, how violations are tracked, and how coaching is assigned. QA ensures consistency, compliance, professionalism, and workflow accuracy.</p>
+        <p>The QA Training Module explains how Quality Assurance scoring works, how reps are evaluated, and how QA impacts opportunity access, coaching, and certification.</p>
 
         <h2>1. Purpose of QA</h2>
         <ul>
-            <li>Ensure communication meets dealership standards</li>
-            <li>Protect compliance</li>
-            <li>Maintain professionalism</li>
+            <li>Ensure communication quality</li>
+            <li>Maintain compliance standards</li>
+            <li>Improve customer experience</li>
             <li>Identify coaching needs</li>
-            <li>Support certification advancement</li>
-            <li>Provide fair and consistent scoring</li>
+            <li>Protect dealership reputation</li>
         </ul>
 
         <h2>2. QA Scoring Categories</h2>
-        <p>QA evaluates communication across six core categories.</p>
+        <p>Each communication is evaluated across several categories:</p>
 
-        <h3>1. Compliance</h3>
-        <ul>
-            <li>No pricing in text messages</li>
-            <li>No guarantees</li>
-            <li>No misleading statements</li>
-            <li>No credit discussions outside secure application</li>
-            <li>No emojis</li>
-        </ul>
-
-        <h3>2. Tone</h3>
-        <ul>
-            <li>Warm and professional</li>
-            <li>Clear and concise</li>
-            <li>No pressure</li>
-            <li>No negativity</li>
-        </ul>
-
-        <h3>3. Accuracy</h3>
-        <ul>
-            <li>Correct information</li>
-            <li>Correct templates</li>
-            <li>Correct workflow step</li>
-            <li>Correct customer status</li>
-        </ul>
-
-        <h3>4. Clarity</h3>
-        <ul>
-            <li>Easy to understand</li>
-            <li>Short sentences</li>
-            <li>One main question</li>
-            <li>Clear next step</li>
-        </ul>
-
-        <h3>5. Customization</h3>
-        <ul>
-            <li>Correct placeholders</li>
-            <li>Specific to customer</li>
-            <li>Removes irrelevant lines</li>
-            <li>Matches customer tone</li>
-        </ul>
-
-        <h3>6. Workflow Alignment</h3>
-        <ul>
-            <li>Correct timing</li>
-            <li>Correct task creation</li>
-            <li>Correct follow-up structure</li>
-            <li>Correct inactivation rules</li>
-        </ul>
-
-        <h2>3. QA Scoring Scale</h2>
-        <p>QA scores range from 0–100 and determine coaching requirements.</p>
-
-        <h3>90–100: Excellent</h3>
-        <ul>
-            <li>Fully compliant</li>
-            <li>Strong tone</li>
-            <li>Accurate and clear</li>
-            <li>Correct workflow</li>
-        </ul>
-
-        <h3>80–89: Good</h3>
-        <ul>
-            <li>Minor issues</li>
-            <li>Small clarity or customization errors</li>
-        </ul>
-
-        <h3>70–79: Needs Improvement</h3>
-        <ul>
-            <li>Multiple minor issues</li>
-            <li>Inconsistent workflow alignment</li>
-            <li>Coaching required</li>
-        </ul>
-
-        <h3>Below 70: Critical</h3>
-        <ul>
-            <li>Major compliance issues</li>
-            <li>Incorrect workflow</li>
-            <li>Incorrect templates</li>
-            <li>Immediate coaching required</li>
-        </ul>
-
-        <h2>4. QA Review Types</h2>
-        <p>QA reviews communication across all channels.</p>
-
-        <h3>Call Reviews</h3>
-        <ul>
-            <li>Tone</li>
-            <li>Accuracy</li>
-            <li>Compliance</li>
-            <li>Next steps</li>
-        </ul>
-
-        <h3>Email Reviews</h3>
-        <ul>
-            <li>Template accuracy</li>
-            <li>Clarity</li>
-            <li>Compliance</li>
-            <li>Customization</li>
-        </ul>
-
-        <h3>Text Reviews</h3>
         <ul>
             <li>Compliance</li>
-            <li>One-question rule</li>
-            <li>Clarity</li>
-            <li>Tone</li>
+            <li>Tone & Professionalism</li>
+            <li>Template Accuracy</li>
+            <li>Workflow Alignment</li>
+            <li>Customer Engagement</li>
+            <li>Documentation Quality</li>
         </ul>
 
-        <h3>CRM Note Reviews</h3>
+        <h2>3. QA Score Thresholds</h2>
         <ul>
-            <li>Accuracy</li>
-            <li>Professionalism</li>
-            <li>Correct next task</li>
-            <li>Correct workflow step</li>
+            <li><strong>70+:</strong> Fully eligible for opportunities</li>
+            <li><strong>60–69:</strong> Coaching required</li>
+            <li><strong>50–59:</strong> Restricted opportunity access</li>
+            <li><strong>Below 50:</strong> Formal review</li>
         </ul>
 
-        <h2>5. QA Coaching System</h2>
-        <p>QA scores determine coaching requirements.</p>
-
-        <h3>Coaching Triggers</h3>
-        <ul>
-            <li>Score below 80</li>
-            <li>Repeated compliance issues</li>
-            <li>Incorrect workflow steps</li>
-            <li>Incorrect templates</li>
-        </ul>
-
-        <h3>Coaching Methods</h3>
-        <ul>
-            <li>Call reviews</li>
-            <li>Email reviews</li>
-            <li>Text reviews</li>
-            <li>Workflow audits</li>
-            <li>Roleplay sessions</li>
-        </ul>
-
-        <h2>6. QA Dashboard</h2>
-        <p>The QA Dashboard tracks all communication quality metrics.</p>
-
-        <h3>Dashboard Tracks:</h3>
-        <ul>
-            <li>QA scores</li>
-            <li>Compliance violations</li>
-            <li>Workflow violations</li>
-            <li>Template accuracy</li>
-            <li>Trend analysis</li>
-            <li>Monthly performance</li>
-        </ul>
-
-        <h2>7. QA Violations</h2>
-        <p>Violations occur when reps break QA or compliance rules.</p>
-
-        <h3>Minor Violations</h3>
-        <ul>
-            <li>Missing placeholders</li>
-            <li>Overly long messages</li>
-            <li>Multiple questions in a text</li>
-            <li>Incorrect tone</li>
-        </ul>
-
-        <h3>Major Violations</h3>
+        <h2>4. Common QA Deductions</h2>
         <ul>
             <li>Pricing in text messages</li>
-            <li>Payment quotes in text messages</li>
-            <li>Guarantees</li>
-            <li>Misleading statements</li>
-            <li>Incorrect workflow</li>
-            <li>Unapproved templates</li>
+            <li>Missing CRM notes</li>
+            <li>Incorrect template usage</li>
+            <li>Unprofessional tone</li>
+            <li>Skipping workflow steps</li>
+            <li>Incorrect source logging</li>
         </ul>
 
-        <h2>8. QA Summary</h2>
-        <p>QA ensures communication is compliant, professional, accurate, and aligned with workflows. It protects the dealership and supports rep development through fair scoring and structured coaching.</p>
+        <h2>5. How to Improve QA Scores</h2>
+        <ul>
+            <li>Use approved templates</li>
+            <li>Follow workflow timing</li>
+            <li>Document everything</li>
+            <li>Maintain professional tone</li>
+            <li>Review coaching notes</li>
+        </ul>
+
+        <h2>6. QA Summary</h2>
+        <p>QA ensures reps communicate clearly, professionally, and consistently. High QA scores lead to better opportunities, stronger performance, and advancement through certification levels.</p>
 
     </main>
 
     <!-- Footer -->
     <div id="footer"></div>
+
+    <!-- Progress Script -->
+    <script src="../assets/js/progress.js" defer></script>
 
 </body>
 </html>
