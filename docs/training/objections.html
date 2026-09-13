@@ -23,6 +23,7 @@
     <div id="loadingOverlay" class="loading-overlay" style="display:none;">
         <div class="loading-spinner"></div>
     </div>
+
     <!-- Header -->
     <div id="header"></div>
 
@@ -35,125 +36,78 @@
     <!-- Main Content -->
     <main class="content">
 
+        <!-- Mark Completed Button -->
+        <button id="markCompleted" data-module="objections" class="complete-btn">
+            Mark this module as completed
+        </button>
+
         <h1>Objections Module</h1>
-        <p>The Objections Module teaches reps how to respond when customers push back, hesitate, or express concerns. Objection handling must be calm, helpful, compliant, and focused on keeping the conversation moving.</p>
+        <p>The Objections Module teaches reps how to respond to customer concerns, questions, and hesitation using approved, compliant, and effective language.</p>
 
         <h2>1. Purpose of Objection Handling</h2>
         <ul>
             <li>Reduce customer hesitation</li>
-            <li>Provide clarity and reassurance</li>
-            <li>Keep the conversation alive</li>
-            <li>Maintain compliance</li>
+            <li>Increase appointment set rate</li>
+            <li>Maintain compliance and professionalism</li>
             <li>Guide customers toward the next step</li>
-            <li>Prevent lead loss</li>
         </ul>
 
-        <h2>2. Objection Handling Rules</h2>
-        <h3>Core Rules</h3>
-        <ul>
-            <li>Match your reply to the customer’s exact concern</li>
-            <li>Stay calm and professional</li>
-            <li>Never argue or contradict</li>
-            <li>Never pressure the customer</li>
-            <li>Never make guarantees</li>
-            <li>Always end with one clear next step</li>
-        </ul>
-
-        <h3>Compliance Rules</h3>
-        <ul>
-            <li>No pricing in text messages</li>
-            <li>No payment quotes</li>
-            <li>No approval guarantees</li>
-            <li>No misleading statements</li>
-            <li>No discussing credit details outside secure application</li>
-        </ul>
-
-        <h2>3. Common Objections & Approved Responses</h2>
+        <h2>2. Common Objections</h2>
 
         <h3>“I’m just looking.”</h3>
-        <p><strong>Approved Response:</strong></p>
-        <p>Totally fine — I can help make the search easier. Is there a specific model or price range you’re leaning toward?</p>
+        <p>Customers often say this to avoid commitment. Use soft, helpful language.</p>
+        <ul>
+            <li>“Totally understand — happy to help you look.”</li>
+            <li>“Is there a specific model you’re comparing?”</li>
+        </ul>
+
+        <h3>“Do you have the vehicle in stock?”</h3>
+        <p>Always check inventory before answering.</p>
+        <ul>
+            <li>“I can check availability — what color or trim do you prefer?”</li>
+            <li>“If it’s sold, I can find similar options.”</li>
+        </ul>
+
+        <h3>“What’s the price?”</h3>
+        <p>Never quote pricing in text messages.</p>
+        <ul>
+            <li>“I can connect you with a product specialist for exact pricing.”</li>
+            <li>“Are you comparing lease or purchase options?”</li>
+        </ul>
 
         <h3>“I’m not ready yet.”</h3>
-        <p><strong>Approved Response:</strong></p>
-        <p>No problem — I can still help you compare options. What timeline are you thinking?</p>
-
-        <h3>“I only want the price.”</h3>
-        <p><strong>Approved Response:</strong></p>
-        <p>I can help with accurate pricing. To make sure it’s correct, could you confirm your ZIP code and whether you have a trade?</p>
-
-        <h3>“Is it available?”</h3>
-        <p><strong>Approved Response:</strong></p>
-        <p>I can check availability — are you looking for this exact trim or open to similar options?</p>
-
-        <h3>“I don’t want to come in.”</h3>
-        <p><strong>Approved Response:</strong></p>
-        <p>Totally fine — I can send photos, Carfax, or details. What would you like first?</p>
-
-        <h3>“I’m worried about my credit.”</h3>
-        <p><strong>Approved Response:</strong></p>
-        <p>We work with many lenders, and our Finance Team can review your information privately. I can send the secure application if you’d like.</p>
-
-        <h3>“I already bought somewhere else.”</h3>
-        <p><strong>Approved Response:</strong></p>
-        <p>Thanks for letting me know — if you ever need service or help comparing future options, I’m here anytime.</p>
-
-        <h2>4. Objection Handling Structure</h2>
-        <p>Every objection response follows a simple structure:</p>
-
-        <ol>
-            <li><strong>Acknowledge</strong> the concern</li>
-            <li><strong>Reassure</strong> the customer</li>
-            <li><strong>Provide clarity</strong> or a helpful option</li>
-            <li><strong>Ask one low-effort question</strong></li>
-        </ol>
-
-        <h2>5. Low-Effort Questions</h2>
-        <p>Low-effort questions keep the conversation alive without overwhelming the customer.</p>
-
+        <p>Use supportive, non‑pushy language.</p>
         <ul>
-            <li>“What matters most — price, mileage, or features?”</li>
-            <li>“Are you leaning toward new or pre-owned?”</li>
-            <li>“Would you prefer similar options or incoming units?”</li>
-            <li>“Do you have a trade?”</li>
+            <li>“No rush — I’m here whenever you’re ready.”</li>
+            <li>“Is there anything you’d like to know in the meantime?”</li>
         </ul>
 
-        <h2>6. Tone Requirements</h2>
-        <p>Objection handling must be friendly, calm, and helpful.</p>
-
+        <h2>3. Tone Rules</h2>
         <ul>
-            <li>Warm tone</li>
-            <li>Short sentences</li>
-            <li>Clear next steps</li>
-            <li>No pressure</li>
-            <li>No negativity</li>
+            <li>Never argue with the customer</li>
+            <li>Stay positive and helpful</li>
+            <li>Match customer tone (formal or casual)</li>
+            <li>Avoid emojis and slang</li>
         </ul>
 
-        <h2>7. Objection Handling Violations</h2>
-        <p>Violations occur when reps respond incorrectly or break compliance.</p>
-
-        <h3>Minor Violations</h3>
+        <h2>4. Low‑Effort Questions</h2>
+        <p>These are simple questions customers ask that require quick, compliant answers.</p>
         <ul>
-            <li>Overly long responses</li>
-            <li>Missing next step</li>
-            <li>Not addressing the customer’s concern</li>
+            <li>“Hours?” → “We’re open until 8 PM today.”</li>
+            <li>“Location?” → “We’re at 9650 Bluegrass Pkwy.”</li>
+            <li>“Still available?” → “I can check — what trim are you looking for?”</li>
         </ul>
 
-        <h3>Major Violations</h3>
-        <ul>
-            <li>Guarantees</li>
-            <li>Pricing in text messages</li>
-            <li>Arguing with the customer</li>
-            <li>Pressure tactics</li>
-        </ul>
-
-        <h2>8. Objection Summary</h2>
-        <p>Objection handling keeps conversations alive, reduces hesitation, and guides customers toward the next step. When done correctly, objections become opportunities.</p>
+        <h2>5. Objection Summary</h2>
+        <p>Objection handling helps reps guide customers confidently while maintaining compliance and professionalism.</p>
 
     </main>
 
     <!-- Footer -->
     <div id="footer"></div>
+
+    <!-- Progress Script -->
+    <script src="../assets/js/progress.js" defer></script>
 
 </body>
 </html>
