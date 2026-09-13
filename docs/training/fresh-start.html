@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Fresh Start / Second Chance Finance</title>
+    <title>Fresh Start</title>
 
     <!-- Global Styles -->
     <link rel="stylesheet" href="../assets/css/main.css">
@@ -23,6 +23,7 @@
     <div id="loadingOverlay" class="loading-overlay" style="display:none;">
         <div class="loading-spinner"></div>
     </div>
+
     <!-- Header -->
     <div id="header"></div>
 
@@ -35,130 +36,67 @@
     <!-- Main Content -->
     <main class="content">
 
-        <h1>Fresh Start / Second Chance Finance Module</h1>
-        <p>The Fresh Start Module provides compliant, respectful communication for customers rebuilding credit or seeking second‑chance financing. This module ensures privacy, clarity, and simple next steps while avoiding prohibited language.</p>
+        <!-- Mark Completed Button -->
+        <button id="markCompleted" data-module="fresh-start" class="complete-btn">
+            Mark this module as completed
+        </button>
 
-        <h2>1. Purpose of Fresh Start</h2>
+        <h1>Fresh Start Module</h1>
+        <p>The Fresh Start Module teaches reps how to handle opportunities that require a reset — situations where communication has stalled, the customer is confused, or the workflow needs to be restarted cleanly.</p>
+
+        <h2>1. What Is a Fresh Start?</h2>
+        <p>A Fresh Start is a structured reset used when an opportunity becomes stuck or misaligned. It allows reps to restart communication cleanly and professionally.</p>
+
         <ul>
-            <li>Provide a safe, respectful path for credit‑challenged customers</li>
-            <li>Protect compliance and privacy</li>
-            <li>Guide customers toward the secure application</li>
-            <li>Gather trade details when applicable</li>
-            <li>Offer simple, low‑effort reply options</li>
-            <li>Support finance team handoff</li>
+            <li>Customer hasn’t responded in several days</li>
+            <li>Customer received mixed or unclear communication</li>
+            <li>Workflow steps were missed</li>
+            <li>Opportunity needs a clean re‑engagement</li>
         </ul>
 
-        <h2>2. Compliance Rules for Fresh Start</h2>
-        <p>Fresh Start communication must follow strict compliance guidelines.</p>
-
-        <h3>Prohibited Language</h3>
+        <h2>2. Fresh Start Rules</h2>
         <ul>
-            <li>No approval guarantees</li>
-            <li>No rate promises</li>
-            <li>No payment quotes</li>
-            <li>No lender outcome predictions</li>
-            <li>No sensitive credit discussions outside secure application</li>
+            <li>Use approved Fresh Start templates only</li>
+            <li>Do not reference past mistakes or confusion</li>
+            <li>Keep tone positive and forward‑focused</li>
+            <li>Ask one simple question to restart engagement</li>
         </ul>
 
-        <h3>Required Standards</h3>
+        <h2>3. Approved Fresh Start Language</h2>
+        <p>These templates help reset communication without drawing attention to previous issues.</p>
+
         <ul>
-            <li>Respectful, private tone</li>
-            <li>Clear next step: secure application</li>
-            <li>One low‑effort question</li>
-            <li>Trade details gathered only after engagement</li>
-            <li>Accurate CRM notes</li>
+            <li>“Hi {{First Name}}, just checking in — are you still considering the {{Vehicle}}?”</li>
+            <li>“Happy to help with any questions you have.”</li>
+            <li>“Would you like to pick up where we left off?”</li>
         </ul>
 
-        <h2>3. Fresh Start Email Templates</h2>
-
-        <h3>Email Option 1 — First Response</h3>
-        <p><strong>Subject:</strong> Getting Started with Fresh Start Financing</p>
-        <p>Hi {{First Name}}, this is Raven with Bachman. Thank you for reaching out about Fresh Start / Second Chance Finance options. The best first step is completing the secure online application so our Finance Team can privately review your information and explain available next steps: {{Credit Application Link}}.</p>
-        <p><strong>Low‑Effort Reply:</strong> Reply “completed,” “vehicle,” or “trade,” and I’ll help with what comes next.</p>
-        <p><em>Source: Fresh Start Email Option 1</em></p>
-
-        <h3>Email Option 2 — Reassurance + Next Step</h3>
-        <p><strong>Subject:</strong> We’re Here to Help with Financing Options</p>
-        <p>Hi {{First Name}}, thanks for contacting Bachman about Fresh Start financing. I’m Raven, and I’m here to help make the next step simple. You can start with the secure online application here: {{Credit Application Link}}. Once it is submitted, our Finance Team can review your information privately and explain what options may be available.</p>
-        <p><strong>Low‑Effort Reply:</strong> Reply “application,” “vehicle,” or “trade,” and I’ll help with that first.</p>
-        <p><em>Source: Fresh Start Email Option 2</em></p>
-
-        <h3>Email Option 3 — Application Reminder</h3>
-        <p><strong>Subject:</strong> Next Step for Fresh Start Financing</p>
-        <p>Hi {{First Name}}, I wanted to follow up on your Fresh Start financing request. If you are still interested, the secure application is the best next step so our Finance Team can review available options and explain what comes next: {{Credit Application Link}}. If you also have a trade, I can help gather those details when you are ready.</p>
-        <p><strong>Low‑Effort Reply:</strong> Reply “completed,” “need link,” or “trade,” and I’ll help with the next step.</p>
-        <p><em>Source: Fresh Start Email Option 3</em></p>
-
-        <h2>4. Fresh Start Text Templates</h2>
-
-        <h3>Fresh Start Text Option</h3>
-        <p>Hi {{First Name}}, this is Raven with Bachman. I emailed the secure Fresh Start finance application so our team can review your options.</p>
-        <p><em>Source: Fresh Start Text Option</em></p>
-
-        <h3>Gold Standard Fresh Start Text</h3>
-        <p>Hi {{First Name}}, this is Raven with Bachman. The best first step for Fresh Start financing is completing the secure application so our Finance Team can privately review available options: {{Credit Application Link}}. Reply “completed,” “vehicle,” or “trade,” and I’ll help with what comes next.</p>
-        <p><em>Source: Gold Standard Fresh Start Response</em></p>
-
-        <h2>5. Required Trade Details (If Applicable)</h2>
-        <p>Gather trade details only after the customer engages.</p>
+        <h2>4. When to Use a Fresh Start</h2>
         <ul>
-            <li>{{Trade Vehicle}}</li>
-            <li>{{Trade Mileage}}</li>
-            <li>{{Trade Payoff Status}}</li>
-            <li>{{Trade VIN}}</li>
-        </ul>
-        <p><em>Source: Fresh Start Internal Notes</em></p>
-
-        <h2>6. Fresh Start Workflow</h2>
-
-        <h3>Step 1 — Identify Fresh Start Lead</h3>
-        <ul>
-            <li>Customer mentions credit challenges</li>
-            <li>Customer requests Fresh Start / Second Chance</li>
-            <li>Customer asks about financing after past issues</li>
+            <li>After missed tasks</li>
+            <li>After unclear communication</li>
+            <li>After long gaps in customer response</li>
+            <li>When customer engagement needs a reset</li>
         </ul>
 
-        <h3>Step 2 — Send First Response</h3>
+        <h2>5. Fresh Start Workflow</h2>
         <ul>
-            <li>Email Option 1 or 2</li>
-            <li>Fresh Start Text Option</li>
+            <li>Send Fresh Start text</li>
+            <li>Send Fresh Start email</li>
+            <li>Document everything in CRM</li>
+            <li>Resume workflow from Day 1 if needed</li>
         </ul>
 
-        <h3>Step 3 — Guide to Secure Application</h3>
-        <ul>
-            <li>Send {{Credit Application Link}}</li>
-            <li>Explain privacy and next steps</li>
-        </ul>
-
-        <h3>Step 4 — Gather Trade Details (If Applicable)</h3>
-        <ul>
-            <li>Vehicle</li>
-            <li>Mileage</li>
-            <li>Payoff</li>
-            <li>VIN</li>
-        </ul>
-
-        <h3>Step 5 — Handoff to Finance</h3>
-        <ul>
-            <li>Clear CRM notes</li>
-            <li>Application status</li>
-            <li>Trade details</li>
-            <li>Customer preferences</li>
-        </ul>
-
-        <h2>7. 30‑Day Credit Shopping Note</h2>
-        <p><strong>Internal Note:</strong> Use only approved finance language when discussing credit inquiries, rate shopping, or lender review. If the customer has questions, refer them to the finance team.</p>
-
-        <p><strong>Customer‑Facing Option:</strong> If you would like, I can send the secure credit application so our finance team can review available options and explain the next steps.</p>
-
-        <h2>8. Fresh Start Summary</h2>
-        <p>Fresh Start communication must be respectful, private, compliant, and simple. The secure application is always the first step, followed by trade details (if applicable) and a clean handoff to finance. Low‑effort replies keep the conversation moving without pressure.</p>
+        <h2>6. Fresh Start Summary</h2>
+        <p>Fresh Starts allow reps to recover stalled opportunities, maintain professionalism, and re‑establish clear communication with customers.</p>
 
     </main>
 
     <!-- Footer -->
     <div id="footer"></div>
 
+    <!-- Progress Script -->
+    <script src="../assets/js/progress.js" defer></script>
+
 </body>
 </html>
-
