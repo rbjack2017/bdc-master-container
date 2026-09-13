@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Templates Library</title>
+    <title>Templates</title>
 
     <!-- Global Styles -->
     <link rel="stylesheet" href="../assets/css/main.css">
@@ -19,10 +19,11 @@
 
 <body>
 
-        <!-- Loading Screen -->
+    <!-- Loading Screen -->
     <div id="loadingOverlay" class="loading-overlay" style="display:none;">
         <div class="loading-spinner"></div>
     </div>
+
     <!-- Header -->
     <div id="header"></div>
 
@@ -35,138 +36,64 @@
     <!-- Main Content -->
     <main class="content">
 
-        <h1>Templates Library</h1>
-        <p>The Templates Library contains all approved email, text, and voicemail templates used in daily BDC communication. These templates ensure consistency, compliance, clarity, and ease of use.</p>
+        <!-- Mark Completed Button -->
+        <button id="markCompleted" data-module="templates" class="complete-btn">
+            Mark this module as completed
+        </button>
 
-        <h2>1. Purpose of Templates</h2>
-        <ul>
-            <li>Ensure consistent communication</li>
-            <li>Protect compliance</li>
-            <li>Reduce writing time</li>
-            <li>Increase response rates</li>
-            <li>Support workflow accuracy</li>
-            <li>Provide clear next steps for customers</li>
-        </ul>
+        <h1>Templates Module</h1>
+        <p>The Templates Module provides approved email, text, and voicemail scripts for BDC reps. These templates ensure consistency, compliance, and professionalism across all customer communication.</p>
 
-        <h2>2. Template Rules</h2>
-        <h3>General Rules</h3>
-        <ul>
-            <li>Use templates exactly as written</li>
-            <li>Customize only approved fields</li>
-            <li>Remove anything that does not apply</li>
-            <li>Ask one main question</li>
-            <li>Match the customer’s tone</li>
-            <li>End with one clear next step</li>
-        </ul>
-
-        <h3>Compliance Rules</h3>
-        <ul>
-            <li>No pricing in text messages</li>
-            <li>No payment quotes</li>
-            <li>No guarantees (“approval,” “rate,” “value”)</li>
-            <li>No misleading statements</li>
-            <li>No emojis</li>
-        </ul>
-
-        <h2>3. Email Templates</h2>
-
+        <h2>1. Email Templates</h2>
         <h3>New Lead Email</h3>
-        <p><strong>Subject:</strong> Thanks for your interest in the {{Vehicle}}</p>
-        <p>Hi {{First Name}}, thanks for reaching out about the {{Vehicle}}. I can help with availability, details, and next steps. What matters most to you — price, mileage, features, or timing?</p>
+        <ul>
+            <li>Thank the customer for their interest</li>
+            <li>Confirm the vehicle of interest</li>
+            <li>Ask one simple question</li>
+            <li>Invite them to continue the conversation</li>
+        </ul>
 
-        <h3>Day 1 OEM-Compliant Email</h3>
-        <p>Hi {{First Name}}, thanks for your interest in the {{Vehicle}}. I’m here to help with details, availability, and next steps. If you prefer, I can also send similar options or incoming units.</p>
+        <h3>Follow-Up Email</h3>
+        <ul>
+            <li>Reference previous communication</li>
+            <li>Ask a clarifying question</li>
+            <li>Offer assistance</li>
+        </ul>
 
-        <h3>Price Request Email</h3>
-        <p><strong>Subject:</strong> Quick Questions for Your Price Request</p>
-        <p>Hi {{First Name}}, I can help with accurate pricing for the {{Vehicle}}. To make sure it’s correct, could you confirm your ZIP code, trade status, and whether you prefer finance, lease, or cash?</p>
+        <h2>2. Text Templates</h2>
+        <p>All text messages must be short, compliant, and easy to answer.</p>
 
-        <h3>Payment Request Email</h3>
-        <p><strong>Subject:</strong> Quick Questions for Your Payment Estimate</p>
-        <p>Hi {{First Name}}, I can help put together a payment estimate. Could you confirm your ZIP code, down payment (if any), and whether you prefer finance or lease?</p>
+        <ul>
+            <li>“Hi {{First Name}}, this is Raven with Bachman. Are you still considering the {{Vehicle}}?”</li>
+            <li>“Any questions I can help with?”</li>
+            <li>“Would you like to schedule a visit?”</li>
+        </ul>
 
-        <h3>Trade Value Email</h3>
-        <p><strong>Subject:</strong> Quick Questions for Your Trade Value</p>
-        <p>Hi {{First Name}}, I can help get your trade value. Could you send the year, make, model, mileage, payoff, and VIN?</p>
+        <h2>3. Voicemail Templates</h2>
+        <p>Voicemails must be clear, professional, and under 20 seconds.</p>
 
-        <h3>Appointment Confirmation Email</h3>
-        <p><strong>Subject:</strong> Appointment Confirmation</p>
-        <p>Hi {{First Name}}, I have you scheduled for {{Appointment Time}}. I’ll have the {{Vehicle}} ready for you. If anything changes, just let me know.</p>
+        <ul>
+            <li>“Hi {{First Name}}, this is Raven with Bachman. I tried reaching you and will send a quick text as well. Talk soon.”</li>
+        </ul>
 
-        <h3>No-Show Email</h3>
-        <p><strong>Subject:</strong> Sorry We Missed You</p>
-        <p>Hi {{First Name}}, I’m sorry we missed you for your appointment. If you’re still interested, I can help you reschedule for {{Option 1}} or {{Option 2}}.</p>
-
-        <h3>Sold Redirect Email</h3>
-        <p><strong>Subject:</strong> Update on the {{Vehicle}}</p>
-        <p>Hi {{First Name}}, the {{Vehicle}} has sold, but I can help find similar options if you’re open to that. What matters most — price, mileage, color, trim, or features?</p>
-
-        <h2>4. Text Templates</h2>
-
-        <h3>New Lead Text</h3>
-        <p>Hi {{First Name}}, this is Raven with Bachman. Still interested in the {{Vehicle}}? I can help with details or similar options.</p>
-
-        <h3>Soft Nudge Text</h3>
-        <p>Hi {{First Name}}, still looking for a {{Vehicle}}? I can send updated options.</p>
-
-        <h3>Trade Text</h3>
-        <p>Hi {{First Name}}, I can help get your trade value. Could you send the year, make, model, mileage, payoff, and VIN?</p>
-
-        <h3>Appointment Confirmation Text</h3>
-        <p>Hi {{First Name}}, confirming your appointment for {{Time}}. I’ll have the {{Vehicle}} ready for you.</p>
-
-        <h3>No-Show Text</h3>
-        <p>Hi {{First Name}}, hope everything is okay. Would {{Option 1}} or {{Option 2}} work better to reschedule?</p>
-
-        <h3>Sold Redirect Text</h3>
-        <p>Hi {{First Name}}, the {{Vehicle}} has sold, but I can help find similar options if you’re open to that.</p>
-
-        <h2>5. Voicemail Templates</h2>
-
-        <h3>New Lead Voicemail</h3>
-        <p>Hi {{First Name}}, this is Raven with Bachman. I received your interest in the {{Vehicle}} and I’m here to help. You can reach me at {{Phone}}.</p>
-
-        <h3>Appointment Reminder Voicemail</h3>
-        <p>Hi {{First Name}}, this is Raven with Bachman. Looking forward to seeing you at {{Time}}. Call or text if anything changes.</p>
-
-        <h3>No-Show Voicemail</h3>
-        <p>Hi {{First Name}}, this is Raven with Bachman. Sorry we missed you — I can help you reschedule anytime.</p>
-
-        <h2>6. Customization Rules</h2>
-        <p>Before sending any template, make it specific, short, and easy to answer.</p>
-
+        <h2>4. Customization Rules</h2>
         <ul>
             <li>Replace placeholders</li>
-            <li>Remove anything that doesn’t apply</li>
+            <li>Remove irrelevant lines</li>
             <li>Ask one main question</li>
-            <li>Match the customer’s tone</li>
-            <li>End with one clear next step</li>
+            <li>Match customer tone</li>
         </ul>
 
-        <h2>7. Template Violations</h2>
-
-        <h3>Minor Violations</h3>
-        <ul>
-            <li>Missing placeholders</li>
-            <li>Overly long messages</li>
-            <li>Multiple questions</li>
-        </ul>
-
-        <h3>Major Violations</h3>
-        <ul>
-            <li>Pricing in text messages</li>
-            <li>Guarantees</li>
-            <li>Misleading statements</li>
-            <li>Unapproved templates</li>
-        </ul>
-
-        <h2>8. Templates Summary</h2>
-        <p>Templates ensure consistent, compliant, and effective communication. They reduce writing time, increase response rates, and support workflow accuracy.</p>
+        <h2>5. Template Summary</h2>
+        <p>Templates ensure reps communicate clearly, professionally, and consistently while maintaining compliance.</p>
 
     </main>
 
     <!-- Footer -->
     <div id="footer"></div>
+
+    <!-- Progress Script -->
+    <script src="../assets/js/progress.js" defer></script>
 
 </body>
 </html>
