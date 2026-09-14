@@ -6,4 +6,14 @@
     --terracotta: #c76b4b;
     --charcoal: #333333;
     --bg: #f3eee7;
+
+    --accent: var(--terracotta);
+    --accent-soft: #f3c3ac;
+}
+
+body.darkmode {
+    --bg: #1f2227;
+    --ivory: #f5f1e8;
+    --charcoal: #f5f1e8;
+    --accent: #f3c3ac;
 }
