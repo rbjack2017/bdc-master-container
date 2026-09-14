@@ -1,31 +1,23 @@
+/* PROGRESS TRACKING */
 document.addEventListener("DOMContentLoaded", () => {
-    // Update card statuses
-    const cards = document.querySelectorAll(".training-card");
-    let completedCount = 0;
+    const page = window.location.pathname.split("/").pop().replace(".html", "");
+    const key = `progress-${page}`;
 
-    cards.forEach(card => {
-        const moduleKey = card.getAttribute("data-module");
-        const statusEl = document.getElementById(`status-${moduleKey}`);
+    /* Mark page as visited */
+    localStorage.setItem(key, "completed");
 
-        const completed = localStorage.getItem(`module-${moduleKey}`) === "completed";
+    /* Update sidebar badges */
+    const links = document.querySelectorAll(".sidebar a");
 
-        if (completed) {
-            statusEl.textContent = "Completed";
-            statusEl.classList.add("completed");
-            completedCount++;
-        } else {
-            statusEl.textContent = "Not completed";
-            statusEl.classList.add("not-completed");
+    links.forEach(link => {
+        const name = link.getAttribute("href").replace(".html", "");
+        const done = localStorage.getItem(`progress-${name}`);
+
+        if (done) {
+            const badge = document.createElement("span");
+            badge.className = "badge badge-sage";
+            badge.textContent = "✓";
+            link.appendChild(badge);
         }
     });
-
-    // Progress bar
-    const totalModules = cards.length;
-    const percent = Math.round((completedCount / totalModules) * 100);
-
-    const bar = document.getElementById("progressFill");
-    const label = document.getElementById("progressLabel");
-
-    bar.style.width = percent + "%";
-    label.textContent = percent + "% Complete";
 });
