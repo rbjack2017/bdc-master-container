@@ -1,16 +1,18 @@
+/* HIGHLIGHT ACTIVE LINK */
 document.addEventListener("DOMContentLoaded", () => {
-    // Load sidebar HTML
-    fetch("includes/sidebar.html")
-        .then(res => res.text())
-        .then(html => {
-            document.getElementById("sidebar").innerHTML = html;
+    const current = window.location.pathname.split("/").pop();
+    const links = document.querySelectorAll(".sidebar a");
 
-            // Sidebar toggle
-            const toggle = document.getElementById("sidebarToggle");
-            const sidebar = document.querySelector(".sidebar");
+    links.forEach(link => {
+        if (link.getAttribute("href") === current) {
+            link.classList.add("active");
+        }
+    });
+});
 
-            toggle.addEventListener("click", () => {
-                sidebar.classList.toggle("collapsed");
-            });
-        });
+/* MOBILE SIDEBAR TOGGLE */
+document.addEventListener("click", e => {
+    if (e.target.id === "sidebar-toggle") {
+        document.body.classList.toggle("sidebar-open");
+    }
 });
