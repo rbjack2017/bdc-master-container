@@ -1,18 +1,16 @@
-/* HIGHLIGHT ACTIVE LINK */
 document.addEventListener("DOMContentLoaded", () => {
-    const current = window.location.pathname.split("/").pop();
-    const links = document.querySelectorAll(".sidebar a");
+    /* Collapsible sections */
+    document.querySelectorAll(".sidebar-section-title").forEach(title => {
+        title.addEventListener("click", () => {
+            title.parentElement.classList.toggle("collapsed");
+        });
+    });
 
-    links.forEach(link => {
+    /* Active link */
+    const current = window.location.pathname.split("/").pop();
+    document.querySelectorAll(".sidebar-links a").forEach(link => {
         if (link.getAttribute("href") === current) {
             link.classList.add("active");
         }
     });
-});
-
-/* MOBILE SIDEBAR TOGGLE */
-document.addEventListener("click", e => {
-    if (e.target.id === "sidebar-toggle") {
-        document.body.classList.toggle("sidebar-open");
-    }
 });
