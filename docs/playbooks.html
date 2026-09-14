@@ -1,92 +1,169 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <title>BDC Playbooks</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <style>
-    body { font-family: system-ui; background:#f7f3eb; margin:0; padding:1.5rem; }
-    h1 { margin-bottom:1rem; }
-    details { margin-bottom:1rem; background:#fff; padding:1rem; border-radius:8px; border:1px solid #e0d5c5; }
-    summary { font-size:1.1rem; font-weight:600; cursor:pointer; }
-    ul { margin-top:0.5rem; padding-left:1.25rem; }
-    li { margin-bottom:0.35rem; }
-  </style>
-</head>
+<section id="playbooks" class="card">
+  <h2>BDC Playbooks</h2>
 
-<body>
-  <h1>BDC Playbooks</h1>
-
-  <!-- New Lead Playbook -->
-  <details open>
-    <summary>New Lead Playbook</summary>
-    <ul>
-      <li>Send New Lead Email + Text + Voicemail</li>
-      <li>Follow-up within 2 hours</li>
-      <li>Day 2: Quiet Lead Text</li>
-      <li>Day 3–7: Alternating follow-up attempts</li>
-    </ul>
-  </details>
-
-  <!-- Appointment Playbook -->
+  <!-- EMAIL PLAYBOOK -->
   <details>
-    <summary>Appointment Playbook</summary>
-    <ul>
-      <li>Confirm appointment time + date</li>
-      <li>Send reminder text</li>
-      <li>Prepare vehicle before arrival</li>
+    <summary>Email Playbook</summary>
+    <ul class="section-list">
+      <li><a href="email-library.html">New Lead Sequence (Day 1–7)</a></li>
+      <li><a href="email-library.html#price">Price & Payment Templates</a></li>
+      <li><a href="email-library.html#trade">Trade / Sell Templates</a></li>
+      <li><a href="email-library.html#quiet">Quiet Lead Templates</a></li>
+      <li><a href="email-library.html#sold">Sold Redirect Templates</a></li>
+      <li><a href="email-library.html#appt">Appointment Templates</a></li>
+      <li><a href="email-library.html#fresh">Fresh Start Templates</a></li>
+      <li><a href="email-library.html#buying">Buying Center Templates</a></li>
+      <li><a href="email-library.html#ordered">Ordered Vehicle Templates</a></li>
     </ul>
   </details>
 
-  <!-- Price Playbook -->
+  <!-- TEXT PLAYBOOK -->
   <details>
-    <summary>Price Playbook</summary>
-    <ul>
-      <li>Send Price Request Email + Text</li>
-      <li>Clarify budget + timeline</li>
-      <li>Offer similar options if needed</li>
+    <summary>Text Playbook</summary>
+    <ul class="section-list">
+      <li><a href="text-library.html">New Lead Sequence (Day 1–7)</a></li>
+      <li><a href="text-library.html#price">Price & Payment Texts</a></li>
+      <li><a href="text-library.html#trade">Trade / Sell Texts</a></li>
+      <li><a href="text-library.html#quiet">Quiet Lead Texts</a></li>
+      <li><a href="text-library.html#sold">Sold Redirect Texts</a></li>
+      <li><a href="text-library.html#appt">Appointment Texts</a></li>
+      <li><a href="text-library.html#buying">Buying Center Texts</a></li>
+      <li><a href="text-library.html#fresh">Fresh Start Texts</a></li>
+      <li><a href="text-library.html#ordered">Ordered Vehicle Texts</a></li>
     </ul>
   </details>
 
-  <!-- Trade Playbook -->
+  <!-- VOICEMAIL PLAYBOOK -->
   <details>
-    <summary>Trade Playbook</summary>
-    <ul>
-      <li>Gather VIN, miles, photos</li>
-      <li>Explain appraisal process</li>
-      <li>Set expectations for value range</li>
+    <summary>Voicemail Playbook</summary>
+    <ul class="section-list">
+      <li><a href="voicemail-library.html">New Lead VM</a></li>
+      <li><a href="voicemail-library.html#price">Price VM</a></li>
+      <li><a href="voicemail-library.html#trade">Trade VM</a></li>
+      <li><a href="voicemail-library.html#quiet">Quiet Lead VM</a></li>
+      <li><a href="voicemail-library.html#appt">Appointment VM</a></li>
     </ul>
   </details>
+</section>
 
-  <!-- Quiet Lead Playbook -->
+<section id="workflows" class="card">
+  <h2>Workflow System</h2>
+
   <details>
-    <summary>Quiet Lead Playbook</summary>
-    <ul>
-      <li>Send soft nudge text</li>
-      <li>Alternate communication channel</li>
-      <li>Offer help or alternatives</li>
+    <summary>New Lead Workflow</summary>
+    <ul class="section-list">
+      <li>Day 1–7 Email + Text + VM</li>
+      <li>Contact Preference</li>
+      <li>Appointment Push</li>
     </ul>
   </details>
 
-  <!-- Sold Redirect Playbook -->
   <details>
-    <summary>Sold Redirect Playbook</summary>
-    <ul>
-      <li>Notify customer vehicle sold</li>
-      <li>Offer similar alternatives</li>
-      <li>Ask about flexibility (color, trim, mileage)</li>
+    <summary>Price Workflow</summary>
+    <ul class="section-list">
+      <li>Price Request Sequence</li>
+      <li>Payment Estimate Sequence</li>
     </ul>
   </details>
 
-  <!-- Long-Term Follow-Up -->
   <details>
-    <summary>Long-Term Follow-Up (30 / 60 / 90 Days)</summary>
-    <ul>
-      <li>30-Day: Check-in + offer help</li>
-      <li>60-Day: Provide updated inventory</li>
-      <li>90-Day: Final follow-up + close file</li>
+    <summary>Trade Workflow</summary>
+    <ul class="section-list">
+      <li>Trade/Sell Day 1–7 Sequence</li>
+      <li>Appraisal Scheduling</li>
     </ul>
   </details>
 
-</body>
-</html>
+  <details>
+    <summary>Quiet Lead Workflow</summary>
+    <ul class="section-list">
+      <li>Soft Nudge</li>
+      <li>Alternate Channel</li>
+    </ul>
+  </details>
+
+  <details>
+    <summary>Appointment Workflow</summary>
+    <ul class="section-list">
+      <li>Confirmation</li>
+      <li>Reminder</li>
+      <li>No‑Show Recovery</li>
+    </ul>
+  </details>
+
+  <details>
+    <summary>Sold Redirect Workflow</summary>
+    <ul class="section-list">
+      <li>Day 1–7 Sold Redirect Sequence</li>
+      <li>Similar Options Strategy</li>
+    </ul>
+  </details>
+
+  <details>
+    <summary>Buying Center Workflow</summary>
+    <ul class="section-list">
+      <li>Day 1–7 Sell/Trade Sequence</li>
+      <li>KBB / AccuTrade Scripts</li>
+    </ul>
+  </details>
+
+  <details>
+    <summary>Fresh Start Workflow</summary>
+    <ul class="section-list">
+      <li>Fresh Start Day 1–3</li>
+      <li>Credit App Flow</li>
+    </ul>
+  </details>
+</section>
+
+<section id="training" class="card">
+  <h2>Training Modules</h2>
+
+  <details>
+    <summary>Customization Rules</summary>
+    <ul class="section-list">
+      <li>Replace placeholders</li>
+      <li>Ask one question</li>
+      <li>Match tone</li>
+      <li>End with clear next step</li>
+    </ul>
+  </details>
+
+  <details>
+    <summary>Objection Handling</summary>
+    <ul class="section-list">
+      <li>Price</li>
+      <li>Trade</li>
+      <li>Credit</li>
+      <li>Timing</li>
+      <li>Just Looking</li>
+      <li>Availability</li>
+    </ul>
+  </details>
+
+  <details>
+    <summary>Appointment System</summary>
+    <ul class="section-list">
+      <li>Word Tracks</li>
+      <li>Confirmation</li>
+      <li>Reminder</li>
+      <li>No‑Show Recovery</li>
+    </ul>
+  </details>
+
+  <details>
+    <summary>Buying Center</summary>
+    <ul class="section-list">
+      <li>Sell/Trade Day 1–7</li>
+      <li>KBB / AccuTrade</li>
+    </ul>
+  </details>
+
+  <details>
+    <summary>Sold Redirect</summary>
+    <ul class="section-list">
+      <li>Sold Day 1–7</li>
+      <li>Similar Options Strategy</li>
+    </ul>
+  </details>
+</section>
