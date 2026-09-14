@@ -19,3 +19,4 @@ document.addEventListener("DOMContentLoaded", () => {
     loadInclude("sidebar", "includes/sidebar.html");
     loadInclude("breadcrumbs", "includes/breadcrumbs.html");
 });
+
