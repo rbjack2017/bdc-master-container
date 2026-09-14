@@ -6,16 +6,33 @@
     <link rel="stylesheet" href="../assets/css/main.css">
 </head>
 
-<body>
+<body class="page-training fade-page">
     <div id="header"></div>
     <div id="sidebar"></div>
 
+    <!-- Floating Dark Mode Toggle -->
+    <button id="darkmode-toggle" class="darkmode-toggle">
+        <span class="darkmode-icon">🌙</span>
+        <span class="darkmode-label">Dark Mode</span>
+    </button>
+
     <main>
         <h1>Training Dashboard</h1>
+        <p class="section-intro">
+            Search and open any training module, then track completion and certificates.
+        </p>
+
+        <!-- Section Divider -->
+        <hr class="section-divider">
 
         <!-- Training Module Search Bar -->
-        <input id="training-search" class="search-input" placeholder="Search training modules…">
-        <ul id="training-suggestions" class="search-suggestions"></ul>
+        <div class="dashboard-search">
+            <input id="training-search" class="search-input" placeholder="Search training modules…">
+            <ul id="training-suggestions" class="search-suggestions"></ul>
+        </div>
+
+        <!-- Section Divider -->
+        <hr class="section-divider">
 
         <!-- Training Module Grid -->
         <section class="grid" id="training-grid"></section>
@@ -28,6 +45,7 @@
     <script src="../assets/js/main.js"></script>
     <script src="../assets/js/sidebar.js"></script>
     <script src="../assets/js/progress.js"></script>
+    <script src="../assets/js/darkmode.js"></script>
 
     <!-- Training Dashboard Logic -->
     <script>
@@ -44,7 +62,7 @@
             { id: "continuity", label: "Continuity", href: "../continuity/continuity.html" },
             { id: "governance", label: "Governance", href: "../governance/governance.html" },
             { id: "customer-questions", label: "Customer Questions", href: "../questions/customer-questions.html" },
-            // Add more modules here
+            // add more as needed
         ];
 
         /* ------------------------------
@@ -55,18 +73,34 @@
         modules.forEach(mod => {
             const completed = localStorage.getItem(`progress-${mod.id}`);
             const card = document.createElement("div");
-            card.className = "card";
+            card.className = "card fade-in";
 
             card.innerHTML = `
                 <div class="card-title">
-                    <div class="card-title-icon"></div>
+                    <div class="card-title-icon icon-${mod.id}"></div>
                     <strong>${mod.label}</strong>
                     ${completed ? '<span class="badge badge-sage">Completed</span>' : ''}
                 </div>
                 <p>Open the ${mod.label} dashboard.</p>
-                <a href="${mod.href}" class="btn btn-primary">Open</a>
+                <div class="card-actions">
+                    <a href="${mod.href}" class="btn btn-primary">Open</a>
+                    ${completed ? `<button class="btn btn-outline btn-certificate" data-module="${mod.id}">Certificate</button>` : ''}
+                </div>
             `;
             grid.appendChild(card);
+        });
+
+        /* ------------------------------
+           CERTIFICATE BUTTON HOOKS
+        ------------------------------ */
+        grid.addEventListener("click", (e) => {
+            const btn = e.target.closest(".btn-certificate");
+            if (!btn) return;
+
+            const moduleId = btn.getAttribute("data-module");
+            // Adjust this path to wherever you store certificates
+            const certPath = `../certificates/${moduleId}-certificate.html`;
+            window.location.href = certPath;
         });
 
         /* ------------------------------
@@ -90,6 +124,7 @@
                 matches.forEach(m => {
                     const li = document.createElement("li");
                     li.textContent = m.label;
+                    li.className = "search-suggestion-item";
                     li.addEventListener("click", () => {
                         window.location.href = m.href;
                     });
