@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>QA Dashboard</title>
+    <link rel="stylesheet" href="../assets/css/main.css">
+</head>
+
+<body class="page-qa fade-page">
+    <div id="header"></div>
+    <div id="sidebar"></div>
+
+    <!-- Floating Dark Mode Toggle -->
+    <button id="darkmode-toggle" class="darkmode-toggle">
+        <span class="darkmode-icon">🌙</span>
+        <span class="darkmode-label">Dark Mode</span>
+    </button>
+
+    <main>
+        <h1>QA Dashboard</h1>
+        <p class="section-intro">
+            Search and open any QA module, track completion, and access certificates.
+        </p>
+
+        <!-- Section Divider -->
+        <hr class="section-divider">
+
+        <!-- QA Module Search Bar -->
+        <div class="dashboard-search">
+            <input id="qa-search" class="search-input" placeholder="Search QA modules…">
+            <ul id="qa-suggestions" class="search-suggestions"></ul>
+        </div>
+
+        <!-- Section Divider -->
+        <hr class="section-divider">
+
+        <!-- QA Module Grid -->
+        <section class="grid" id="qa-grid"></section>
+    </main>
+
+    <div id="footer"></div>
+    <div id="breadcrumbs"></div>
+
+    <!-- Core Scripts -->
+    <script src="../assets/js/main.js"></script>
+    <script src="../assets/js/sidebar.js"></script>
+    <script src="../assets/js/progress.js"></script>
+    <script src="../assets/js/darkmode.js"></script>
+
+    <!-- QA Dashboard Logic -->
+    <script>
+    document.addEventListener("DOMContentLoaded", () => {
+
+        /* ------------------------------
+           QA MODULE LIST
+        ------------------------------ */
+        const modules = [
+            { id: "qa-calls", label: "Call Quality", href: "call-quality.html" },
+            { id: "qa-templates", label: "Template Accuracy", href: "template-accuracy.html" },
+            { id: "qa-compliance", label: "Compliance QA", href: "compliance-qa.html" },
+            { id: "qa-messaging", label: "Messaging QA", href: "messaging-qa.html" },
+            { id: "qa-process", label: "Process QA", href: "process-qa.html" },
+            // Add more QA modules here
+        ];
+
+        /* ------------------------------
+           BUILD QA MODULE GRID
+        ------------------------------ */
+        const grid = document.getElementById("qa-grid");
+
+        modules.forEach(mod => {
+            const completed = localStorage.getItem(`progress-${mod.id}`);
+            const card = document.createElement("div");
+            card.className = "card fade-in";
+
+            card.innerHTML = `
+                <div class="card-title">
+                    <div class="card-title-icon icon-${mod.id}"></div>
+                    <strong>${mod.label}</strong>
+                    ${completed ? '<span class="badge badge-sage">Completed</span>' : ''}
+                </div>
+                <p>Open the ${mod.label} module.</p>
+                <div class="card-actions">
+                    <a href="${mod.href}" class="btn btn-primary">Open</a>
+                    ${completed ? `<button class="btn btn-outline btn-certificate" data-module="${mod.id}">Certificate</button>` : ''}
+                </div>
+            `;
+            grid.appendChild(card);
+        });
+
+        /* ------------------------------
+           CERTIFICATE BUTTON HOOKS
+        ------------------------------ */
+        grid.addEventListener("click", (e) => {
+            const btn = e.target.closest(".btn-certificate");
+            if (!btn) return;
+
+            const moduleId = btn.getAttribute("data-module");
+            const certPath = `../certificates/${moduleId}-certificate.html`;
+            window.location.href = certPath;
+        });
+
+        /* ------------------------------
+           QA MODULE SEARCH BAR
+           + AUTOCOMPLETE
+        ------------------------------ */
+        const qaInput = document.getElementById("qa-search");
+        const qaList = document.getElementById("qa-suggestions");
+
+        if (qaInput && qaList) {
+            qaInput.addEventListener("input", () => {
+                const term = qaInput.value.toLowerCase();
+                qaList.innerHTML = "";
+
+                if (!term) return;
+
+                const matches = modules
+                    .filter(m => m.label.toLowerCase().includes(term))
+                    .slice(0, 8);
+
+                matches.forEach(m => {
+                    const li = document.createElement("li");
+                    li.textContent = m.label;
+                    li.className = "search-suggestion-item";
+                    li.addEventListener("click", () => {
+                        window.location.href = m.href;
+                    });
+                    qaList.appendChild(li);
+                });
+            });
+        }
+    });
+    </script>
+
+</body>
+</html>
