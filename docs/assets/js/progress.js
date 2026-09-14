@@ -1,18 +1,14 @@
-/* PROGRESS TRACKING */
 document.addEventListener("DOMContentLoaded", () => {
     const page = window.location.pathname.split("/").pop().replace(".html", "");
     const key = `progress-${page}`;
 
-    /* Mark page as visited */
+    /* Mark current page completed */
     localStorage.setItem(key, "completed");
 
-    /* Update sidebar badges */
-    const links = document.querySelectorAll(".sidebar a");
-
-    links.forEach(link => {
+    /* Sidebar badges */
+    document.querySelectorAll(".sidebar-links a").forEach(link => {
         const name = link.getAttribute("href").replace(".html", "");
         const done = localStorage.getItem(`progress-${name}`);
-
         if (done) {
             const badge = document.createElement("span");
             badge.className = "badge badge-sage";
@@ -21,4 +17,3 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 });
-
