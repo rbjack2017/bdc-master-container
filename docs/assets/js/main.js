@@ -1,21 +1,21 @@
-document.addEventListener("DOMContentLoaded", () => {
-    const overlay = document.getElementById("loadingOverlay");
-    overlay.style.display = "flex";
+/* LOAD INCLUDE FILES INTO PAGE */
+async function loadInclude(id, file) {
+    const container = document.getElementById(id);
+    if (!container) return;
 
-    Promise.all([
-        fetch("includes/header.html").then(r => r.text()).then(h => {
-            document.getElementById("header").innerHTML = h;
-        }),
-        fetch("includes/sidebar.html").then(r => r.text()).then(h => {
-            document.getElementById("sidebar").innerHTML = h;
-        }),
-        fetch("includes/footer.html").then(r => r.text()).then(h => {
-            document.getElementById("footer").innerHTML = h;
-        }),
-        fetch("includes/breadcrumbs.html").then(r => r.text()).then(h => {
-            document.getElementById("breadcrumbs").innerHTML = h;
-        })
-    ]).finally(() => {
-        overlay.style.display = "none";
-    });
+    try {
+        const response = await fetch(file);
+        const html = await response.text();
+        container.innerHTML = html;
+    } catch (err) {
+        console.error(`Include failed: ${file}`, err);
+    }
+}
+
+/* INITIALIZE PAGE */
+document.addEventListener("DOMContentLoaded", () => {
+    loadInclude("header", "includes/header.html");
+    loadInclude("footer", "includes/footer.html");
+    loadInclude("sidebar", "includes/sidebar.html");
+    loadInclude("breadcrumbs", "includes/breadcrumbs.html");
 });
