@@ -1,38 +1,25 @@
-/* HEADINGS */
-h1 {
-    font-size: 1.6rem;
-    margin-bottom: 1rem;
+h1, h2, h3 {
     color: var(--charcoal);
+    margin-bottom: 0.75rem;
 }
-h2 {
-    font-size: 1.3rem;
-    margin-bottom: 0.8rem;
-    color: var(--charcoal);
-}
-h3 {
-    font-size: 1.1rem;
-    margin-bottom: 0.6rem;
-    color: var(--charcoal);
-}
-
-/* PARAGRAPHS */
 p {
     font-size: 1rem;
     line-height: 1.5;
-    margin-bottom: 1rem;
+    margin-bottom: 0.75rem;
 }
 
-/* LINKS */
-a {
-    color: var(--terracotta);
-    text-decoration: none;
-}
-a:hover {
-    color: var(--dusty-rose);
-}
-
-/* LISTS */
-ul, ol {
-    margin-left: 1.2rem;
-    margin-bottom: 1rem;
+/* PRINT */
+@media print {
+    body {
+        background: #ffffff;
+        color: #000000;
+    }
+    .sidebar, .btn, .modal-backdrop {
+        display: none !important;
+    }
+    main {
+        margin: 0;
+        width: 100%;
+        padding: 0;
+    }
 }
