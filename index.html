@@ -1,208 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>BDC Master Container</title>
+    <meta charset="UTF-8">
+    <title>BDC Master Container</title>
 
-  <style>
-    body {
-      font-family: system-ui;
-      background:#f7f3eb;
-      margin:0;
-      padding:0;
-      color:#333;
-    }
-
-    header {
-      background:#333;
-      color:white;
-      padding:1rem;
-      text-align:center;
-    }
-
-    .container {
-      display:grid;
-      grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));
-      gap:1rem;
-      padding:1.5rem;
-    }
-
-    .card {
-      background:white;
-      padding:1rem;
-      border-radius:8px;
-      border:1px solid #e0d5c5;
-      transition:0.2s;
-    }
-
-    .card:hover {
-      transform:scale(1.02);
-      background:#fff9f0;
-    }
-
-    .card-link {
-      text-decoration:none;
-      color:inherit;
-      display:block;
-    }
-
-    h3 {
-      margin-top:0;
-    }
-
-    .badge {
-      padding:2px 6px;
-      border-radius:4px;
-      font-size:0.75rem;
-      margin-left:6px;
-    }
-
-    .badge-gold {
-      background:#c79a3b;
-      color:white;
-    }
-  </style>
+    <!-- Global Styles -->
+    <link rel="stylesheet" href="assets/css/main.css">
 </head>
 
 <body>
+    <!-- Includes -->
+    <div id="header"></div>
+    <div id="sidebar"></div>
 
-<header>
-  <h1>BDC Master Container</h1>
-</header>
+    <!-- Main Content -->
+    <main>
+        <h1>BDC Master Container</h1>
+        <p>Welcome to your centralized BDC operations hub. Use the sidebar to navigate through training modules, templates, workflows, and operational systems.</p>
 
-<div class="container">
+        <section class="grid">
+            <div class="card">
+                <h3>Training Hub</h3>
+                <p>Access all BDC training modules.</p>
+                <a href="docs/training/index.html" class="nav-link">Open Training</a>
+            </div>
 
-  <!-- Playbooks -->
-  <a href="docs/playbooks.html" class="card-link">
-    <section class="card">
-      <h3>Playbooks <span class="badge badge-gold">Core</span></h3>
-      <p>Full library of all BDC playbooks.</p>
-    </section>
-  </a>
+            <div class="card">
+                <h3>Template Library</h3>
+                <p>All rep, manager, and executive templates.</p>
+                <a href="docs/templates/template-library.html" class="nav-link">Open Templates</a>
+            </div>
 
-  <!-- Workflows -->
-  <a href="docs/workflows.html" class="card-link">
-    <section class="card">
-      <h3>Workflows <span class="badge badge-gold">Core</span></h3>
-      <p>Daily workflows, routing, and task systems.</p>
-    </section>
-  </a>
+            <div class="card">
+                <h3>Workflows</h3>
+                <p>Operational workflows and process maps.</p>
+                <a href="docs/workflows/workflows.html" class="nav-link">Open Workflows</a>
+            </div>
 
-  <!-- Template Library -->
-  <a href="docs/template-library.html" class="card-link">
-    <section class="card">
-      <h3>Template Library</h3>
-      <p>Email, text, voicemail, and redirect templates.</p>
-    </section>
-  </a>
+            <div class="card">
+                <h3>Playbooks</h3>
+                <p>Full BDC playbook system.</p>
+                <a href="docs/playbooks/playbooks.html" class="nav-link">Open Playbooks</a>
+            </div>
+        </section>
+    </main>
 
-  <!-- Response Systems -->
-  <a href="docs/response-systems.html" class="card-link">
-    <section class="card">
-      <h3>Response Systems</h3>
-      <p>Objection handling, buying signals, routing logic.</p>
-    </section>
-  </a>
+    <!-- Footer + Breadcrumbs -->
+    <div id="footer"></div>
+    <div id="breadcrumbs"></div>
 
-  <!-- Customer Questions -->
-  <a href="docs/customer-questions.html" class="card-link">
-    <section class="card">
-      <h3>Customer Questions</h3>
-      <p>Short discovery questions for reps.</p>
-    </section>
-  </a>
-
-  <!-- Full Question Framework -->
-  <a href="docs/questions-for-customers.html" class="card-link">
-    <section class="card">
-      <h3>Full Question Framework</h3>
-      <p>Complete discovery system for reps and managers.</p>
-    </section>
-  </a>
-
-  <!-- Brand -->
-  <a href="docs/brand.html" class="card-link">
-    <section class="card">
-      <h3>Brand System</h3>
-      <p>Colors, typography, tone, identity rules.</p>
-    </section>
-  </a>
-
-  <!-- Training -->
-  <a href="docs/training.html" class="card-link">
-    <section class="card">
-      <h3>Training System</h3>
-      <p>Onboarding, coaching, word tracks, bundles.</p>
-    </section>
-  </a>
-
-  <!-- Governance -->
-  <a href="docs/governance.html" class="card-link">
-    <section class="card">
-      <h3>Governance System</h3>
-      <p>Enterprise governance pillars and structure.</p>
-    </section>
-  </a>
-
-  <!-- Compliance -->
-  <a href="docs/compliance.html" class="card-link">
-    <section class="card">
-      <h3>Compliance System</h3>
-      <p>Texting, email, marketplace, OEM, Fresh Start.</p>
-    </section>
-  </a>
-
-  <!-- Continuity -->
-  <a href="docs/continuity.html" class="card-link">
-    <section class="card">
-      <h3>Continuity System</h3>
-      <p>Operational, staffing, workflow, crisis continuity.</p>
-    </section>
-  </a>
-
-  <!-- Rep Templates -->
-  <a href="docs/rep-templates.html" class="card-link">
-    <section class="card">
-      <h3>Rep Templates</h3>
-      <p>Messaging templates for BDC reps.</p>
-    </section>
-  </a>
-
-  <!-- Manager Templates -->
-  <a href="docs/manager-templates.html" class="card-link">
-    <section class="card">
-      <h3>Manager Templates</h3>
-      <p>Manager communication and coaching templates.</p>
-    </section>
-  </a>
-
-  <!-- Executive Templates -->
-  <a href="docs/executive-templates.html" class="card-link">
-    <section class="card">
-      <h3>Executive Templates</h3>
-      <p>Executive communication and governance templates.</p>
-    </section>
-  </a>
-
-  <!-- KPI System -->
-  <a href="docs/kpi.html" class="card-link">
-    <section class="card">
-      <h3>KPI System</h3>
-      <p>Enterprise, store, manager, and rep KPIs.</p>
-    </section>
-  </a>
-
-  <!-- QA System -->
-  <a href="docs/qa.html" class="card-link">
-    <section class="card">
-      <h3>Quality Assurance System</h3>
-      <p>Call grading, template grading, workflow grading.</p>
-    </section>
-  </a>
-
-</div>
-
+    <!-- Scripts -->
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/sidebar.js"></script>
+    <script src="assets/js/progress.js"></script>
+    <script src="assets/js/darkmode.js"></script>
+    <script src="assets/js/search.js"></script>
 </body>
 </html>
-
