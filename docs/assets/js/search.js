@@ -1,14 +1,16 @@
+/* TRAINING SEARCH */
 document.addEventListener("DOMContentLoaded", () => {
-    const input = document.getElementById("trainingSearch");
+    const input = document.getElementById("search-input");
+    const items = document.querySelectorAll(".sidebar a");
+
     if (!input) return;
 
     input.addEventListener("input", () => {
-        const query = input.value.toLowerCase();
-        const cards = document.querySelectorAll(".training-card");
+        const term = input.value.toLowerCase();
 
-        cards.forEach(card => {
-            const text = card.innerText.toLowerCase();
-            card.style.display = text.includes(query) ? "block" : "none";
+        items.forEach(item => {
+            const text = item.textContent.toLowerCase();
+            item.style.display = text.includes(term) ? "block" : "none";
         });
     });
 });
