@@ -3,98 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <title>Templates</title>
-
-    <!-- Global Styles -->
     <link rel="stylesheet" href="../assets/css/main.css">
-    <link rel="stylesheet" href="../assets/css/layout.css">
-    <link rel="stylesheet" href="../assets/css/typography.css">
-    <link rel="stylesheet" href="../assets/css/components.css">
-    <link rel="stylesheet" href="../assets/css/themes.css">
-
-    <!-- Scripts -->
-    <script src="../assets/js/sidebar.js" defer></script>
-    <script src="../assets/js/search.js" defer></script>
-    <script src="../assets/js/main.js" defer></script>
 </head>
 
 <body>
-
-    <!-- Loading Screen -->
-    <div id="loadingOverlay" class="loading-overlay" style="display:none;">
-        <div class="loading-spinner"></div>
-    </div>
-
-    <!-- Header -->
     <div id="header"></div>
-
-    <!-- Sidebar -->
     <div id="sidebar"></div>
 
-    <!-- Breadcrumbs -->
-    <div id="breadcrumbs"></div>
-
-    <!-- Main Content -->
-    <main class="content">
-
-        <!-- Mark Completed Button -->
-        <button id="markCompleted" data-module="templates" class="complete-btn">
-            Mark this module as completed
-        </button>
-
-        <h1>Templates Module</h1>
-        <p>The Templates Module provides approved email, text, and voicemail scripts for BDC reps. These templates ensure consistency, compliance, and professionalism across all customer communication.</p>
-
-        <h2>1. Email Templates</h2>
-        <h3>New Lead Email</h3>
-        <ul>
-            <li>Thank the customer for their interest</li>
-            <li>Confirm the vehicle of interest</li>
-            <li>Ask one simple question</li>
-            <li>Invite them to continue the conversation</li>
-        </ul>
-
-        <h3>Follow-Up Email</h3>
-        <ul>
-            <li>Reference previous communication</li>
-            <li>Ask a clarifying question</li>
-            <li>Offer assistance</li>
-        </ul>
-
-        <h2>2. Text Templates</h2>
-        <p>All text messages must be short, compliant, and easy to answer.</p>
-
-        <ul>
-            <li>“Hi {{First Name}}, this is Raven with Bachman. Are you still considering the {{Vehicle}}?”</li>
-            <li>“Any questions I can help with?”</li>
-            <li>“Would you like to schedule a visit?”</li>
-        </ul>
-
-        <h2>3. Voicemail Templates</h2>
-        <p>Voicemails must be clear, professional, and under 20 seconds.</p>
-
-        <ul>
-            <li>“Hi {{First Name}}, this is Raven with Bachman. I tried reaching you and will send a quick text as well. Talk soon.”</li>
-        </ul>
-
-        <h2>4. Customization Rules</h2>
-        <ul>
-            <li>Replace placeholders</li>
-            <li>Remove irrelevant lines</li>
-            <li>Ask one main question</li>
-            <li>Match customer tone</li>
-        </ul>
-
-        <h2>5. Template Summary</h2>
-        <p>Templates ensure reps communicate clearly, professionally, and consistently while maintaining compliance.</p>
-
+    <main>
+        <h1>Templates</h1>
+        <p>Training content goes here.</p>
     </main>
 
-    <!-- Footer -->
     <div id="footer"></div>
 
-    <!-- Progress Script -->
-    <script src="../assets/js/progress.js" defer></script>
-
+    <script src="../assets/js/sidebar.js"></script>
+    <script src="includes/header.html"></script>
+    <script src="includes/footer.html"></script>
+    <script src="includes/sidebar.html"></script>
+    <script src="includes/breadcrumbs.html"></script>
 </body>
 </html>
-
