@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Template Library Dashboard</title>
+    <link rel="stylesheet" href="../assets/css/main.css">
+</head>
+
+<body class="page-templates fade-page">
+    <div id="header"></div>
+    <div id="sidebar"></div>
+
+    <button id="darkmode-toggle" class="darkmode-toggle">
+        <span class="darkmode-icon">🌙</span>
+        <span class="darkmode-label">Dark Mode</span>
+    </button>
+
+    <main>
+        <h1>Template Library Dashboard</h1>
+        <p class="section-intro">
+            Search, open, and use any template category. Includes email, text, voicemail, and word tracks.
+        </p>
+
+        <hr class="section-divider">
+
+        <div class="dashboard-search">
+            <input id="template-search" class="search-input" placeholder="Search template categories…">
+            <ul id="template-suggestions" class="search-suggestions"></ul>
+        </div>
+
+        <hr class="section-divider">
+
+        <section class="grid" id="template-grid"></section>
+    </main>
+
+    <div id="footer"></div>
+    <div id="breadcrumbs"></div>
+
+    <script src="../assets/js/main.js"></script>
+    <script src="../assets/js/sidebar.js"></script>
+    <script src="../assets/js/progress.js"></script>
+    <script src="../assets/js/darkmode.js"></script>
+
+    <script>
+    document.addEventListener("DOMContentLoaded", () => {
+
+        const modules = [
+            { id: "tmpl-price", label: "Price Templates", href: "price-templates.html" },
+            { id: "tmpl-payment", label: "Payment Templates", href: "payment-templates.html" },
+            { id: "tmpl-trade", label: "Trade Templates", href: "trade-templates.html" },
+            { id: "tmpl-availability", label: "Availability Templates", href: "availability-templates.html" },
+            { id: "tmpl-appointment", label: "Appointment Templates", href: "appointment-templates.html" },
+            { id: "tmpl-quiet", label: "Quiet Lead Templates", href: "quiet-lead-templates.html" },
+            { id: "tmpl-sold", label: "Sold Redirect Templates", href: "sold-redirect-templates.html" },
+            { id: "tmpl-fresh", label: "Fresh Start Templates", href: "fresh-start-templates.html" },
+            { id: "tmpl-buying", label: "Buying Center Templates", href: "buying-center-templates.html" },
+            { id: "tmpl-objection", label: "Objection Word Tracks", href: "objection-templates.html" }
+        ];
+
+        const grid = document.getElementById("template-grid");
+
+        modules.forEach(mod => {
+            const card = document.createElement("div");
+            card.className = "card fade-in";
+
+            card.innerHTML = `
+                <div class="card-title">
+                    <div class="card-title-icon icon-${mod.id}"></div>
+                    <strong>${mod.label}</strong>
+                </div>
+                <p>Open the ${mod.label} category.</p>
+                <div class="card-actions">
+                    <a href="${mod.href}" class="btn btn-primary">Open</a>
+                </div>
+            `;
+            grid.appendChild(card);
+        });
+
+        const input = document.getElementById("template-search");
+        const list = document.getElementById("template-suggestions");
+
+        input.addEventListener("input", () => {
+            const term = input.value.toLowerCase();
+            list.innerHTML = "";
+            if (!term) return;
+
+            const matches = modules.filter(m => m.label.toLowerCase().includes(term)).slice(0, 8);
+
+            matches.forEach(m => {
+                const li = document.createElement("li");
+                li.textContent = m.label;
+                li.className = "search-suggestion-item";
+                li.addEventListener("click", () => window.location.href = m.href);
+                list.appendChild(li);
+            });
+        });
+    });
+    </script>
+
+</body>
+</html>
