@@ -1,13 +1,29 @@
 <nav class="breadcrumbs">
+    <a href="/bdc-master-container/index.html">Home</a>
     <span id="breadcrumb-path"></span>
 </nav>
 
 <script>
 document.addEventListener("DOMContentLoaded", () => {
-    const page = window.location.pathname.split("/").pop().replace(".html", "");
-    const formatted = page === "index"
-        ? "Home"
-        : page.replace(/-/g, " ").replace(/\b\w/g, c => c.toUpperCase());
-    document.getElementById("breadcrumb-path").innerText = formatted;
+    const parts = window.location.pathname.split("/").filter(Boolean);
+    const container = document.getElementById("breadcrumb-path");
+    if (!container || parts.length < 2) return;
+
+    const baseIndex = parts.indexOf("bdc-master-container");
+    const trail = parts.slice(baseIndex + 1);
+
+    let path = "/bdc-master-container";
+    trail.forEach((segment, i) => {
+        path += `/${segment}`;
+        const name = segment.replace(".html", "").replace(/-/g, " ")
+            .replace(/\b\w/g, c => c.toUpperCase());
+
+        const link = document.createElement(i === trail.length - 1 ? "span" : "a");
+        link.textContent = name;
+        if (i !== trail.length - 1) link.href = path;
+
+        container.appendChild(document.createTextNode(" / "));
+        container.appendChild(link);
+    });
 });
 </script>
