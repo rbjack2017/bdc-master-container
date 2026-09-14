@@ -1,17 +1,18 @@
+/* DARK MODE */
 document.addEventListener("DOMContentLoaded", () => {
-    const toggle = document.getElementById("darkModeToggle");
+    const toggle = document.getElementById("darkmode-toggle");
+    const saved = localStorage.getItem("darkmode");
 
-    const applyMode = (mode) => {
-        document.documentElement.setAttribute("data-theme", mode);
-        localStorage.setItem("theme", mode);
-        toggle.textContent = mode === "dark" ? "☀️" : "🌙";
-    };
+    if (saved === "on") {
+        document.body.classList.add("darkmode");
+    }
 
-    const saved = localStorage.getItem("theme") || "light";
-    applyMode(saved);
+    if (!toggle) return;
 
     toggle.addEventListener("click", () => {
-        const current = document.documentElement.getAttribute("data-theme");
-        applyMode(current === "light" ? "dark" : "light");
+        document.body.classList.toggle("darkmode");
+
+        const active = document.body.classList.contains("darkmode");
+        localStorage.setItem("darkmode", active ? "on" : "off");
     });
 });
