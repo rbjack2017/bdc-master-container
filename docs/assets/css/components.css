@@ -1,70 +1,69 @@
-/* GRID */
+/* BUTTONS */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.4rem 0.8rem;
+    border-radius: 999px;
+    border: none;
+    cursor: pointer;
+    font-size: 0.85rem;
+}
+.btn-primary { background: var(--accent); color: var(--ivory); }
+.btn-outline { background: transparent; border: 1px solid var(--accent); color: var(--accent); }
+
+/* ALERTS */
+.alert {
+    padding: 0.5rem 0.75rem;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    margin-bottom: 0.75rem;
+}
+.alert-info { background: var(--sage); color: var(--charcoal); }
+.alert-success { background: #b7d7b0; }
+.alert-warning { background: #f3c3ac; }
+.alert-danger { background: #e38b7b; }
+
+/* MODAL */
+.modal-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.4);
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+.modal {
+    background: var(--ivory);
+    border-radius: 10px;
+    padding: 1rem 1.25rem;
+    max-width: 420px;
+    width: 90%;
+}
+.modal-header { font-weight: 600; margin-bottom: 0.5rem; }
+.modal-footer { margin-top: 0.75rem; text-align: right; }
+
+/* GRID (dashboard cards) */
 .grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 1rem;
-    margin-bottom: 1.5rem;
 }
-
-/* CARD */
 .card {
     background: var(--ivory);
     border-radius: 10px;
     padding: 0.75rem 1rem;
     border: 1px solid #e0d5c5;
 }
-.card h3 {
-    font-size: 1rem;
-    margin-bottom: 0.5rem;
+.card-title {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    margin-bottom: 0.4rem;
 }
-
-/* BADGES */
-.badge {
-    display: inline-block;
-    padding: 0.15rem 0.5rem;
-    border-radius: 999px;
-    font-size: 0.7rem;
-    margin-left: 0.4rem;
-}
-.badge-gold { background: var(--gold); color: var(--charcoal); }
-.badge-sage { background: var(--sage); color: var(--charcoal); }
-.badge-terracotta { background: var(--terracotta); color: var(--ivory); }
-.badge-rose { background: var(--dusty-rose); color: var(--ivory); }
-.badge-charcoal { background: var(--charcoal); color: var(--ivory); }
-
-/* KPI TABLE */
-.kpi-table {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 0.85rem;
-}
-.kpi-table th, .kpi-table td {
-    border: 1px solid #e0d5c5;
-    padding: 0.3rem 0.4rem;
-    text-align: left;
-}
-
-/* COLLAPSIBLE SECTIONS */
-details {
-    margin-bottom: 0.6rem;
-    background: #fff;
-    border-radius: 8px;
-    border: 1px solid #e0d5c5;
-    padding: 0.4rem 0.6rem;
-}
-summary {
-    cursor: pointer;
-    font-size: 0.9rem;
-    font-weight: 600;
-}
-summary::marker {
-    color: var(--gold);
-}
-.section-list {
-    margin-top: 0.4rem;
-    font-size: 0.85rem;
-    padding-left: 1rem;
-}
-.section-list li {
-    margin-bottom: 0.2rem;
+.card-title-icon {
+    width: 20px;
+    height: 20px;
+    border-radius: 6px;
+    background: var(--accent-soft);
 }
