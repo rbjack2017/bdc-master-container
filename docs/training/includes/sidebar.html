@@ -1,0 +1,30 @@
+<aside class="sidebar">
+    <nav>
+        <ul id="sidebar-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="buying-center.html">Buying Center</a></li>
+            <li><a href="certification.html">Certification</a></li>
+            <li><a href="compliance.html">Compliance</a></li>
+            <li><a href="continuity.html">Continuity</a></li>
+            <li><a href="crm-tasks.html">CRM Tasks</a></li>
+            <li><a href="fresh-start.html">Fresh Start</a></li>
+            <li><a href="governance.html">Governance</a></li>
+            <li><a href="kpi-training.html">KPI Training</a></li>
+            <li><a href="objections.html">Objections</a></li>
+            <li><a href="onboarding.html">Onboarding</a></li>
+            <li><a href="qa-training.html">QA Training</a></li>
+            <li><a href="redirects.html">Redirects</a></li>
+            <li><a href="templates.html">Templates</a></li>
+            <li><a href="workflows.html">Workflows</a></li>
+        </ul>
+    </nav>
+</aside>
+
+<script>
+const current = window.location.pathname.split("/").pop();
+document.querySelectorAll("#sidebar-links a").forEach(link => {
+    if (link.getAttribute("href") === current) {
+        link.classList.add("active");
+    }
+});
+</script>
