@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Brand Dashboard</title>
+    <link rel="stylesheet" href="../assets/css/main.css">
+</head>
+
+<body class="page-brand fade-page">
+    <div id="header"></div>
+    <div id="sidebar"></div>
+
+    <!-- Floating Dark Mode Toggle -->
+    <button id="darkmode-toggle" class="darkmode-toggle">
+        <span class="darkmode-icon">🌙</span>
+        <span class="darkmode-label">Dark Mode</span>
+    </button>
+
+    <main>
+        <h1>Brand Dashboard</h1>
+        <p class="section-intro">
+            Explore brand standards, tone, messaging rules, and customer experience guidelines.
+        </p>
+
+        <hr class="section-divider">
+
+        <!-- Brand Module Search Bar -->
+        <div class="dashboard-search">
+            <input id="brand-search" class="search-input" placeholder="Search brand modules…">
+            <ul id="brand-suggestions" class="search-suggestions"></ul>
+        </div>
+
+        <hr class="section-divider">
+
+        <!-- Brand Module Grid -->
+        <section class="grid" id="brand-grid"></section>
+    </main>
+
+    <div id="footer"></div>
+    <div id="breadcrumbs"></div>
+
+    <!-- Core Scripts -->
+    <script src="../assets/js/main.js"></script>
+    <script src="../assets/js/sidebar.js"></script>
+    <script src="../assets/js/progress.js"></script>
+    <script src="../assets/js/darkmode.js"></script>
+
+    <!-- Brand Dashboard Logic -->
+    <script>
+    document.addEventListener("DOMContentLoaded", () => {
+
+        /* ------------------------------
+           BRAND MODULE LIST
+        ------------------------------ */
+        const modules = [
+            { id: "brand-voice", label: "Brand Voice", href: "brand-voice.html" },
+            { id: "tone-style", label: "Tone & Style", href: "tone-style.html" },
+            { id: "messaging-rules", label: "Messaging Rules", href: "messaging-rules.html" },
+            { id: "customer-experience", label: "Customer Experience", href: "customer-experience.html" },
+            { id: "brand-standards", label: "Brand Standards", href: "brand-standards.html" }
+        ];
+
+        /* ------------------------------
+           BUILD BRAND MODULE GRID
+        ------------------------------ */
+        const grid = document.getElementById("brand-grid");
+
+        modules.forEach(mod => {
+            const completed = localStorage.getItem(`progress-${mod.id}`);
+            const card = document.createElement("div");
+            card.className = "card fade-in";
+
+            card.innerHTML = `
+                <div class="card-title">
+                    <div class="card-title-icon icon-${mod.id}"></div>
+                    <strong>${mod.label}</strong>
+                    ${completed ? '<span class="badge badge-sage">Completed</span>' : ''}
+                </div>
+                <p>Open the ${mod.label} module.</p>
+                <div class="card-actions">
+                    <a href="${mod.href}" class="btn btn-primary">Open</a>
+                    ${completed ? `<button class="btn btn-outline btn-certificate" data-module="${mod.id}">Certificate</button>` : ''}
+                </div>
+            `;
+            grid.appendChild(card);
+        });
+
+        /* ------------------------------
+           CERTIFICATE BUTTON HOOKS
+        ------------------------------ */
+        grid.addEventListener("click", (e) => {
+            const btn = e.target.closest(".btn-certificate");
+            if (!btn) return;
+
+            const moduleId = btn.getAttribute("data-module");
+            const certPath = `../certificates/${moduleId}-certificate.html`;
+            window.location.href = certPath;
+        });
+
+        /* ------------------------------
+           BRAND MODULE SEARCH BAR
+           + AUTOCOMPLETE
+        ------------------------------ */
+        const brandInput = document.getElementById("brand-search");
+        const brandList = document.getElementById("brand-suggestions");
+
+        if (brandInput && brandList) {
+            brandInput.addEventListener("input", () => {
+                const term = brandInput.value.toLowerCase();
+                brandList.innerHTML = "";
+
+                if (!term) return;
+
+                const matches = modules
+                    .filter(m => m.label.toLowerCase().includes(term))
+                    .slice(0, 8);
+
+                matches.forEach(m => {
+                    const li = document.createElement("li");
+                    li.textContent = m.label;
+                    li.className = "search-suggestion-item";
+                    li.addEventListener("click", () => {
+                        window.location.href = m.href;
+                    });
+                    brandList.appendChild(li);
+                });
+            });
+        }
+    });
+    </script>
+
+</body>
+</html>
