@@ -1,30 +1,38 @@
+/* HEADINGS */
 h1 {
-    font-size: 32px;
-    margin-bottom: 20px;
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+    color: var(--charcoal);
 }
-
 h2 {
-    font-size: 26px;
-    margin-top: 30px;
-    margin-bottom: 10px;
+    font-size: 1.3rem;
+    margin-bottom: 0.8rem;
+    color: var(--charcoal);
 }
-
 h3 {
-    font-size: 20px;
-    margin-top: 20px;
-    margin-bottom: 8px;
+    font-size: 1.1rem;
+    margin-bottom: 0.6rem;
+    color: var(--charcoal);
 }
 
+/* PARAGRAPHS */
 p {
-    margin-bottom: 15px;
-    font-size: 16px;
+    font-size: 1rem;
+    line-height: 1.5;
+    margin-bottom: 1rem;
 }
 
-ul {
-    margin-left: 20px;
-    margin-bottom: 20px;
+/* LINKS */
+a {
+    color: var(--terracotta);
+    text-decoration: none;
+}
+a:hover {
+    color: var(--dusty-rose);
 }
 
-li {
-    margin-bottom: 8px;
+/* LISTS */
+ul, ol {
+    margin-left: 1.2rem;
+    margin-bottom: 1rem;
 }
