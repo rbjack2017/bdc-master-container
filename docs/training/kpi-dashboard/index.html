@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KPI Dashboard</title>
+    <link rel="stylesheet" href="../assets/css/main.css">
+</head>
+
+<body class="page-kpi fade-page">
+    <div id="header"></div>
+    <div id="sidebar"></div>
+
+    <!-- Floating Dark Mode Toggle -->
+    <button id="darkmode-toggle" class="darkmode-toggle">
+        <span class="darkmode-icon">🌙</span>
+        <span class="darkmode-label">Dark Mode</span>
+    </button>
+
+    <main>
+        <h1>KPI Dashboard</h1>
+        <p class="section-intro">
+            Search and open KPI modules, track completion, and access certificates.
+        </p>
+
+        <hr class="section-divider">
+
+        <!-- KPI Module Search Bar -->
+        <div class="dashboard-search">
+            <input id="kpi-search" class="search-input" placeholder="Search KPI modules…">
+            <ul id="kpi-suggestions" class="search-suggestions"></ul>
+        </div>
+
+        <hr class="section-divider">
+
+        <!-- KPI Module Grid -->
+        <section class="grid" id="kpi-grid"></section>
+    </main>
+
+    <div id="footer"></div>
+    <div id="breadcrumbs"></div>
+
+    <!-- Core Scripts -->
+    <script src="../assets/js/main.js"></script>
+    <script src="../assets/js/sidebar.js"></script>
+    <script src="../assets/js/progress.js"></script>
+    <script src="../assets/js/darkmode.js"></script>
+
+    <!-- KPI Dashboard Logic -->
+    <script>
+    document.addEventListener("DOMContentLoaded", () => {
+
+        /* ------------------------------
+           KPI MODULE LIST
+        ------------------------------ */
+        const modules = [
+            { id: "kpi-daily", label: "Daily KPIs", href: "daily-kpi.html" },
+            { id: "kpi-weekly", label: "Weekly KPIs", href: "weekly-kpi.html" },
+            { id: "kpi-monthly", label: "Monthly KPIs", href: "monthly-kpi.html" },
+            { id: "kpi-response", label: "Lead Response KPIs", href: "lead-response-kpi.html" },
+            { id: "kpi-conversion", label: "Conversion KPIs", href: "conversion-kpi.html" }
+        ];
+
+        /* ------------------------------
+           BUILD KPI MODULE GRID
+        ------------------------------ */
+        const grid = document.getElementById("kpi-grid");
+
+        modules.forEach(mod => {
+            const completed = localStorage.getItem(`progress-${mod.id}`);
+            const card = document.createElement("div");
+            card.className = "card fade-in";
+
+            card.innerHTML = `
+                <div class="card-title">
+                    <div class="card-title-icon icon-${mod.id}"></div>
+                    <strong>${mod.label}</strong>
+                    ${completed ? '<span class="badge badge-sage">Completed</span>' : ''}
+                </div>
+                <p>Open the ${mod.label} module.</p>
+                <div class="card-actions">
+                    <a href="${mod.href}" class="btn btn-primary">Open</a>
+                    ${completed ? `<button class="btn btn-outline btn-certificate" data-module="${mod.id}">Certificate</button>` : ''}
+                </div>
+            `;
+            grid.appendChild(card);
+        });
+
+        /* ------------------------------
+           CERTIFICATE BUTTON HOOKS
+        ------------------------------ */
+        grid.addEventListener("click", (e) => {
+            const btn = e.target.closest(".btn-certificate");
+            if (!btn) return;
+
+            const moduleId = btn.getAttribute("data-module");
+            const certPath = `../certificates/${moduleId}-certificate.html`;
+            window.location.href = certPath;
+        });
+
+        /* ------------------------------
+           KPI MODULE SEARCH BAR
+           + AUTOCOMPLETE
+        ------------------------------ */
+        const kpiInput = document.getElementById("kpi-search");
+        const kpiList = document.getElementById("kpi-suggestions");
+
+        if (kpiInput && kpiList) {
+            kpiInput.addEventListener("input", () => {
+                const term = kpiInput.value.toLowerCase();
+                kpiList.innerHTML = "";
+
+                if (!term) return;
+
+                const matches = modules
+                    .filter(m => m.label.toLowerCase().includes(term))
+                    .slice(0, 8);
+
+                matches.forEach(m => {
+                    const li = document.createElement("li");
+                    li.textContent = m.label;
+                    li.className = "search-suggestion-item";
+                    li.addEventListener("click", () => {
+                        window.location.href = m.href;
+                    });
+                    kpiList.appendChild(li);
+                });
+            });
+        }
+    });
+    </script>
+
+</body>
+</html>
