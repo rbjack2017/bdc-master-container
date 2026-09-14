@@ -6,14 +6,28 @@
     <link rel="stylesheet" href="assets/css/main.css">
 </head>
 <body>
+    <!-- Includes -->
     <div id="header"></div>
     <div id="sidebar"></div>
 
     <main>
         <h1>BDC Command Dashboard</h1>
-        <p>Choose a dashboard to manage training, templates, workflows, and response systems.</p>
+        <p>Search and open any dashboard, training module, or template library from one place.</p>
 
-        <section class="grid">
+        <!-- Global Homepage Search Bar -->
+        <div class="dashboard-search">
+            <input id="search-input" class="search-input" placeholder="Search modules, dashboards, templates…">
+            <ul id="search-suggestions" class="search-suggestions"></ul>
+        </div>
+
+        <!-- Progress Overview Widget -->
+        <section class="card progress-overview">
+            <h2>Progress Overview</h2>
+            <p id="progress-summary">Loading progress…</p>
+        </section>
+
+        <!-- Master Navigation Map (Dashboard Cards) -->
+        <section class="grid" id="dashboard-grid">
             <div class="card">
                 <div class="card-title">
                     <div class="card-title-icon"></div>
@@ -62,6 +76,24 @@
             <div class="card">
                 <div class="card-title">
                     <div class="card-title-icon"></div>
+                    <strong>Manager Template Dashboard</strong>
+                </div>
+                <p>Manager-level communication templates.</p>
+                <a href="docs/templates/manager-dashboard.html" class="btn btn-primary">Open Manager Template Dashboard</a>
+            </div>
+
+            <div class="card">
+                <div class="card-title">
+                    <div class="card-title-icon"></div>
+                    <strong>Executive Template Dashboard</strong>
+                </div>
+                <p>Executive-level communication templates.</p>
+                <a href="docs/templates/executive-dashboard.html" class="btn btn-primary">Open Executive Template Dashboard</a>
+            </div>
+
+            <div class="card">
+                <div class="card-title">
+                    <div class="card-title-icon"></div>
                     <strong>Brand Dashboard</strong>
                 </div>
                 <p>Brand, messaging, and tone consistency.</p>
@@ -80,21 +112,56 @@
             <div class="card">
                 <div class="card-title">
                     <div class="card-title-icon"></div>
-                    <strong>Continuity / Compliance / Governance</strong>
+                    <strong>Continuity Dashboard</strong>
                 </div>
-                <p>Operational continuity, compliance, and governance.</p>
+                <p>Operational continuity and workflow consistency.</p>
+                <a href="docs/continuity/dashboard.html" class="btn btn-primary">Open Continuity Dashboard</a>
+            </div>
+
+            <div class="card">
+                <div class="card-title">
+                    <div class="card-title-icon"></div>
+                    <strong>Compliance Dashboard</strong>
+                </div>
+                <p>Compliance training and monitoring.</p>
+                <a href="docs/compliance/dashboard.html" class="btn btn-primary">Open Compliance Dashboard</a>
+            </div>
+
+            <div class="card">
+                <div class="card-title">
+                    <div class="card-title-icon"></div>
+                    <strong>Governance Dashboard</strong>
+                </div>
+                <p>Governance, policies, and oversight.</p>
                 <a href="docs/governance/dashboard.html" class="btn btn-primary">Open Governance Dashboard</a>
             </div>
         </section>
     </main>
 
+    <!-- Footer + Breadcrumbs -->
     <div id="footer"></div>
     <div id="breadcrumbs"></div>
 
+    <!-- Core Scripts -->
     <script src="assets/js/main.js"></script>
     <script src="assets/js/sidebar.js"></script>
     <script src="assets/js/progress.js"></script>
     <script src="assets/js/darkmode.js"></script>
     <script src="assets/js/search.js"></script>
+
+    <!-- Homepage-specific logic -->
+    <script>
+    document.addEventListener("DOMContentLoaded", () => {
+        // Progress overview: count completed modules
+        const keys = Object.keys(localStorage).filter(k => k.startsWith("progress-"));
+        const completedCount = keys.length;
+        const summary = document.getElementById("progress-summary");
+        if (summary) {
+            summary.textContent = completedCount
+                ? `You have completed ${completedCount} modules/dashboards.`
+                : "No modules completed yet. Start with Training or QA.";
+        }
+    });
+    </script>
 </body>
 </html>
