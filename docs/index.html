@@ -10,103 +10,6 @@
   <link rel="stylesheet" href="assets/css/themes.css">
   <link rel="stylesheet" href="assets/css/typography.css">
   <link rel="stylesheet" href="assets/css/main.css">
-
-  <style>
-    /* --- HOMEPAGE CUSTOM STYLING --- */
-
-    /* Search bar */
-    #dashboard-search {
-      width: 100%;
-      padding: 0.6rem 0.8rem;
-      border-radius: 10px;
-      border: 1px solid #d4d4d4;
-      margin-bottom: 1.2rem;
-      font-size: 1rem;
-    }
-
-    /* Section headers */
-    .section-title {
-      font-size: 1.4rem;
-      font-weight: 700;
-      margin-top: 2rem;
-      margin-bottom: 0.5rem;
-      color: var(--charcoal);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      cursor: pointer;
-    }
-
-    .section-title::after {
-      content: "▾";
-      font-size: 0.9rem;
-      color: var(--terracotta);
-    }
-
-    .section.collapsed .dashboard-grid {
-      display: none;
-    }
-
-    /* Dashboard grid */
-    .dashboard-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-      gap: 1.2rem;
-      margin-top: 1rem;
-    }
-
-    /* Dashboard card */
-    .dashboard-card {
-      background: var(--ivory);
-      border-radius: 14px;
-      padding: 1rem 1.2rem;
-      border: 1px solid #e0d5c5;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-      transition: all 0.25s ease;
-      display: flex;
-      align-items: center;
-      gap: 0.8rem;
-      cursor: pointer;
-      text-decoration: none;
-      color: var(--charcoal);
-    }
-
-    .dashboard-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.12);
-      border-color: var(--terracotta);
-    }
-
-    /* Icon */
-    .dashboard-icon {
-      width: 32px;
-      height: 32px;
-      border-radius: 8px;
-      background: var(--accent-soft);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.2rem;
-      color: var(--terracotta);
-      font-weight: bold;
-    }
-
-    /* Category colors */
-    .core .dashboard-icon { background: var(--dusty-rose); color: var(--ivory); }
-    .templates .dashboard-icon { background: var(--sage); color: var(--charcoal); }
-    .brand .dashboard-icon { background: var(--gold); color: var(--ivory); }
-
-    /* Analytics badge */
-    .badge {
-      margin-left: auto;
-      background: var(--sage);
-      color: var(--charcoal);
-      padding: 0.2rem 0.5rem;
-      border-radius: 6px;
-      font-size: 0.75rem;
-    }
-
-  </style>
 </head>
 
 <body class="page-dashboard fade-page">
@@ -121,7 +24,7 @@
     <p class="section-intro">Master Dashboard — All Modules</p>
 
     <!-- Search -->
-    <input id="dashboard-search" type="text" placeholder="Search dashboards…">
+    <input id="dashboard-search" type="text" placeholder="Search dashboards…" class="search-input">
 
     <!-- Core Dashboards -->
     <section class="section core">
