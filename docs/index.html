@@ -4,6 +4,47 @@
   <meta charset="UTF-8">
   <title>BDC OS — Master Dashboard</title>
   <link rel="stylesheet" href="assets/css/main.css">
+
+  <style>
+    /* --- Dashboard Aesthetic Upgrades --- */
+
+    .dashboard-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 24px;
+      margin-top: 30px;
+    }
+
+    .dashboard-card {
+      background: #ffffff;
+      border-radius: 14px;
+      padding: 22px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      transition: all 0.25s ease;
+      border: 1px solid #e6e6e6;
+    }
+
+    .dashboard-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+      border-color: #d4d4d4;
+    }
+
+    .dashboard-card a {
+      text-decoration: none;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #333;
+    }
+
+    .section-title {
+      margin-top: 40px;
+      font-size: 1.6rem;
+      font-weight: 700;
+      border-bottom: 2px solid #ddd;
+      padding-bottom: 8px;
+    }
+  </style>
 </head>
 
 <body class="page-dashboard fade-page">
@@ -15,45 +56,44 @@
 
   <main>
 
-    <section class="dashboard-section">
-      <h2>Core Dashboards</h2>
-      <ul class="dashboard-list">
-        <li><a href="training/buying-center-dashboard/index.html">Buying Center Dashboard</a></li>
-        <li><a href="training/certification-dashboard/index.html">Certification Dashboard</a></li>
-        <li><a href="training/compliance-dashboard/index.html">Compliance Dashboard</a></li>
-        <li><a href="training/continuity-dashboard/index.html">Continuity Dashboard</a></li>
-        <li><a href="training/crm-tasks-dashboard/index.html">CRM Tasks Dashboard</a></li>
-        <li><a href="training/fresh-start-dashboard/index.html">Fresh Start Dashboard</a></li>
-        <li><a href="training/governance-dashboard/index.html">Governance Dashboard</a></li>
-        <li><a href="training/objections-dashboard/index.html">Objections Dashboard</a></li>
-        <li><a href="training/onboarding-dashboard/index.html">Onboarding Dashboard</a></li>
-        <li><a href="training/playbook-dashboard/index.html">Playbook Dashboard</a></li>
-        <li><a href="training/qa-dashboard/index.html">QA Dashboard</a></li>
-        <li><a href="training/redirects-dashboard/index.html">Redirects Dashboard</a></li>
-        <li><a href="training/workflows-dashboard/index.html">Workflows Dashboard</a></li>
-        <li><a href="training/kpi-dashboard/index.html">KPI Dashboard</a></li>
-        <li><a href="training/master-dashboard/index.html">Master Dashboard</a></li>
-      </ul>
-    </section>
+    <!-- Core Dashboards -->
+    <h2 class="section-title">Core Dashboards</h2>
+    <div class="dashboard-grid">
 
-    <hr class="section-divider">
+      <div class="dashboard-card"><a href="training/buying-center-dashboard/index.html">Buying Center Dashboard</a></div>
+      <div class="dashboard-card"><a href="training/certification-dashboard/index.html">Certification Dashboard</a></div>
+      <div class="dashboard-card"><a href="training/compliance-dashboard/index.html">Compliance Dashboard</a></div>
+      <div class="dashboard-card"><a href="training/continuity-dashboard/index.html">Continuity Dashboard</a></div>
+      <div class="dashboard-card"><a href="training/crm-tasks-dashboard/index.html">CRM Tasks Dashboard</a></div>
+      <div class="dashboard-card"><a href="training/fresh-start-dashboard/index.html">Fresh Start Dashboard</a></div>
+      <div class="dashboard-card"><a href="training/governance-dashboard/index.html">Governance Dashboard</a></div>
+      <div class="dashboard-card"><a href="training/objections-dashboard/index.html">Objections Dashboard</a></div>
+      <div class="dashboard-card"><a href="training/onboarding-dashboard/index.html">Onboarding Dashboard</a></div>
+      <div class="dashboard-card"><a href="training/playbook-dashboard/index.html">Playbook Dashboard</a></div>
+      <div class="dashboard-card"><a href="training/qa-dashboard/index.html">QA Dashboard</a></div>
+      <div class="dashboard-card"><a href="training/redirects-dashboard/index.html">Redirects Dashboard</a></div>
+      <div class="dashboard-card"><a href="training/workflows-dashboard/index.html">Workflows Dashboard</a></div>
+      <div class="dashboard-card"><a href="training/kpi-dashboard/index.html">KPI Dashboard</a></div>
+      <div class="dashboard-card"><a href="training/master-dashboard/index.html">Master Dashboard</a></div>
 
-    <section class="dashboard-section">
-      <h2>Template & Response System</h2>
-      <ul class="dashboard-list">
-        <li><a href="training/templates-&-response-system-dashboard/index.html">Template & Response System Dashboard</a></li>
-        <li><a href="training/template-library/index.html">Template Library</a></li>
-      </ul>
-    </section>
+    </div>
 
-    <hr class="section-divider">
+    <!-- Template & Response System -->
+    <h2 class="section-title">Template & Response System</h2>
+    <div class="dashboard-grid">
 
-    <section class="dashboard-section">
-      <h2>Brand Training</h2>
-      <ul class="dashboard-list">
-        <li><a href="training/brand-dashboard/index.html">Brand Training Dashboard</a></li>
-      </ul>
-    </section>
+      <div class="dashboard-card"><a href="training/templates-&-response-system-dashboard/index.html">Template & Response System Dashboard</a></div>
+      <div class="dashboard-card"><a href="training/template-library/index.html">Template Library</a></div>
+
+    </div>
+
+    <!-- Brand Training -->
+    <h2 class="section-title">Brand Training</h2>
+    <div class="dashboard-grid">
+
+      <div class="dashboard-card"><a href="training/brand-dashboard/index.html">Brand Training Dashboard</a></div>
+
+    </div>
 
   </main>
 
