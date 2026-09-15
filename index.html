@@ -1,167 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>BDC Command Dashboard</title>
-    <link rel="stylesheet" href="assets/css/main.css">
+  <meta charset="UTF-8">
+  <title>BDC OS — Master Dashboard</title>
+  <link rel="stylesheet" href="assets/css/main.css">
 </head>
-<body>
-    <!-- Includes -->
-    <div id="header"></div>
-    <div id="sidebar"></div>
 
-    <main>
-        <h1>BDC Command Dashboard</h1>
-        <p>Search and open any dashboard, training module, or template library from one place.</p>
+<body class="page-dashboard fade-page">
 
-        <!-- Global Homepage Search Bar -->
-        <div class="dashboard-search">
-            <input id="search-input" class="search-input" placeholder="Search modules, dashboards, templates…">
-            <ul id="search-suggestions" class="search-suggestions"></ul>
-        </div>
+  <header class="main-header">
+    <h1>BDC Operating System</h1>
+    <p class="subtitle">Master Dashboard — All Modules</p>
+  </header>
 
-        <!-- Progress Overview Widget -->
-        <section class="card progress-overview">
-            <h2>Progress Overview</h2>
-            <p id="progress-summary">Loading progress…</p>
-        </section>
+  <main>
 
-        <!-- Master Navigation Map (Dashboard Cards) -->
-        <section class="grid" id="dashboard-grid">
-            <div class="card">
-                <div class="card-title">
-                    <div class="card-title-icon"></div>
-                    <strong>Training Dashboard</strong>
-                </div>
-                <p>All training modules and progress tracking.</p>
-                <a href="docs/training/dashboard.html" class="btn btn-primary">Open Training Dashboard</a>
-            </div>
+    <section class="dashboard-section">
+      <h2>Core Dashboards</h2>
+      <ul class="dashboard-list">
+        <li><a href="playbooks/index.html">Playbooks Dashboard</a></li>
+        <li><a href="buying-center/index.html">Buying Center Dashboard</a></li>
+        <li><a href="certification/index.html">Certification Dashboard</a></li>
+        <li><a href="continuity/index.html">Continuity Dashboard</a></li>
+        <li><a href="crm-tasks/index.html">CRM Tasks Dashboard</a></li>
+        <li><a href="fresh-start/index.html">Fresh Start Dashboard</a></li>
+        <li><a href="objections/index.html">Objections Dashboard</a></li>
+        <li><a href="onboarding/index.html">Onboarding Dashboard</a></li>
+        <li><a href="redirects/index.html">Redirects Dashboard</a></li>
+        <li><a href="workflows/index.html">Workflows Dashboard</a></li>
+      </ul>
+    </section>
 
-            <div class="card">
-                <div class="card-title">
-                    <div class="card-title-icon"></div>
-                    <strong>QA Dashboard</strong>
-                </div>
-                <p>Quality assurance checks and systems.</p>
-                <a href="docs/qa/dashboard.html" class="btn btn-primary">Open QA Dashboard</a>
-            </div>
+    <hr class="section-divider">
 
-            <div class="card">
-                <div class="card-title">
-                    <div class="card-title-icon"></div>
-                    <strong>KPI Dashboard</strong>
-                </div>
-                <p>Key performance indicators and reporting.</p>
-                <a href="docs/kpi/dashboard.html" class="btn btn-primary">Open KPI Dashboard</a>
-            </div>
+    <section class="dashboard-section">
+      <h2>Template & Response System</h2>
+      <ul class="dashboard-list">
+        <li><a href="templates-response/index.html">Template & Response System Dashboard</a></li>
+        <li><a href="templates-response/customer-questions.html">Questions We Ask Customers</a></li>
+        <li><a href="templates-response/questions-for-customers.html">Questions Customers Ask Us</a></li>
+        <li><a href="templates-response/rep-templates.html">Rep Templates</a></li>
+        <li><a href="templates-response/manager-templates.html">Manager Templates</a></li>
+        <li><a href="templates-response/executive-templates.html">Executive Templates</a></li>
+        <li><a href="templates-response/response-systems.html">Response Systems</a></li>
+        <li><a href="templates-response/workflows.html">Workflow Training</a></li>
+      </ul>
+    </section>
 
-            <div class="card">
-                <div class="card-title">
-                    <div class="card-title-icon"></div>
-                    <strong>Template Library</strong>
-                </div>
-                <p>Rep, manager, and executive templates.</p>
-                <a href="docs/templates/template-library.html" class="btn btn-primary">Open Template Library</a>
-            </div>
+  </main>
 
-            <div class="card">
-                <div class="card-title">
-                    <div class="card-title-icon"></div>
-                    <strong>Customer Questions Dashboard</strong>
-                </div>
-                <p>Questions for customers and response systems.</p>
-                <a href="docs/questions/dashboard.html" class="btn btn-primary">Open Customer Questions Dashboard</a>
-            </div>
+  <footer class="main-footer">
+    <p>BDC Operating System — © Raven</p>
+  </footer>
 
-            <div class="card">
-                <div class="card-title">
-                    <div class="card-title-icon"></div>
-                    <strong>Manager Template Dashboard</strong>
-                </div>
-                <p>Manager-level communication templates.</p>
-                <a href="docs/templates/manager-dashboard.html" class="btn btn-primary">Open Manager Template Dashboard</a>
-            </div>
-
-            <div class="card">
-                <div class="card-title">
-                    <div class="card-title-icon"></div>
-                    <strong>Executive Template Dashboard</strong>
-                </div>
-                <p>Executive-level communication templates.</p>
-                <a href="docs/templates/executive-dashboard.html" class="btn btn-primary">Open Executive Template Dashboard</a>
-            </div>
-
-            <div class="card">
-                <div class="card-title">
-                    <div class="card-title-icon"></div>
-                    <strong>Brand Dashboard</strong>
-                </div>
-                <p>Brand, messaging, and tone consistency.</p>
-                <a href="docs/brand/dashboard.html" class="btn btn-primary">Open Brand Dashboard</a>
-            </div>
-
-            <div class="card">
-                <div class="card-title">
-                    <div class="card-title-icon"></div>
-                    <strong>Response Dashboard</strong>
-                </div>
-                <p>Response systems and playbooks.</p>
-                <a href="docs/response/dashboard.html" class="btn btn-primary">Open Response Dashboard</a>
-            </div>
-
-            <div class="card">
-                <div class="card-title">
-                    <div class="card-title-icon"></div>
-                    <strong>Continuity Dashboard</strong>
-                </div>
-                <p>Operational continuity and workflow consistency.</p>
-                <a href="docs/continuity/dashboard.html" class="btn btn-primary">Open Continuity Dashboard</a>
-            </div>
-
-            <div class="card">
-                <div class="card-title">
-                    <div class="card-title-icon"></div>
-                    <strong>Compliance Dashboard</strong>
-                </div>
-                <p>Compliance training and monitoring.</p>
-                <a href="docs/compliance/dashboard.html" class="btn btn-primary">Open Compliance Dashboard</a>
-            </div>
-
-            <div class="card">
-                <div class="card-title">
-                    <div class="card-title-icon"></div>
-                    <strong>Governance Dashboard</strong>
-                </div>
-                <p>Governance, policies, and oversight.</p>
-                <a href="docs/governance/dashboard.html" class="btn btn-primary">Open Governance Dashboard</a>
-            </div>
-        </section>
-    </main>
-
-    <!-- Footer + Breadcrumbs -->
-    <div id="footer"></div>
-    <div id="breadcrumbs"></div>
-
-    <!-- Core Scripts -->
-    <script src="assets/js/main.js"></script>
-    <script src="assets/js/sidebar.js"></script>
-    <script src="assets/js/progress.js"></script>
-    <script src="assets/js/darkmode.js"></script>
-    <script src="assets/js/search.js"></script>
-
-    <!-- Homepage-specific logic -->
-    <script>
-    document.addEventListener("DOMContentLoaded", () => {
-        // Progress overview: count completed modules
-        const keys = Object.keys(localStorage).filter(k => k.startsWith("progress-"));
-        const completedCount = keys.length;
-        const summary = document.getElementById("progress-summary");
-        if (summary) {
-            summary.textContent = completedCount
-                ? `You have completed ${completedCount} modules/dashboards.`
-                : "No modules completed yet. Start with Training or QA.";
-        }
-    });
-    </script>
 </body>
 </html>
