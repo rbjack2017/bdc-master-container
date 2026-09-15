@@ -4,12 +4,109 @@
   <meta charset="UTF-8">
   <title>BDC Operating System</title>
 
-  <!-- Load your full CSS system -->
+  <!-- Load full CSS system -->
   <link rel="stylesheet" href="assets/css/layout.css">
   <link rel="stylesheet" href="assets/css/components.css">
   <link rel="stylesheet" href="assets/css/themes.css">
   <link rel="stylesheet" href="assets/css/typography.css">
   <link rel="stylesheet" href="assets/css/main.css">
+
+  <style>
+    /* --- HOMEPAGE CUSTOM STYLING --- */
+
+    /* Search bar */
+    #dashboard-search {
+      width: 100%;
+      padding: 0.6rem 0.8rem;
+      border-radius: 10px;
+      border: 1px solid #d4d4d4;
+      margin-bottom: 1.2rem;
+      font-size: 1rem;
+    }
+
+    /* Section headers */
+    .section-title {
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin-top: 2rem;
+      margin-bottom: 0.5rem;
+      color: var(--charcoal);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+    }
+
+    .section-title::after {
+      content: "▾";
+      font-size: 0.9rem;
+      color: var(--terracotta);
+    }
+
+    .section.collapsed .dashboard-grid {
+      display: none;
+    }
+
+    /* Dashboard grid */
+    .dashboard-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 1.2rem;
+      margin-top: 1rem;
+    }
+
+    /* Dashboard card */
+    .dashboard-card {
+      background: var(--ivory);
+      border-radius: 14px;
+      padding: 1rem 1.2rem;
+      border: 1px solid #e0d5c5;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      transition: all 0.25s ease;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      cursor: pointer;
+      text-decoration: none;
+      color: var(--charcoal);
+    }
+
+    .dashboard-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+      border-color: var(--terracotta);
+    }
+
+    /* Icon */
+    .dashboard-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      background: var(--accent-soft);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      color: var(--terracotta);
+      font-weight: bold;
+    }
+
+    /* Category colors */
+    .core .dashboard-icon { background: var(--dusty-rose); color: var(--ivory); }
+    .templates .dashboard-icon { background: var(--sage); color: var(--charcoal); }
+    .brand .dashboard-icon { background: var(--gold); color: var(--ivory); }
+
+    /* Analytics badge */
+    .badge {
+      margin-left: auto;
+      background: var(--sage);
+      color: var(--charcoal);
+      padding: 0.2rem 0.5rem;
+      border-radius: 6px;
+      font-size: 0.75rem;
+    }
+
+  </style>
 </head>
 
 <body class="page-dashboard fade-page">
@@ -23,53 +120,137 @@
     <h1>BDC Operating System</h1>
     <p class="section-intro">Master Dashboard — All Modules</p>
 
-    <hr class="section-divider">
+    <!-- Search -->
+    <input id="dashboard-search" type="text" placeholder="Search dashboards…">
 
     <!-- Core Dashboards -->
-    <section>
-      <h2>Core Dashboards</h2>
+    <section class="section core">
+      <h2 class="section-title">Core Dashboards</h2>
       <div class="dashboard-grid">
 
-        <a class="dashboard-card" href="training/buying-center-dashboard/index.html">Buying Center Dashboard</a>
-        <a class="dashboard-card" href="training/certification-dashboard/index.html">Certification Dashboard</a>
-        <a class="dashboard-card" href="training/compliance-dashboard/index.html">Compliance Dashboard</a>
-        <a class="dashboard-card" href="training/continuity-dashboard/index.html">Continuity Dashboard</a>
-        <a class="dashboard-card" href="training/crm-tasks-dashboard/index.html">CRM Tasks Dashboard</a>
-        <a class="dashboard-card" href="training/fresh-start-dashboard/index.html">Fresh Start Dashboard</a>
-        <a class="dashboard-card" href="training/governance-dashboard/index.html">Governance Dashboard</a>
-        <a class="dashboard-card" href="training/objections-dashboard/index.html">Objections Dashboard</a>
-        <a class="dashboard-card" href="training/onboarding-dashboard/index.html">Onboarding Dashboard</a>
-        <a class="dashboard-card" href="training/playbook-dashboard/index.html">Playbook Dashboard</a>
-        <a class="dashboard-card" href="training/qa-dashboard/index.html">QA Dashboard</a>
-        <a class="dashboard-card" href="training/redirects-dashboard/index.html">Redirects Dashboard</a>
-        <a class="dashboard-card" href="training/workflows-dashboard/index.html">Workflows Dashboard</a>
-        <a class="dashboard-card" href="training/kpi-dashboard/index.html">KPI Dashboard</a>
-        <a class="dashboard-card" href="training/master-dashboard/index.html">Master Dashboard</a>
+        <a class="dashboard-card" href="training/buying-center-dashboard/index.html">
+          <div class="dashboard-icon">B</div>
+          Buying Center Dashboard
+          <span class="badge">0%</span>
+        </a>
+
+        <a class="dashboard-card" href="training/certification-dashboard/index.html">
+          <div class="dashboard-icon">C</div>
+          Certification Dashboard
+          <span class="badge">0%</span>
+        </a>
+
+        <a class="dashboard-card" href="training/compliance-dashboard/index.html">
+          <div class="dashboard-icon">C</div>
+          Compliance Dashboard
+          <span class="badge">0%</span>
+        </a>
+
+        <a class="dashboard-card" href="training/continuity-dashboard/index.html">
+          <div class="dashboard-icon">C</div>
+          Continuity Dashboard
+          <span class="badge">0%</span>
+        </a>
+
+        <a class="dashboard-card" href="training/crm-tasks-dashboard/index.html">
+          <div class="dashboard-icon">T</div>
+          CRM Tasks Dashboard
+          <span class="badge">0%</span>
+        </a>
+
+        <a class="dashboard-card" href="training/fresh-start-dashboard/index.html">
+          <div class="dashboard-icon">F</div>
+          Fresh Start Dashboard
+          <span class="badge">0%</span>
+        </a>
+
+        <a class="dashboard-card" href="training/governance-dashboard/index.html">
+          <div class="dashboard-icon">G</div>
+          Governance Dashboard
+          <span class="badge">0%</span>
+        </a>
+
+        <a class="dashboard-card" href="training/objections-dashboard/index.html">
+          <div class="dashboard-icon">O</div>
+          Objections Dashboard
+          <span class="badge">0%</span>
+        </a>
+
+        <a class="dashboard-card" href="training/onboarding-dashboard/index.html">
+          <div class="dashboard-icon">O</div>
+          Onboarding Dashboard
+          <span class="badge">0%</span>
+        </a>
+
+        <a class="dashboard-card" href="training/playbook-dashboard/index.html">
+          <div class="dashboard-icon">P</div>
+          Playbook Dashboard
+          <span class="badge">0%</span>
+        </a>
+
+        <a class="dashboard-card" href="training/qa-dashboard/index.html">
+          <div class="dashboard-icon">Q</div>
+          QA Dashboard
+          <span class="badge">0%</span>
+        </a>
+
+        <a class="dashboard-card" href="training/redirects-dashboard/index.html">
+          <div class="dashboard-icon">R</div>
+          Redirects Dashboard
+          <span class="badge">0%</span>
+        </a>
+
+        <a class="dashboard-card" href="training/workflows-dashboard/index.html">
+          <div class="dashboard-icon">W</div>
+          Workflows Dashboard
+          <span class="badge">0%</span>
+        </a>
+
+        <a class="dashboard-card" href="training/kpi-dashboard/index.html">
+          <div class="dashboard-icon">K</div>
+          KPI Dashboard
+          <span class="badge">0%</span>
+        </a>
+
+        <a class="dashboard-card" href="training/master-dashboard/index.html">
+          <div class="dashboard-icon">M</div>
+          Master Dashboard
+          <span class="badge">0%</span>
+        </a>
 
       </div>
     </section>
-
-    <hr class="section-divider">
 
     <!-- Template & Response System -->
-    <section>
-      <h2>Template & Response System</h2>
+    <section class="section templates">
+      <h2 class="section-title">Template & Response System</h2>
       <div class="dashboard-grid">
 
-        <a class="dashboard-card" href="training/templates-&-response-system-dashboard/index.html">Template & Response System Dashboard</a>
-        <a class="dashboard-card" href="training/template-library/index.html">Template Library</a>
+        <a class="dashboard-card" href="training/templates-&-response-system-dashboard/index.html">
+          <div class="dashboard-icon">T</div>
+          Template & Response System Dashboard
+          <span class="badge">0%</span>
+        </a>
+
+        <a class="dashboard-card" href="training/template-library/index.html">
+          <div class="dashboard-icon">L</div>
+          Template Library
+          <span class="badge">0%</span>
+        </a>
 
       </div>
     </section>
 
-    <hr class="section-divider">
-
     <!-- Brand Training -->
-    <section>
-      <h2>Brand Training</h2>
+    <section class="section brand">
+      <h2 class="section-title">Brand Training</h2>
       <div class="dashboard-grid">
 
-        <a class="dashboard-card" href="training/brand-dashboard/index.html">Brand Training Dashboard</a>
+        <a class="dashboard-card" href="training/brand-dashboard/index.html">
+          <div class="dashboard-icon">B</div>
+          Brand Training Dashboard
+          <span class="badge">0%</span>
+        </a>
 
       </div>
     </section>
@@ -84,6 +265,32 @@
   <script src="assets/js/sidebar.js"></script>
   <script src="assets/js/progress.js"></script>
 
+  <script>
+    /* Collapsible sections */
+    document.querySelectorAll(".section-title").forEach(title => {
+      title.addEventListener("click", () => {
+        title.parentElement.classList.toggle("collapsed");
+      });
+    });
+
+    /* Search filter */
+    const search = document.getElementById("dashboard-search");
+    const cards = document.querySelectorAll(".dashboard-card");
+
+    search.addEventListener("input", () => {
+      const term = search.value.toLowerCase();
+      cards.forEach(card => {
+        const text = card.textContent.toLowerCase();
+        card.style.display = text.includes(term) ? "flex" : "none";
+      });
+    });
+
+    /* Analytics placeholder */
+    cards.forEach(card => {
+      const badge = card.querySelector(".badge");
+      badge.textContent = "0%";
+    });
+  </script>
+
 </body>
 </html>
-
